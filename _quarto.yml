@@ -1,0 +1,90 @@
+project:
+  type: website
+
+website:
+
+  title: "Evolvo Ergo Sum"
+  reader-mode: true
+  page-navigation: true
+  description: "Ecology, Evolution with a sprinkle of Technology"
+  site-url: https://giulianocolosimo.github.com
+  repo-url: https://github.com/quarto-dev/quarto-demo
+  repo-actions: [issue]
+  open-graph:
+    locale: en_US
+  
+  navbar:
+    search: true
+    right:
+      - text: "Home"
+        href: home.qmd
+      - text: "Blog"
+        href: blog.qmd
+      - text: "Photos"
+        href: photos.qmd
+      - text: "Quotes"
+        href: quotes.qmd
+      - text: "About Me"
+        href: aboutme.qmd
+        
+  sidebar:
+    logo: "./figures/avatar.jpg"
+    pinned: false
+    align: center
+    style: "docked"
+    background: light
+    collapse-level: 2
+    contents:
+      #- section: "Projects"
+      #  contents: 
+      #    - href: taco.qmd
+      #      text: "T.A.C.O."
+      #    - href: inbreedingdepression.qmd
+      #      text: "Inbreeding depression"
+      #    - href: ngR.qmd
+      #      text: "ngR"
+      #    - href: gephast.qmd
+      #      text: "GEPHAST"
+
+      - section: "Publications"
+        title: "Publications"
+        contents: 
+          - href: peerreviewed.qmd
+            text: "Peer-reviewed"
+          - href: nonpeerreviewed.qmd
+            text: "Non Peer-reviewed"
+      - section: "Classes"
+        title: "Classes"
+        contents:
+          - href: abem.qmd
+            text: "Applicazioni Bioinformatiche"
+          - href: antboc.qmd
+            text: "Animal Tracking"
+          - href: biocon.qmd
+            text: "Conservation Biology"
+    tools:
+      - url: "https://www.linkedin.com/in/giulianocolosimo/"
+        icon: linkedin
+      - icon: github
+        url: "https://github.com/GiulianoColosimo"
+      - icon: envelope
+        url: "mailto:giuliano.colosimo@protonmail.com"
+      - url: "./documents/Colosimo_CV_english.pdf"
+        icon: file-pdf
+        
+  page-footer:
+    left: "© Copyright 2022 Giuliano Colosimo"
+    right: "This page is built with ❤️ and [Quarto](https://quarto.org/). Inspiration for this site comes from [here](https://www.mm218.dev)"
+    background: dark
+    
+
+format:
+  html:
+    #theme: [sandstone, _variables.scss]
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss]
+    mainfont: "Atkinson Hyperlegible"
+    code-copy: true
+    code-overflow: wrap
+    toc: true
