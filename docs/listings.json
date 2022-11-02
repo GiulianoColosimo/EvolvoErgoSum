@@ -1,0 +1,13 @@
+[
+  {
+    "listing": "/photos.html",
+    "items": []
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/gala_trip_2022_11/index.html",
+      "/posts/multivariate_spread_of_variance/index.html"
+    ]
+  }
+]
