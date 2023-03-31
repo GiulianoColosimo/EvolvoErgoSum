@@ -1,0 +1,15 @@
+---
+title: "Publications"
+subtitle: "A list of my peer reviewed work along with non-peer reviewed material"
+author: Giuliano Colosimo
+date: "`r Sys.Date()`"
+editor: visual
+---
+
+Click [PDF]() to download each paper.
+
+## In review
+
+## Published
+
+## In preparation

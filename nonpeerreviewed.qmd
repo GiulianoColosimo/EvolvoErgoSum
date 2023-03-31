@@ -1,0 +1,12 @@
+---
+title: ""
+editor: visual
+bibliography: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
+nocite: |
+  @Colosimo2009 @Colosimo2016t @Russo2021 @Forestieri2021 @Gerber2022
+---
+
+Here is a list of publications that did not undergo the peer review process for publication. Some of them are manuscripts that I am currently working on, others are the result of other projects that I have been involved in. There are also references to articles that have been published to reach out to the wider public. You will also find  the references to my master and PhD thesis, as well as the reference of other thesis of students that I have mentored/tutored throughout their academic career.

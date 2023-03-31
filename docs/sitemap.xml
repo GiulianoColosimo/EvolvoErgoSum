@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://giulianocolosimo.github.com/home.html</loc>
-    <lastmod>2022-11-02T12:52:15.122Z</lastmod>
+    <lastmod>2022-11-03T11:17:06.655Z</lastmod>
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/ngR.html</loc>
-    <lastmod>2022-11-02T12:52:18.540Z</lastmod>
+    <lastmod>2022-11-03T11:16:53.084Z</lastmod>
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/posts/multivariate_spread_of_variance/index.html</loc>
-    <lastmod>2022-11-02T12:49:10.463Z</lastmod>
+    <lastmod>2023-03-31T17:19:58.430Z</lastmod>
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/posts/gala_trip_2022_11/index.html</loc>
-    <lastmod>2022-11-02T12:49:10.872Z</lastmod>
+    <lastmod>2023-03-31T17:20:01.774Z</lastmod>
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/abem.html</loc>
@@ -30,11 +30,11 @@
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/peerreviewed.html</loc>
-    <lastmod>2022-11-02T12:49:13.588Z</lastmod>
+    <lastmod>2023-03-31T17:20:02.809Z</lastmod>
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/aboutme.html</loc>
-    <lastmod>2022-11-02T12:49:14.009Z</lastmod>
+    <lastmod>2023-03-31T17:20:03.198Z</lastmod>
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/publications.html</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/antboc.html</loc>
-    <lastmod>2022-11-02T12:49:16.205Z</lastmod>
+    <lastmod>2023-03-31T17:20:04.904Z</lastmod>
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/quotes.html</loc>
@@ -58,14 +58,50 @@
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/nonpeerreviewed.html</loc>
-    <lastmod>2022-11-02T12:49:17.619Z</lastmod>
+    <lastmod>2023-03-31T17:20:05.833Z</lastmod>
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/biocon.html</loc>
-    <lastmod>2022-11-02T12:49:17.943Z</lastmod>
+    <lastmod>2023-03-31T17:20:06.176Z</lastmod>
   </url>
   <url>
     <loc>https://giulianocolosimo.github.com/blog.html</loc>
-    <lastmod>2022-11-02T12:49:18.391Z</lastmod>
+    <lastmod>2023-03-31T17:20:06.684Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giulianocolosimo.github.com/index.html</loc>
+    <lastmod>2023-03-31T17:21:44.157Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giulianocolosimo.github.com/posts/nextR/index.html</loc>
+    <lastmod>2023-03-31T17:19:58.843Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giulianocolosimo.github.com/posts/road_mortality_model/index.html</loc>
+    <lastmod>2023-03-31T17:19:59.506Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giulianocolosimo.github.com/posts/places_ive_been/index.html</loc>
+    <lastmod>2023-03-31T17:20:00.202Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giulianocolosimo.github.com/posts/network_of_collaborations/index.html</loc>
+    <lastmod>2023-03-31T17:20:00.584Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giulianocolosimo.github.com/posts/pop_size_from_transects/index.html</loc>
+    <lastmod>2023-03-31T17:20:00.970Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giulianocolosimo.github.com/posts/pop_size_model/index.html</loc>
+    <lastmod>2023-03-31T17:20:01.357Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giulianocolosimo.github.com/contacts.html</loc>
+    <lastmod>2023-03-31T17:20:03.582Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giulianocolosimo.github.com/completepeerreviewed.html</loc>
+    <lastmod>2023-03-31T17:20:04.549Z</lastmod>
   </url>
 </urlset>

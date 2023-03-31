@@ -1,0 +1,20 @@
+---
+title: "Population size from transect on BAC"
+description: "A model using driving transect count to estimate population size"
+author:
+  - name: Giuliano Colosimo
+    url: 
+date: "2023-01-25"
+categories: ["R", "Stats", "Modeling", "Iguanas", "Driving transects", "Big Ambergris Cay"]
+#image:
+format: 
+  html:
+    toc: true
+engine: knitr
+---
+
+# The idea
+ 
+Using the driving transect data to estimate population size. Rather than using a number per km. I should be able to come up with a value indicating a probability of encounter on the road based on the average time interval between each seen iguana during the transects.  
+
+

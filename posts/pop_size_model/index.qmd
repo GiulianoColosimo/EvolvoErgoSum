@@ -1,0 +1,22 @@
+---
+title: "Population size modeling using ABC and JS"
+description: "How big is the pink iguana population on Wolf?"
+author:
+  - name: Giuliano Colosimo
+    url: 
+date: "2023-01-25"
+categories: ["R", "Stats", "Modeling", "Iguanas"]
+#image:
+format: 
+  html:
+    toc: true
+engine: knitr
+---
+
+# 
+
+This model was developed together with 2 PhD students Marco Gargano and Lorenzo Garizio, and with the help of Drs. Paolo Gratton e Silvio Marta.
+
+We used mark recapture data collected over 20 years to estimate the population size of Conolophus marthae, the critically endangered Galápagos pink land iguana. 
+
+

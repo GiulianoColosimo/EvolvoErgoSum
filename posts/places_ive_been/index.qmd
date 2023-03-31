@@ -1,0 +1,34 @@
+---
+title: "Places I've been"
+description: "Mapping my movements over the years"
+author:
+  - name: Giuliano Colosimo
+    url: 
+date: "2022-09-29"
+categories: ["Trips"]
+image: placesIveBeen.png
+format: 
+  html:
+    toc: true
+engine: knitr
+---
+
+# 
+
+Not sure I mentioned that I like to travel a lot. This is an interactive map showing the places I have visited.
+
+
+```{r, echo = TRUE, eval = T}
+library(spData)
+library(tmap)
+m <- tm_shape(world) +
+  tm_fill()
+tmap_mode("view")
+m
+
+#data.frame(city = c("Roma", "Aarhus", "Starkville"),
+#           lat = c(),
+#           lon = c(),
+#           notes = c("Home town", "My ERASMUS experience", "PhD"))
+```
+

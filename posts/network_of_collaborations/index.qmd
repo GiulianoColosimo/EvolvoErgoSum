@@ -1,0 +1,20 @@
+---
+title: "A network of collaborations"
+description: "All the people I have been publishing with"
+author:
+  - name: Giuliano Colosimo
+    url: 
+date: "2023-01-15"
+categories: ["R", "Publications"]
+image: auth_network.png
+format: 
+  html:
+    toc: true
+engine: knitr
+---
+
+# 
+
+Over the years I have been publishing a few manuscripts..
+
+

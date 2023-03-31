@@ -1,0 +1,21 @@
+---
+pagetitle: "Photos"
+format:
+  html:
+    toc: false
+#image: articles/advanced-layout-pdf.png
+search: false
+execute:
+  echo: false
+listing:
+  - id: photos
+    template: photos.ejs
+    contents: photos.yml
+    categories: true
+description: |
+  A gallery of example documents, websites, books, and presentations created with Quarto.
+---
+
+
+
+

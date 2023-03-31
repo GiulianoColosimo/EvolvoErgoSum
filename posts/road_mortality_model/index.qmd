@@ -1,0 +1,67 @@
+---
+title: "Road mortality model"
+description: "Quantifying the impact of roadkills in an island population"
+author:
+  - name: Giuliano Colosimo
+    url: 
+date: "2022-12-23"
+categories: ["R", "Stats", "Modeling"]
+#image: 
+format: 
+  html:
+    toc: true
+engine: knitr
+---
+
+# A very basic approach
+
+The first approach used to quantify the impact of road mortality on iguanas on Big Ambergris Cay (BAC) is relatively simple. I used data collected doing driving transects. Starting in 2017 and until 2022 we have been doing four driving transects every year on BAC. We take advantage of the dirt roads crossing the entire island to cover more or less the entire area. While driving we count all the iguanas we find, and we classify them based on sex and age (juveniles individuals are not assigned a sex because it is almost impossible to distinguish between males and females without an accurate sampling).
+
+While driving around counting iguanas we also record all the dead iguanas that we find along the road. In doing so we can get a rough proportion of the dead-to-alive iguanas. We can then use that number to estimate a per yer percentage of iguanas that get killed by moving machinery only.
+
+```{r echo = F, include = F}
+x <- c("anytime", "dplyr", "lubridate", "plyr", "readxl")
+lapply(x, require, character.only = T)
+rm(x)
+```
+
+```{r}
+path_db <- ("~/Dropbox/iguanas/cyclura/carinata/databases/TCI_MasterDB.xlsx")
+transects <- read_xlsx(path_db, sheet = 13, col_names = T, na = "\\N",
+                       col_types = c("numeric", "text", "numeric", "numeric",
+                                     "text", "numeric", "text", "text",
+                                     "text", "numeric", "numeric", "date",
+                                     "guess", "text"))
+trs_bac <- transects %>% 
+  filter(island == "Big Ambergris Cay")
+table(year(trs_bac$date), trs_bac$trct_rep)
+
+```
+
+These are the number of iguanas spotted during each of the transects in each year. Note that in 2021 we were not able to do the transect due to COVID-19 pandemic. Also note that all transects are done in the same time of the year, February/March. We can compute some basic stats based on the above numbers. For example the mean and sd of all
+
+```{r}
+trs_bac2 <- trs_bac %>% 
+  group_by(year(date), trct_rep) %>% 
+  dplyr::summarise(n = n())
+
+names(trs_bac2) <- c("year", "trct_rep", "n")
+
+trs_bac3 <- trs_bac2 %>% 
+  group_by(year) %>% 
+  dplyr::summarise(mean_n = mean(n),
+                   sd_n = sd(n),
+                   max_n = max(n))
+trs_bac3
+```
+
+Finally, I used the number of road kills counted in the same years the transects were performed and I can estimate an average per year percentage mortality rate.
+
+```{r}
+mean((c(8, 15, 20, 6, 24)/(trs_bac3$max_n + c(8, 15, 20, 6, 24)))*100)
+
+```
+
+If we assume the population on BAC is about 10000 iguana individuals this means there are almost 500 iguanas killed every year on the road. This is probably a gross overestimation of the road mortality, but it gives us a good starting point to refine our model and add more variables and get a more accurate estimate.
+
+# A more complex approach

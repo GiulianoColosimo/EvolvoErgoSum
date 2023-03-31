@@ -1,5 +1,7 @@
 project:
   type: website
+  output-dir: docs # command to allow publishing using docs (https://quarto.org/docs/publishing/github-pages.html)
+
 
 website:
 
@@ -17,15 +19,18 @@ website:
     search: true
     right:
       - text: "Home"
-        href: home.qmd
-      - text: "Blog"
-        href: blog.qmd
-      - text: "Photos"
-        href: photos.qmd
-      - text: "Quotes"
-        href: quotes.qmd
+        href: index.qmd
+      #- text: "Blog"
+      # href: blog.qmd
+      #- text: "Photos"
+      #  href: photos.qmd
+      #- text: "Quotes"
+      #  href: quotes.qmd
       - text: "About Me"
         href: aboutme.qmd
+      - text: "Contacts"
+        href: contacts.qmd
+
         
   sidebar:
     logo: "./figures/avatar.jpg"
@@ -56,8 +61,8 @@ website:
       - section: "Classes"
         title: "Classes"
         contents:
-          - href: abem.qmd
-            text: "Applicazioni Bioinformatiche"
+          #- href: abem.qmd
+          #  text: "Applicazioni Bioinformatiche"
           - href: antboc.qmd
             text: "Animal Tracking"
           - href: biocon.qmd
@@ -68,12 +73,12 @@ website:
       - icon: github
         url: "https://github.com/GiulianoColosimo"
       - icon: envelope
-        url: "mailto:giuliano.colosimo@protonmail.com"
+        url: "mailto:giuliano.colosimo@uniroma2.it"
       - url: "./documents/Colosimo_CV_english.pdf"
         icon: file-pdf
         
   page-footer:
-    left: "© Copyright 2022 Giuliano Colosimo"
+    left: "© Copyright 2023 Giuliano Colosimo"
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/). Inspiration for this site comes from [here](https://www.mm218.dev)"
     background: dark
     

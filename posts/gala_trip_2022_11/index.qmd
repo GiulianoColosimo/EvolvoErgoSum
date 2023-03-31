@@ -1,0 +1,75 @@
+---
+title: "Wonderful Galápagos"
+description: "Back in the field, at last!"
+author:
+  - name: Giuliano Colosimo
+    url: 
+date: "2022-12-05"
+categories: ["Trips", "Galápagos", "Fieldwork"]
+#image:
+format: 
+  html:
+    toc: true
+engine: knitr
+---
+
+# 2022-10-30 
+
+It finally arrived, the day of my departure for the fieldwork in Galápagos. I am not traveling alone, as two PhD students working with me, Lorenzo and Marco, will be traveling with me. Also, the PI of the project I am collaborating with, Gabriele Gentile, should be already there, as he traveled straight from the US after a he attended a conference.
+
+For this trip the itinerary will be a little different. Instead of traveling straight from Europe to Ecuador, my colleague and I will reach Ecuador via Lima, Perù. As always, the departure times of each flight is totally unfriendly. The first leg of the journey starts at 07:00 from FCO (Rome), a stop in Madrid. 
+
+# 2022-11-01
+
+As my memory fails me constantly, I have decided to compile a list of names of people we have met already or that we will be encountering in this trip. When possible I will try to post a picture of them as well.
+
+Eliecer Cruz (Jocotoco)
+Victor Carrion (Jocotoco)
+Ronal Gavilanes (Jocotoco)
+Marcelo Gavilanes (GNP)
+Christian Sevilla (GNP)
+Carlos Ramos (GNP, TIC)
+Juan Chavez (Jocotoco)
+Dany Rueda (GNP)
+Marvin (GNP)
+Evelyn Vera (GNP)
+Lucio Arana (GNP, mechanic shop)
+Gislayne Mendoza (CDF, Ainoa's contact)
+Steve Bayes (GNP)
+Simon Villamar (GNP)
+Carlos Vera (Tienda)
+David Anaguano (Alcalde, ex TIC)
+Johanes Fernando Ramirez (GNP)
+Jorge Carrion (GC)
+Mirelle Mendoza (GNP, lady in Galo's office)
+Yarol Alullima (GNP, TIC office)
+Raphael Chango (GNP)
+Wilson Munra
+Danny Callado
+Milton
+Javier 
+Carlos Calucas
+
+# 2022-11-03
+
+Vacation brake. They moved a national vacation one day up so that they could take advantage of the long weekend. Amazing Galápagos life.
+
+# 2022-11-22
+
+The intricacies of bureaucracy. Trying to purchase things here using the university money is almost impossible. But we are managing. Gabriele has been more or less useless and too concentrated on himself to give any usefull advice so far.
+
+# 2022-11-27
+
+Finally about to board. Our shopping list was not how requested. Now that we have almost streamlined the process of how to buy the food I think it is better if we do it ourselves and not leave it to third party people. Things to remember for next time: onions and garlic in powder or dried, not fresh; olive oil; more resistant plastic boxes; tomato paste concentrated.
+
+The quarantine has two refrigerated rooms and one non refrigerated room. Depending on who is there they will cut you more or less slack.
+
+Christian is useless. Never replied my message and he wasn't able to find for us the things we asked.
+
+# 2022-12-12
+
+We have found one of the WSN that was believed to have fallen from an Iguana. By visiting the last location points the WSN had transmitted we have been able to retrieve it from the ground. Carlos Caluca was the one who actually found it, but we were all looking for it and eventually it would have come out. Something, likely a giant turtle, walked all over it and basically destroyed it, but it should still be possible to retrieve the information it contains (which I do not expect to be much more than we already have!).
+
+# 2022-12-15
+
+The generator gave up on us.

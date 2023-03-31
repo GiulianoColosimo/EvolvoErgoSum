@@ -1,0 +1,5 @@
+---
+title: "Animal tracking"
+subtitle: "(content coming soon)"
+editor: visual
+---

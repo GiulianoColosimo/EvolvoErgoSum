@@ -1,0 +1,149 @@
+---
+title: "ngR"
+subtitle: "next-generation-R"
+editor: visual
+bibliography: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
+author: Giuliano Colosimo
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(diagram)
+library(Rqc)
+```
+
+Wouldn't it be nice to analyse all your sequence data in *R* without having the need to use third party applications and/or code written in other languages? Yes, it would! In fact, there already are quite a few packages allowing the processing of your Next Gen Data.
+
+This little project came about with the collaboration of Giulia Maiello, a PhD candidate working on some pretty cool stuff here at the university with me.
+
+Lets say that we have some eDNA samples collected from dirt samples or some aquatic environment. One possible workflow to follow to analyse your reads is highlighted below.
+
+```{r workflow, echo = FALSE, fig.cap = "**Figure 1:** Possible workflow. Each label is color coded: yellow = under development; green = completed; gray = not started."}
+
+pos <- coordinates(c(3, 4, 4))
+
+my_label <- c("Merging \nF and R",
+              "Quality control \nFilter on quality",
+              "Source \nRaw data",
+              "Demultiplexing",
+              "Trimming",
+              "Dereplication",
+              "Chimer and \nSingleton \nRemoval",
+              "Taxonomic \nAssignment",
+              "OTUs \nidentification",
+              "In vitro \nPCR")
+
+my_text_size <- .65
+my_edge_length <- .08
+par(mar = rep(1, 4))
+
+openplotmat()
+straightarrow(from = pos[3, ], to = pos[2, ])
+straightarrow(from = pos[2, ], to = pos[1, ])
+straightarrow(from = pos[1, ], to = pos[4, ])
+straightarrow(from = pos[4, ], to = pos[5, ])
+straightarrow(from = pos[5, ], to = pos[6, ])
+straightarrow(from = pos[6, ], to = pos[7, ])
+straightarrow(from = pos[7, ], to = pos[10, ])
+straightarrow(from = pos[10, ], to = pos[9, ])
+straightarrow(from = pos[9, ], to = pos[8, ])
+
+for(i in 1:length(my_label)){
+  if (i == 1) {
+    textrect(mid = pos[i,], radx = my_edge_length, rady = my_edge_length, lab = my_label[i], cex = my_text_size, box.col = "green")
+  } else if (i == 2){
+    textrect(mid = pos[i,], radx = my_edge_length, rady = my_edge_length, lab = my_label[i], cex = my_text_size, box.col = "green")
+  } else if (i == 3){
+    textrect(mid = pos[i,], radx = my_edge_length, rady = my_edge_length, lab = my_label[i], cex = my_text_size, box.col = "green")
+  } else if (i == 4){
+    textrect(mid = pos[i,], radx = my_edge_length, rady = my_edge_length, lab = my_label[i], cex = my_text_size, box.col = "green")
+  } else if (i == 5){
+    textrect(mid = pos[i,], radx = my_edge_length, rady = my_edge_length, lab = my_label[i], cex = my_text_size, box.col = "green")
+  } else if (i == 6){
+    textrect(mid = pos[i,], radx = my_edge_length, rady = my_edge_length, lab = my_label[i], cex = my_text_size, box.col = "green")
+  } else if (i == 7){
+    textrect(mid = pos[i,], radx = my_edge_length, rady = my_edge_length, lab = my_label[i], cex = my_text_size, box.col = "#999999")
+  } else if (i == 8){
+    textrect(mid = pos[i,], radx = my_edge_length, rady = my_edge_length, lab = my_label[i], cex = my_text_size, box.col = "#999999")
+  } else if (i == 9){
+    textrect(mid = pos[i,], radx = my_edge_length, rady = my_edge_length, lab = my_label[i], cex = my_text_size, box.col = "yellow")
+  } else if (i == 10){
+    textrect(mid = pos[i,], radx = my_edge_length, rady = my_edge_length, lab = my_label[i], cex = my_text_size, box.col = "#999999")
+  }
+}
+```
+
+## Quality control
+
+The first step is to check the quality of your reads. Lets not reinvent the wheel and use already existing packages to do the heavy lifting. The package [Rqc](https://bioconductor.org/packages/release/bioc/html/Rqc.html) works to our advantage. One of the advantages of this package is that it produces publication grade graphical output and gives interesting information on the quality of our reads [@deSouza_2018].
+
+I wrote a small function to automatically use the package main functions and extract the most useful quality information from our data. For convenience, the function can also check whether the package is already installed on the machine in use and, if not, it will install it for us (after kindly asking, of course). To arrange the output of the analysis in a nice way we also need to use the package [gridExtra](https://cran.r-project.org/web/packages/gridExtra/index.html) [@Auguie2017].
+
+The function has three main arguments:
+
+-   *path_to_ngs_data* = path where to find data to be analyzed;
+-   *extension* = extension of data to be analyzed (generally .fastq or .fastq.gz);
+-   *path_to_save* = path where to save reports and images. The function creates a .png image so only the path need to be specified
+
+```{r ngs_quality_control}
+ngs_quality_control <- function(path_to_ngs_data, ext_pattern, path_to_save){
+
+  pck_lst <- list.files(.libPaths())
+  if ("Rqc" %in% pck_lst) {
+    library("Rqc")
+    print("Congratulations! Rqc is loaded and will now be used.")
+  } else {
+    print("Rqc is not installed. Do you want me to try and install it for you?")
+    answer <- readline(prompt = "Yes or No: ")
+    if (answer == "Yes" | answer == "Y" | answer == "y"| answer == "yes") {
+      if (!requireNamespace("BiocManager", quietly = TRUE))
+        install.packages("BiocManager")
+      BiocManager::install("Rqc")
+      library("Rqc")
+    } else if (answer == "No" | answer == "N") {
+      stop("Sounds good. You will need to install it yourself to keep going.")
+    }
+  }
+
+  # run the main function
+  library("gridExtra")
+  x <- path_to_ngs_data
+  y <- ext_pattern
+  z <- path_to_save
+  rqc_qa <- rqc(x, y, sample = F, n = 1e+06, group = NULL,
+                top = 10, pair = NULL,
+                outdir = tempdir(), file = "rqc_report",
+                openBrowser = FALSE)
+  p_01 <- rqcCycleAverageQualityPlot(rqc_qa)
+  p_02 <- rqcReadQualityPlot(rqc_qa)
+  p_03 <- rqcCycleQualityPlot(rqc_qa)
+  p_04 <- rqcCycleBaseCallsPlot(rqc_qa)
+  p_05 <- rqcCycleGCPlot(rqc_qa)
+  p_06 <- rqcCycleQualityBoxPlot(rqc_qa)
+
+  allplot <- grid.arrange(p_01, p_02, p_03, p_04, p_05, p_06, nrow = 3)
+  ggsave(allplot, width = 40, height = 30, units = "in", dpi = 300,
+         file = paste(path_to_save, "/RqcPlots.png", sep = ""))
+
+  return(perFileInformation(rqc_qa))
+}
+```
+
+## Fragment alignment
+
+## Demultiplexing
+
+## Trimming
+
+## Dereplication
+
+## OTU
+
+## Taxonomic assignment
+
+## References

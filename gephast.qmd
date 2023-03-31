@@ -1,0 +1,70 @@
+---
+title: "GEPHAST"
+subtitle: "**GE**notype-**PH**enotype **AS**sociation **T**est"
+editor: visual
+author: Giuliano Colosimo
+date: 2022-09-29 
+bibliography: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
+---
+
+[@Amos2009]
+
+```{r, include=TRUE, eval=FALSE}
+# GEPHAST ####
+gephast <- gtype_dfg2[65:174, 1:13]
+
+gephast$age  <- mscpt_data[65:174, ]$age
+gephast$mass <- mscpt_data[65:174, ]$mass
+gephast$svl  <- mscpt_data[65:174, ]$svl
+gephast$hw   <- mscpt_data[65:174, ]$hw
+gephast$hl   <- mscpt_data[65:174, ]$hl
+gephast$sex  <- mscpt_data[65:174, ]$Sex
+
+gephast <- gephast[which(rowSums(is.na(gephast[, c(1:13)]), dims = 1) == 0), ]
+
+gephast_M <- gephast %>% 
+  filter(sex == "M")
+gephast_F <- gephast %>% 
+  filter(sex == "F")
+
+gephast_M <- gephast_M[which(!is.na(gephast_M$hw)), ]
+gephast_F <- gephast_F[which(!is.na(gephast_F$hw)), ]
+
+gephast_M$hw_z <- z_score(gephast_M$hw)
+gephast_F$hw_z <- z_score(gephast_F$hw)
+
+gephast_corr <- rbind(gephast_M, gephast_F)
+
+gephast_corr$average_hom <- (13-apply(gephast_corr[, 1:13], 1, sum))/13
+gephast_corr$risk <- NA
+gephast_corr$risk[gephast_corr$average_hom <= as.numeric(adu_Ho[3])] <- "low"
+gephast_corr$risk[gephast_corr$average_hom > as.numeric(adu_Ho[3])] <- "high"
+
+or_chi <- apply(gephast_corr[,1:13], 2, function(x){chisq.test(table(gephast_corr$risk, x))})
+or_chi <- unlist(lapply(or_chi, function(x){x$statistic}))
+
+
+# scramble data nrep times
+scrumble_genotypes <- function(genotypes_zero_one,
+                               nloci, nreps, loci_names){
+  r <- vector(mode = "list", length = nreps)
+  for (i in 1:nreps) {
+    rand_gen <- as.data.frame(t(apply(genotypes_zero_one, 1, sample,
+                                      nloci, replace = F)))
+    names(rand_gen) <- loci_names
+    r[[i]] <- rand_gen
+  }
+  return(r)
+}
+
+scrumbled <- scrumble_genotypes(gephast_corr[, 1:13], 13, 100000, lnames[1:13])
+scrumbled <- lapply(scrumbled,
+       function(x){apply(x, 2, function(x){chisq.test(table(gephast_corr$risk, x))})})
+scrumbled <- lapply(scrumbled, function(x){unlist(lapply(x, function(x){x$statistic}))})
+scrumbled <- as.data.frame(do.call(rbind, scrumbled))
+```
+
+# Reference

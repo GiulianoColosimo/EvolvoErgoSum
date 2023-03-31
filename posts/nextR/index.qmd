@@ -1,0 +1,15 @@
+---
+title: "Next Generation Sequencing Analysis in R"
+description: "A pipeline to identify OTUs from eDNA protocols"
+author:
+  - name: Giuliano Colosimo
+    url: 
+date: "2023-01-30"
+categories: ["R", "NGS", "Genomic"]
+image: workflow.png 
+format: 
+  html:
+    toc: true
+engine: knitr
+---
+

@@ -1,0 +1,88 @@
+- category: Iguanas & other lizards
+  description: |
+    A collection of big, medium, and small lizards from around the word
+  tiles:
+    - title: Leiocephalus carinatus
+      subtitle: Turks and Caicos
+      thumbnail: photos/leiocephalus.jpeg
+      categories: ["Lizards"]
+    - title: Cyclura carinata
+      subtitle: Turks and Caicos
+      thumbnail: photos/ccarinata.jpeg
+      categories: ["Lizards", "Iguanas"]
+    - title: Cyclura nubila
+      subtitle: Little Cayman
+      thumbnail: photos/cnubila.jpeg
+      categories: ["Lizards", "Iguanas"]
+    - title: Amblyrhincus cristatus
+      subtitle: Galápagos
+      thumbnail: photos/amblyrhincus.jpeg
+      categories: ["Lizards", "Iguanas"]
+    - title: Cyclura pinguis
+      subtitle: Anegada
+      thumbnail: photos/cpinguis.jpeg
+      categories: ["Lizards", "Iguanas"]
+
+     
+     
+- category: Other animals
+  description: |
+    It is not just about lizards
+  tiles:
+    - title: Macaca sinica
+      subtitle: Sri Lanka
+      thumbnail: photos/macacasinica.jpeg
+      categories: ["Monkey", "Sri Lanka"]
+    - title: Ophiophagus hannah
+      subtitle: Sri Lanka
+      thumbnail: photos/kingcobra.jpeg
+      categories: ["Snakes", "Sri Lanka"]
+    - title: Bat
+      subtitle: Sri Lanka
+      thumbnail: photos/flyfox.jpeg
+      categories: ["Bats", "Sri Lanka"]
+    - title: Elephant
+      subtitle: Sri Lanka
+      thumbnail: photos/elephant.jpeg
+      categories: ["Elephant", "Sri Lanka"]
+    - title: Snake
+      subtitle: Honduras
+      thumbnail: photos/snake.jpeg 
+      categories: ["Snake", "Honduras"]
+    - title: Snake
+      subtitle: Honduras
+      thumbnail: photos/snake2.jpeg 
+      categories: ["Snake", "Honduras"]
+    - title: Bat
+      subtitle: Honduras
+      thumbnail: photos/bat.jpeg
+      categories: ["Bats", "Honduras"]
+    - title: Sea Lion
+      subtitle: Galápagos
+      thumbnail: photos/sealion.jpeg
+      categories: ["Mammals", "Galápagos"]
+    - title: Pinzon
+      subtitle: Roma
+      thumbnail: photos/pinzon.jpeg
+      categories: ["Birds", "Italy"]
+    - title: Flamingo
+      subtitle: British Virgin Islands
+      thumbnail: photos/flamingowannabe.jpeg
+      categories: ["Birds", "BVI"]
+  
+
+
+
+
+- category: Misc
+  description: |
+    A mix of places I visited and things I found fascinating and pic worthy
+  tiles:
+    - title: Mareri 
+      subtitle: Lazio (IT)
+      #href: https://quarto-dev.github.io/quarto-gallery/articles/html/html.html
+      thumbnail: photos/mareri.jpeg    
+    - title: Market 
+      subtitle: Sri Lanka
+      #href: https://quarto-dev.github.io/quarto-gallery/articles/html/html.html
+      thumbnail: photos/seeds.jpeg    

@@ -1,0 +1,24 @@
+---
+title: "Don't be a stranger..."
+editor: visual
+---
+
+Here you can find my contact information. My office is number 14, located on the first floor of the main building at "Laboratori di Ecologia Sperimentale ed Acquacoltura". 
+
+```{r ufficio, echo=FALSE}
+library(leaflet)
+
+leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng = 12.6298, lat = 41.85021, popup="Office 14 is located on the first floor of this building")
+```
+
+<br/>
+
+You can contact me by e-mail using the following address:
+
+- giuliano.colosimo\@uniroma2.it 
+
+Or you can call me at:
+
+- +39 06 7259 5964

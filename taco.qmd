@@ -1,0 +1,10 @@
+---
+title: "Untitled"
+editor: visual
+author: Giuliano Colosimo
+date: 2022-09-29 
+bibliography: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
+---
