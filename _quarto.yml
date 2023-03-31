@@ -40,10 +40,10 @@ website:
     background: light
     collapse-level: 2
     contents:
-      #- section: "Projects"
-      #  contents: 
-      #    - href: taco.qmd
-      #      text: "T.A.C.O."
+      - section: "Projects"
+        contents: 
+          - href: taco.qmd
+            text: "T. A. Co."
       #    - href: inbreedingdepression.qmd
       #      text: "Inbreeding depression"
       #    - href: ngR.qmd
