@@ -2,7 +2,7 @@
 title: "Evolvo Ergo Sum"
 subtitle: "Jesus told me: *Come forth, and you will have eternal life*! I came fifth, and I got a toaster!"
 author: Giuliano Colosimo
-date: "`r Sys.Date()`"
+date: "2023-03-31"
 ---
 
 ## Welcome!
