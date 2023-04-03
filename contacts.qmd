@@ -15,7 +15,7 @@ leaflet() %>%
 
 <br/>
 
-You can contact me by e-mail using the following address:
+You can reach me by e-mail using the following address:
 
 - giuliano.colosimo\@uniroma2.it 
 
