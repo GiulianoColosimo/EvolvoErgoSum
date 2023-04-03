@@ -1,5 +1,39 @@
 ---
 title: "Conservation Biology"
-subtitle: "(content coming soon)"
+# subtitle: ""
 editor: visual
 ---
+
+## General
+
+This is a course for master level students enrolled in the "Biologia Evoluzionistica, Ecologia e Antropologia Applicata" degree at the University of Rome Tor Vergata. It is worth **6 CFU** for a total of 48 hours to be administered in person (or remotely, depending on the evolution of the pandemic) during the second semester of each academic year. Students participating to this class should have a good knowledge of zoology, ecology, population biology,  genetics, and molecular biology.
+
+## Topics
+
+Here is a brief overview of the topics covered in class. These are not set in stone and may vary throughout the course. Also, they are not always covered in the same order they are presented here.
+
+::: columns
+::: {.column width="50%"}
+1.  Introduction to conservation biology
+2.  Biodiversity
+3.  Biodiversity and extinctions
+4.  Basics of conservation genetics
+5.  Population size
+6.  Genetic drift
+7.  Inbreeding depression
+8.  Population structure
+9.  Hybridization
+10. Population viability analysis
+:::
+
+::: {.column width="50%"}
+11. Invasive species
+12. Managing genetic diversity in the wild
+13. Managing genetic diversity in captive populations
+14. Applying genetic information to conservation
+15. Conservation and climate change
+16. Future climate impacts
+17. Conservation economics
+18. Conservation technology
+:::
+:::
