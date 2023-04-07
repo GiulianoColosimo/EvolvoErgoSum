@@ -14,26 +14,29 @@ Here is a brief overview of the topics covered in class. These are not set in st
 
 ::: columns
 ::: {.column width="50%"}
-1.  Introduction to conservation biology
-2.  Biodiversity
-3.  Biodiversity and extinctions
-4.  Basics of conservation genetics
-5.  Population size
-6.  Genetic drift
-7.  Inbreeding depression
-8.  Population structure
-9.  Hybridization
-10. Population viability analysis
-:::
+1.   [Introduction to conservation biology]{style="color: green;"}
+2.   [Biodiversity]{style="color: green;"}
+3.   [Biodiversity and extinctions]{style="color: green;"}
+4.   [Population size]{style="color: green;"}
+5.   [Basics of conservation genetics]{style="color: red;"}
+6.   [Genetic drift]{style="color: red;"}
+7.   [Effective population size]{style="color: red;"}
+8.   [Inbreeding depression]{style="color: red;"}
+9.   [Population structure]{style="color: red;"}
+10.  [Hybridization]{style="color: red;"}
 
+
+:::
+  
 ::: {.column width="50%"}
-11. Invasive species
-12. Managing genetic diversity in the wild
-13. Managing genetic diversity in captive populations
-14. Applying genetic information to conservation
-15. Conservation and climate change
-16. Future climate impacts
-17. Conservation economics
-18. Conservation technology
+11.   [Managing genetic diversity in the wild]{style="color: red;"}
+12.   [Managing genetic diversity in captive populations]{style="color: red;"}
+13.   [Applying genetic information to conservation]{style="color: red;"}
+14.   [Population viability analysis]{style="color: red;"}
+15.   [Invasive species]{style="color: blue;"}
+16.   [Conservation and climate change]{style="color: blue;"}
+17.   [Future climate impacts]{style="color: blue;"}
+18.   [Conservation economics]{style="color: blue;"}
+19.   [Conservation technology]{style="color: blue;"}
 :::
 :::
