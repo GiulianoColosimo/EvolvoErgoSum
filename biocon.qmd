@@ -2,6 +2,10 @@
 title: "Conservation Biology"
 # subtitle: ""
 editor: visual
+bibliography: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/apa_5th_edition.csl
+citation_package: biblatex
+citecolor: "red"
 ---
 
 ## General
@@ -14,29 +18,42 @@ Here is a brief overview of the topics covered in class. These are not set in st
 
 ::: columns
 ::: {.column width="50%"}
-1.   [Introduction to conservation biology]{style="color: green;"}
-2.   [Biodiversity]{style="color: green;"}
-3.   [Biodiversity and extinctions]{style="color: green;"}
-4.   [Population size]{style="color: green;"}
-5.   [Basics of conservation genetics]{style="color: red;"}
-6.   [Genetic drift]{style="color: red;"}
-7.   [Effective population size]{style="color: red;"}
-8.   [Inbreeding depression]{style="color: red;"}
-9.   [Population structure]{style="color: red;"}
-10.  [Hybridization]{style="color: red;"}
-
-
+1.  [Introduction to conservation biology]{style="color: green;"}
+2.  [Biodiversity]{style="color: green;"}
+3.  [Biodiversity and extinctions]{style="color: green;"}
+4.  [Populations]{style="color: green;"}
+5.  [Basics of conservation genetics]{style="color: red;"}
+6.  [Genetic drift]{style="color: red;"}
+7.  [Effective population size]{style="color: red;"}
+8.  [Inbreeding depression]{style="color: red;"}
+9.  [Population structure]{style="color: red;"}
+10. [Hybridization]{style="color: red;"}
 :::
-  
+
 ::: {.column width="50%"}
-11.   [Managing genetic diversity in the wild]{style="color: red;"}
-12.   [Managing genetic diversity in captive populations]{style="color: red;"}
-13.   [Applying genetic information to conservation]{style="color: red;"}
-14.   [Population viability analysis]{style="color: red;"}
-15.   [Invasive species]{style="color: blue;"}
-16.   [Conservation and climate change]{style="color: blue;"}
-17.   [Future climate impacts]{style="color: blue;"}
-18.   [Conservation economics]{style="color: blue;"}
-19.   [Conservation technology]{style="color: blue;"}
+11. [Applying genetic information to conservation]{style="color: orange;"}
+12. [Managing genetic diversity in captive populations]{style="color: orange;"}
+13. [Managing genetic diversity in the wild]{style="color: orange;"}
+14. [Population viability analysis]{style="color: orange;"}
+15. [Invasive species]{style="color: blue;"}
+16. [Conservation and climate change]{style="color: blue;"}
+17. [Future climate impacts]{style="color: blue;"}
+18. [Conservation economics]{style="color: blue;"}
+19. [Conservation technology]{style="color: blue;"}
 :::
 :::
+
+### General content
+
+The course is structured in 4 main blocks.
+
+## Resources for the course
+
+I am a strong advocate of accessible knowledge for everyone. That is why I usually build the material on-line and make it available for all my students. That being said, I also strongly encourage all my students to deepen everything we cover in class with books authored by prestigious scientists. A short list of very interesting book that I tell my students to refer to is presented below.
+
+- Introduction to conservation genetics [@Frankham2010]
+- [Conservation Biology for all](https://conbio.org/publications/free-textbook), free downloadable book from @Sodhi2010 
+- Conservation Biology [@VanDyke2020]
+- Conservation and the Genomics of Populations [@Allendorf2022]
+
+# References

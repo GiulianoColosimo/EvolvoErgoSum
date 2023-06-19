@@ -1,6 +1,6 @@
 ---
 title: "T. A. Co."
-subtitle: "(content coming soon)"
+subtitle: "Tracking Animals and Conservation"
 editor: visual
 author: Giuliano Colosimo
 # date: 2022-09-29 
@@ -9,3 +9,5 @@ csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/apa_5th_editi
 citation_package: biblatex
 citecolor: "red"
 ---
+
+In this page you will find a little history and information about the current research project that I am working on in collaboration with a number of colleagues across the word. 
