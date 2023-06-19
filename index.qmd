@@ -11,7 +11,7 @@ This is where I keep track of my projects, publications, research work, and idea
 
 ### A brief introduction.
 
-I’m a research associate working at the University of Rome Tor Vergata. One of the main aspects of my current research can be resumed with the acronym **T. A. Co.** — **T**racking **A**nimal and **Co**nservation. The project aims at developing an integrated, versatile, miniaturised and cost-effective system for the remote monitoring of endangered animal species from even disconnected and difficult to access areas. Keep digging around to know more about this project. As a faculty at Tor Vergata University, I am also responsible for teaching classes and mentoring/tutoring students.
+I’m a research associate working at the University of Rome Tor Vergata. One of the main aspects of my current research can be resumed with the acronym **T. A. Co.** — **T**racking **A**nimal and **Co**nservation. The project aims at developing an integrated, versatile, miniaturized and cost-effective system for the remote monitoring of endangered animal species from even disconnected and difficult to access areas. Keep digging around to know more about this project. As a faculty at Tor Vergata University, I am also responsible for teaching classes and mentoring/tutoring students.
 
 
 ### Navigation tips.
