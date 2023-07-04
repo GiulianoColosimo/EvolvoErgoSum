@@ -9,7 +9,7 @@ csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/evolutionary-
 citation_package: biblatex
 citecolor: "red"
 nocite: |
-  @Gargano2022, @Graham2022, @Colosimo2022, @Colosimo2022b, @Colosimo2021b 
+  @Castano2023, @Gargano2022, @Graham2022, @Colosimo2022, @Colosimo2022b 
 ---
 
-This is a list of the 5 most recent publications ordered alphabetically. For a complete list of all published peer review works you can click [here](./completepeerreviewed.qmd).
+This is a list of the most recent publications in alphabetical order released in the last 2 years (2023/2022). For a complete list of all published peer review works you can click [here](./completepeerreviewed.qmd).
