@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -92,11 +92,15 @@ ul.task-list li input[type="checkbox"] {
   })
   </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="alternate" type="application/rss+xml" title="Evolvo Ergo Sum" href="blog.xml"><meta property="og:title" content="Evolvo Ergo Sum -">
+<meta property="og:image" content="https://giulianocolosimo.github.com/posts/accessing_weather_data/asos_italy.png">
 <meta property="og:site-name" content="Evolvo Ergo Sum">
 <meta property="og:locale" content="en_US">
+<meta property="og:image:height" content="374">
+<meta property="og:image:width" content="337">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -110,109 +114,113 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Evolvo Ergo Sum</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./aboutme.html">
+    <a class="nav-link" href="./aboutme.html" rel="" target="">
  <span class="menu-text">About Me</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-publications" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Publications</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-publications">    
+        <li>
+    <a class="dropdown-item" href="./peerreviewed.html" rel="" target="">
+ <span class="dropdown-text">Peer-reviewed</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./nonpeerreviewed.html" rel="" target="">
+ <span class="dropdown-text">Non Peer-reviewed</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="./taco.html" rel="" target="">
+ <span class="dropdown-text">T. A. Co.</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Classes</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-classes">    
+        <li>
+    <a class="dropdown-item" href="./antboc.html" rel="" target="">
+ <span class="dropdown-text">Animal Tracking</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./biocon.html" rel="" target="">
+ <span class="dropdown-text">Conservation Biology</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./contacts.html">
+    <a class="nav-link" href="./blog.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contacts.html" rel="" target="">
  <span class="menu-text">Contacts</span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="././figures/avatar.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://www.linkedin.com/in/giulianocolosimo/" title="" class="sidebar-tool px-1"><i class="bi bi-linkedin"></i></a>
-    <a href="https://github.com/GiulianoColosimo" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="mailto:giuliano.colosimo@uniroma2.it" title="" class="sidebar-tool px-1"><i class="bi bi-envelope"></i></a>
-    <a href="././documents/Colosimo_CV_english.pdf" title="" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://www.linkedin.com/in/giulianocolosimo/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/GiulianoColosimo" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="mailto:giuliano.colosimo@uniroma2.it" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
+    <a href="https://drive.proton.me/urls/CD1HSP5K2G#7OtePIm9lQ5i" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-file-pdf"></i></a>
 </div>
       </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Publications</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./peerreviewed.html" class="sidebar-item-text sidebar-link">Peer-reviewed</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./nonpeerreviewed.html" class="sidebar-item-text sidebar-link">Non Peer-reviewed</a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Classes</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./antboc.html" class="sidebar-item-text sidebar-link">Animal Tracking</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./biocon.html" class="sidebar-item-text sidebar-link">Conservation Biology</a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Big Ambergris Cay">Big Ambergris Cay <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Driving transects">Driving transects <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Fieldwork">Fieldwork <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Galápagos">Galápagos <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Genomic">Genomic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Iguanas">Iguanas <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Modeling">Modeling <span class="quarto-category-count">(3)</span></div><div class="category" data-category="NGS">NGS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Publications">Publications <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Stats">Stats <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Trips">Trips <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Variance">Variance <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Automated tasks">Automated tasks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Climate change">Climate change <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
@@ -224,14 +232,14 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,NGS,Genomic" data-listing-date-sort="1675033200000" data-listing-file-modified-sort="1670888714275" data-listing-reading-time-sort="0.005">
+<div class="quarto-post image-right" data-index="0" data-categories="R,Climate change,Automated tasks" data-listing-date-sort="1687125600000" data-listing-file-modified-sort="1688456504341" data-listing-date-modified-sort="1687125600000" data-listing-reading-time-sort="9">
 <div class="thumbnail">
-<p><a href="./posts/nextR/index.html"> <img src="./posts/nextR/workflow.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/accessing_weather_data/index.html"> <img src="./posts/accessing_weather_data/asos_italy.png" class="thumbnail-image"> </a></p>
 </div>
 <div class="body">
-<a href="./posts/nextR/index.html">
+<a href="./posts/accessing_weather_data/index.html">
 <h3 class="no-anchor listing-title">
-Next Generation Sequencing Analysis in R
+Automated download of weather data from Italian monitoring stations.
 </h3>
 <div class="listing-subtitle">
 
@@ -241,329 +249,23 @@ Next Generation Sequencing Analysis in R
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('NGS'); return false;">
-NGS
+<div class="listing-category" onclick="window.quartoListingCategory('Climate change'); return false;">
+Climate change
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('Genomic'); return false;">
-Genomic
+<div class="listing-category" onclick="window.quartoListingCategory('Automated tasks'); return false;">
+Automated tasks
 </div>
 </div>
-<a href="./posts/nextR/index.html">
+<a href="./posts/accessing_weather_data/index.html">
 <div class="listing-description">
-<p>A pipeline to identify OTUs from eDNA protocols</p>
+<p>Weather data for all to download and analyse - 1</p>
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/nextR/index.html">
+<a href="./posts/accessing_weather_data/index.html">
 <div class="listing-date">
-Jan 30, 2023
-</div>
-<div class="listing-author">
-Giuliano Colosimo
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,Stats,Modeling,Iguanas,Driving transects,Big Ambergris Cay" data-listing-date-sort="1674601200000" data-listing-file-modified-sort="1677776249325" data-listing-reading-time-sort="0.25">
-<div class="thumbnail">
-<a href="./posts/pop_size_from_transects/index.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/pop_size_from_transects/index.html"></a></p>
-</div>
-<div class="body">
-<a href="./posts/pop_size_from_transects/index.html">
-<h3 class="no-anchor listing-title">
-Population size from transect on BAC
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Stats'); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Modeling'); return false;">
-Modeling
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Iguanas'); return false;">
-Iguanas
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Driving transects'); return false;">
-Driving transects
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Big Ambergris Cay'); return false;">
-Big Ambergris Cay
-</div>
-</div>
-<a href="./posts/pop_size_from_transects/index.html">
-<div class="listing-description">
-<p>A model using driving transect count to estimate population size</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/pop_size_from_transects/index.html">
-<div class="listing-date">
-Jan 25, 2023
-</div>
-<div class="listing-author">
-Giuliano Colosimo
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="R,Stats,Modeling,Iguanas" data-listing-date-sort="1674601200000" data-listing-file-modified-sort="1669589527724" data-listing-reading-time-sort="0.245">
-<div class="thumbnail">
-<a href="./posts/pop_size_model/index.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/pop_size_model/index.html"></a></p>
-</div>
-<div class="body">
-<a href="./posts/pop_size_model/index.html">
-<h3 class="no-anchor listing-title">
-Population size modeling using ABC and JS
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Stats'); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Modeling'); return false;">
-Modeling
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Iguanas'); return false;">
-Iguanas
-</div>
-</div>
-<a href="./posts/pop_size_model/index.html">
-<div class="listing-description">
-<p>How big is the pink iguana population on Wolf?</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/pop_size_model/index.html">
-<div class="listing-date">
-Jan 25, 2023
-</div>
-<div class="listing-author">
-Giuliano Colosimo
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,Publications" data-listing-date-sort="1673737200000" data-listing-file-modified-sort="1669589550524" data-listing-reading-time-sort="0.05">
-<div class="thumbnail">
-<p><a href="./posts/network_of_collaborations/index.html"> <img src="./posts/network_of_collaborations/auth_network.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/network_of_collaborations/index.html">
-<h3 class="no-anchor listing-title">
-A network of collaborations
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Publications'); return false;">
-Publications
-</div>
-</div>
-<a href="./posts/network_of_collaborations/index.html">
-<div class="listing-description">
-<p>All the people I have been publishing with</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/network_of_collaborations/index.html">
-<div class="listing-date">
-Jan 15, 2023
-</div>
-<div class="listing-author">
-Giuliano Colosimo
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="R,Stats,Modeling" data-listing-date-sort="1671750000000" data-listing-file-modified-sort="1669588664970" data-listing-reading-time-sort="2.865">
-<div class="thumbnail">
-<a href="./posts/road_mortality_model/index.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/road_mortality_model/index.html"></a></p>
-</div>
-<div class="body">
-<a href="./posts/road_mortality_model/index.html">
-<h3 class="no-anchor listing-title">
-Road mortality model
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Stats'); return false;">
-Stats
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Modeling'); return false;">
-Modeling
-</div>
-</div>
-<a href="./posts/road_mortality_model/index.html">
-<div class="listing-description">
-<p>Quantifying the impact of roadkills in an island population</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/road_mortality_model/index.html">
-<div class="listing-date">
-Dec 23, 2022
-</div>
-<div class="listing-author">
-Giuliano Colosimo
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="Trips,Galápagos,Fieldwork" data-listing-date-sort="1670194800000" data-listing-file-modified-sort="1671140644075" data-listing-reading-time-sort="2.46">
-<div class="thumbnail">
-<a href="./posts/gala_trip_2022_11/index.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/gala_trip_2022_11/index.html"></a></p>
-</div>
-<div class="body">
-<a href="./posts/gala_trip_2022_11/index.html">
-<h3 class="no-anchor listing-title">
-Wonderful Galápagos
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Trips'); return false;">
-Trips
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Galápagos'); return false;">
-Galápagos
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Fieldwork'); return false;">
-Fieldwork
-</div>
-</div>
-<a href="./posts/gala_trip_2022_11/index.html">
-<div class="listing-description">
-<p>Back in the field, at last!</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/gala_trip_2022_11/index.html">
-<div class="listing-date">
-Dec 5, 2022
-</div>
-<div class="listing-author">
-Giuliano Colosimo
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="Trips" data-listing-date-sort="1664402400000" data-listing-file-modified-sort="1670888448461" data-listing-reading-time-sort="0.385">
-<div class="thumbnail">
-<p><a href="./posts/places_ive_been/index.html"> <img src="./posts/places_ive_been/placesIveBeen.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/places_ive_been/index.html">
-<h3 class="no-anchor listing-title">
-Places I’ve been
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Trips'); return false;">
-Trips
-</div>
-</div>
-<a href="./posts/places_ive_been/index.html">
-<div class="listing-description">
-<p>Mapping my movements over the years</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/places_ive_been/index.html">
-<div class="listing-date">
-Sep 29, 2022
-</div>
-<div class="listing-author">
-Giuliano Colosimo
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="R,Variance,Stats" data-listing-date-sort="1650837600000" data-listing-file-modified-sort="1669122669346" data-listing-reading-time-sort="21.985">
-<div class="thumbnail">
-<p><a href="./posts/multivariate_spread_of_variance/index.html"> <img src="./posts/multivariate_spread_of_variance/spread_redo.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/multivariate_spread_of_variance/index.html">
-<h3 class="no-anchor listing-title">
-Custom Multivariate Spread of Variance
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Variance'); return false;">
-Variance
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Stats'); return false;">
-Stats
-</div>
-</div>
-<a href="./posts/multivariate_spread_of_variance/index.html">
-<div class="listing-description">
-<p>An RStudio small project</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/multivariate_spread_of_variance/index.html">
-<div class="listing-date">
-Apr 25, 2022
+Jun 19, 2023
 </div>
 <div class="listing-author">
 Giuliano Colosimo
@@ -718,9 +420,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -785,6 +501,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -828,6 +630,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">© Copyright 2023 Giuliano Colosimo</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>. Inspiration for this site comes from <a href="https://www.mm218.dev">here</a></div>
   </div>
 </footer>

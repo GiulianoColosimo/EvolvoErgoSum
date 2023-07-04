@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -208,7 +227,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-little-history" id="toc-a-little-history" class="nav-link active" data-scroll-target="#a-little-history">A little history</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -237,11 +263,23 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>In this page you will find a little history and information about the current research project that I am working on in collaboration with a number of colleagues across the word.</p>
+<p>In this page you will find a little history and information about the previous and current research project that I am working on in collaboration with a number of colleagues across the word.</p>
+<section id="a-little-history" class="level1">
+<h1>A little history</h1>
+<p>Everything started back in 2015 while I was still working on my PhD. Back then I was not really involved in the developing of a remote tracking technology, but my colleagues in Rome had started to research in to ways to remotely monitor and track the critically endangered Galápagos pink and iguanas, <em>Conolophus marthae</em> <span class="citation" data-cites="Gentile2012">(<a href="#ref-Gentile2012" role="doc-biblioref">Gentile, 2012</a>)</span>.</p>
+</section>
+<section id="references" class="level1">
 
 
 
-</main> <!-- /main -->
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list">
+<div id="ref-Gentile2012" class="csl-entry" role="listitem">
+Gentile, G. (2012). <em><span class="nocase"><em>Conolophus marthae</em>. The IUCN Red List of Threatened Species 2012: e.T174472A1414375.</span></em> (pp. 1–12). Universit<span>à</span> di Roma Tor Vergata. Retrieved from <a href="http://dx.doi.org/10.2305/IUCN.UK.2012-1.RLTS.T174472A1414375.en">http://dx.doi.org/10.2305/IUCN.UK.2012-1.RLTS.T174472A1414375.en</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -605,7 +643,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">© Copyright 2023 Giuliano Colosimo</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>. Inspiration for this site comes from <a href="https://www.mm218.dev">here</a></div>
   </div>
 </footer>

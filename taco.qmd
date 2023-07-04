@@ -10,4 +10,10 @@ citation_package: biblatex
 citecolor: "red"
 ---
 
-In this page you will find a little history and information about the current research project that I am working on in collaboration with a number of colleagues across the word. 
+In this page you will find a little history and information about the previous and current research project that I am working on in collaboration with a number of colleagues across the word. 
+
+# A little history
+
+Everything started back in 2015 while I was still working on my PhD. Back then I was not really involved in the developing of a remote tracking technology, but my colleagues in Rome had started to research in to ways to remotely monitor and track the critically endangered Galápagos pink and iguanas, *Conolophus marthae* [@Gentile2012].
+
+# References

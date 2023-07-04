@@ -20,14 +20,30 @@ website:
     right:
       - text: "Home"
         href: index.qmd
-      #- text: "Blog"
-      # href: blog.qmd
+      - text: "About Me"
+        href: aboutme.qmd
+      - text: "Publications"
+        menu: 
+          - href: peerreviewed.qmd
+            text: "Peer-reviewed"
+          - href: nonpeerreviewed.qmd
+            text: "Non Peer-reviewed"
+      - text: "Projects"
+        menu: 
+          - href: taco.qmd
+            text: "T. A. Co."
+      - text: "Classes"
+        menu: 
+          - href: antboc.qmd
+            text: "Animal Tracking"
+          - href: biocon.qmd
+            text: "Conservation Biology"
+      - text: "Blog"
+        href: blog.qmd
       #- text: "Photos"
       #  href: photos.qmd
       #- text: "Quotes"
       #  href: quotes.qmd
-      - text: "About Me"
-        href: aboutme.qmd
       - text: "Contacts"
         href: contacts.qmd
 
@@ -39,11 +55,11 @@ website:
     style: "docked"
     background: light
     collapse-level: 2
-    contents:
-      - section: "Projects"
-        contents: 
-          - href: taco.qmd
-            text: "T. A. Co."
+    #contents:
+    #  - section: "Projects"
+    #    contents: 
+    #      - href: taco.qmd
+    #        text: "T. A. Co."
       #    - href: inbreedingdepression.qmd
       #      text: "Inbreeding depression"
       #    - href: ngR.qmd
@@ -51,22 +67,14 @@ website:
       #    - href: gephast.qmd
       #      text: "GEPHAST"
 
-      - section: "Publications"
-        title: "Publications"
-        contents: 
-          - href: peerreviewed.qmd
-            text: "Peer-reviewed"
-          - href: nonpeerreviewed.qmd
-            text: "Non Peer-reviewed"
-      - section: "Classes"
-        title: "Classes"
-        contents:
-          #- href: abem.qmd
-          #  text: "Applicazioni Bioinformatiche"
-          - href: antboc.qmd
-            text: "Animal Tracking"
-          - href: biocon.qmd
-            text: "Conservation Biology"
+      #- section: "Publications"
+      #  title: "Publications"
+      #  contents: 
+      #    - href: peerreviewed.qmd
+      #      text: "Peer-reviewed"
+      #    - href: nonpeerreviewed.qmd
+      #      text: "Non Peer-reviewed"
+
     tools:
       - url: "https://www.linkedin.com/in/giulianocolosimo/"
         icon: linkedin
@@ -93,3 +101,5 @@ format:
     code-copy: true
     code-overflow: wrap
     toc: true
+    grid:
+      sidebar-width: 350px

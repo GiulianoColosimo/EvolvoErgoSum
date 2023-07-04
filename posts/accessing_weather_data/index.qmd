@@ -1,0 +1,152 @@
+---
+title: "Automated download of weather data from Italian monitoring stations."
+description: "Weather data for all to download and analyse - 1"
+author:
+  - name: Giuliano Colosimo
+    url: 
+date: "2023-06-19"
+date-modified: "2023-06-19"
+categories: ["R", "Climate change", "Automated tasks"]
+image: asos_italy.png
+format: 
+  html:
+    toc: true
+engine: knitr
+---
+
+Last year, during the Conservation Biology course I was teaching, I had planned to do a practical exercise and have the students download and analyse some historical weather data for Italy. 
+
+Not too long ago it was possible to download historical weather data relatively easily from a number of different websites. Unfortunately this option is no longer available and there really is only a handful of sites from which it is possible to download historical data for free. 
+
+One of them is [here](https://mesonet.agron.iastate.edu/request/download.phtml), hosted on the Iowa State University website. The user interface is pretty intuitive and it is possible to select from a pretty amazing variety of network of data from all over the world.   
+
+Another very cool thing about this portal is that it offers a few line of codes, in R and Python, to automate the download of the data of interest. I have tried the R script, but I couldn't make it work "as is". I did a few changes to the original code to make it do what it was supposed to do, and since I did it for my students I thought it would be nice to make a blog post. I here provide a full rundown on how to use the script. The description includes the installation of a few necessary packages to download historical weather data. The worked out example shows how to download data for the Italian peninsula, but with a few tweaks and changes it is possible to adapt it to download all data of interest.
+
+Buckle up and lets begin. First of all, let me give you an overview of the OS and R version I am working with. After downloading the appropriate packages the code should work for all platforms. Regardless, I will start by sharing my session information.
+
+```{r systInfo, echo=TRUE, eval=TRUE}
+sessionInfo()
+```
+
+So, I pretty much just opened R and didn't attach any package but the ones that automatically are loaded when you open a new working session. 
+
+To accomplish this task we do need to install and load a few packages that will allow R to interact with web pages and read/download information from the specified website. The code below will install on your machine the necessary packages. Of course, you will not need this step if the packages are already installed.
+
+```{r instllPacks, echo=TRUE, eval=FALSE}
+# Installing the appropriate packages
+install.packages(c("jsonlite", "RCurl", "lubridate", "dplyr", "ggplot2"))
+```
+
+::: {.callout-note}
+The output of the above line of code is not shown, as the packages are already installed on my machine. 
+:::
+
+Once installed we can load the packages in the current working session. 
+
+```{r loadPacks, include=TRUE}
+# Load packages in the working session
+x <- c("jsonlite", "RCurl", "lubridate", "dplyr", "ggplot2")
+lapply(x, require, character.only = T)
+```
+
+Perfect. If you have a list with all `r TRUE` values it means that everything worked fine, and we can move on to the next steps. We can now specify 2 important variables that will be used in the automated script. We need a start and an end date that will be used to identify the time window of interest for which we would like to download the data of interest. 
+
+```{r datesOfInterest, include=TRUE}
+# specify the date boundaries of our dataset
+date1 <- ISOdate(1990,1,1)   # start date in year, month, day format
+date2 <- ISOdate(2020,12,31) # end date in year, month, day format
+```
+
+The second step is to set 2 other variables containing the data network infrastructure from which we want to download the data and the specific country/state of interest.
+
+```{r networkAndState, include=TRUE}
+user.network <- c("ASOS") # data network
+user.state <- c("IT")     # state
+```
+
+If we were to do this procedure manually directly on the ISU web page at this point we will be selecting the appropriate country/state and network from the dedicated drop down menu, as shown in @fig-state_net.
+
+![Highlighted in blue is the drop down menu that we could use on the web page to select the specific country/state and data network of interest.](./data_and_network_blue.png){#fig-state_net}
+
+One of the advantages of the automated procedure through R, though, is that once we have perfected the procedure for a specified the country/state and data network we can repeat the same procedure over and over with different states and or location of interest. Anyway, lets keep going with our procedure. From @fig-state_net it is possible to see that, after selecting the Italian ASOS network, a list of of available weather stations appears in the left box right underneath the **Select Widget for IT_ASOS Network** claim. What the web page is telling us is that of all the weather stations available for the ASOS network in Italy we can pick and choose the ones we want to download the data from. Unless we really know what we are doing and unless we know exactly the precise station we want data from we need to do a little more work to figure out how many stations are available, where they are and what is their specific ID.
+
+So, using a little information taken directly from the URL bar of our browsers we can tell R to open a connection to the desired web page to download the information we need. We do this with the following few lines of code.
+
+```{r connection, include=TRUE}
+# Create and open a connection
+network <- paste(user.state, user.network, sep = "__")
+uri <- paste("https://mesonet.agron.iastate.edu/geojson/network/", network, ".geojson", sep="")
+data <- url(uri)
+jdict <- fromJSON(data)
+class(jdict)
+names(jdict)
+```
+
+We have created and opened a connection to a *.geojson* file from the specified webpage containing all the necessary information. All the data are then stored in an object that we have called **jdict**. This is a list with four elements named as indicated above. Based on the names of the list elements we can infer that the second element of the list has the features of interest to us. We can look the first 5 rows of the data frame contained in the second element of the **jdict** list.  
+
+```{r jdictHead, include=TRUE}
+head(jdict[[2]])
+```
+
+As anticipated, this element contains all the information we need. There are `r nrow(jdict[[2]])` stations in Italy from where we can download data. Of the many variables for each location what is more important to us is the **id** of each station, its **properties.sname**, the **properties.time_domain** and the **geometry.coordinates** of each station. In fact, as a simple exercise we can make a plot to see how and where are the stations distributed.
+
+```{r jdictMap, echo=TRUE, eval=FALSE}
+stationsPlot <- matrix(unlist(jdict$features$geometry$coordinates), nrow = 2)
+plot(stationsPlot[1,], stationsPlot[2,], asp = 1)
+```
+
+![Location of all weather stations around available from the ISU repository.](./weather_station.png){#fig-weather_stations}
+
+It is interesting to see that there are so many stations that they can pretty much reproduce the outline and profile of the iconic Italian boot (@fig-weather_stations)! This is all nice and good. Now lets get to the fun part. Let us say that we want to download data from ALL the stations available. Using the web interface from @fig-state_net we would be selecting all the stations from the left box, move them to the right box. Then go to the right side of the page (@fig-download_protocol) and specify a number of things like the kind of desired output (CSV rather than TXT rather than DAT), the appropriate dates for the time window of interest and what kind of weather variable we would like data for (temperature, rain, wind, etc. etc. etc.).
+
+![Highlighted in red is the section of the page where to specifiy the kind of information needed, the time window of interest and the specific output format.](./data_and_network_red.png){#fig-download_protocol}
+
+::: {.callout-note}
+Please remember these two points. First, not all stations will have data available for the time window selected. Some stations were only recently activated and it is therefore unlikely that we will be able to get data since, for example, 1970. The other issue is related to the type of variable available for download. The only variable available for bulk download in many data network not US based is only temperature! 
+:::
+
+Now we create a string that contains an URL with the start date and the end date. This is the URL that would appear every time we would download manually the information from the website. At this time we still do not have any information re which station we request the data from. 
+
+```{r service, include=TRUE}
+service <- "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?"
+service <- paste(service, "data=all&tz=Etc/UTC&format=comma&latlon=yes&", sep="")
+service <- paste(service, "year1=", year(date1), "&month1=", month(date1), "&day1=", mday(date1), "&", sep="")
+service <- paste(service, "year2=", year(date2), "&month2=", month(date2), "&day2=", mday(date2), "&", sep="")
+service
+```
+
+Now we set the working directory to a dedicated folder. Note that the data could be large several GB, and it may be convenient to store them on an external hard drive.
+
+```{r workinDirectory, echo=TRUE, eval=FALSE}
+setwd("path/to/your/folder/of/choice")
+```
+
+OK. We are almost there. The final part of this tutorial consists in creating a loop that will take the part of the URL that is constant every time and add, recursively until the very last one, the ID of the  weather station we want the data from. Once again, when you run the script make sure that you have enough space on your dedicated folder and that you have enough time and a good internet connection to download all the data. Needless to say that if you first want to try the script on only a few stations you can subset the stations ID and select only 1 or 2 for a quick test.
+
+```{r download, echo=TRUE, eval=FALSE}
+it_stations_id <- jdict$features$id
+it_stations_nm <- jdict$features$properties$sname
+
+for (i in 1:length(it_stations_id[1:2])){
+  uri <- paste(service, "station=", it_stations_id[i], sep = "")
+  print(paste("Network:", network, 
+              "Downloading:", it_stations_nm[i], it_stations_id[i], sep=" "))
+  data <- url(uri)
+  datestring1 <- format(date1, "%Y%m%d")
+  datestring2 <- format(date2, "%Y%m%d")
+  outfn <- paste(network, "_", it_stations_id[i], "_", datestring1, "_to_", datestring2, sep="")
+  download.file(uri, paste(outfn, ".csv"), "auto")
+}
+```
+
+As the loop proceeds you should see information on what is being downloaded printed on your R prompt. 
+
+::: {.callout-important}
+Depending on your internet connection it may happen that your download procedure will stop because of time out issues! Unfortunately I am yet to find a proper solution to this problem. Of course, you should make sure that you work with a stable and fast internet connection. If the issue manifests itself, and it usually does with large files, what you can do is to edit the vector of stations to download to momentary exclude the station that gives you problem, finish the download of the other stations and then come back to the one that gives problem to download it by itself. 
+:::
+
+Once the procedure is completed you will have all your data ready to be analysed in your folder. In the next post we will try to look at some of the downloaded data and make a few basic analysis.
+
+Did you like this post? Let me know by e-mail what you think of it or if you were unable to make it work. Till next time.
+
+Cheers

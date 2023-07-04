@@ -6,14 +6,7 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/nextR/index.html",
-      "/posts/pop_size_from_transects/index.html",
-      "/posts/pop_size_model/index.html",
-      "/posts/network_of_collaborations/index.html",
-      "/posts/road_mortality_model/index.html",
-      "/posts/gala_trip_2022_11/index.html",
-      "/posts/places_ive_been/index.html",
-      "/posts/multivariate_spread_of_variance/index.html"
+      "/posts/accessing_weather_data/index.html"
     ]
   }
 ]

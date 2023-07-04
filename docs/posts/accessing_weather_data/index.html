@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Giuliano Colosimo">
+<meta name="dcterms.date" content="2023-06-19">
+<meta name="description" content="Weather data for all to download and analyse - 1">
+
+<title>Evolvo Ergo Sum - Automated download of weather data from Italian monitoring stations.</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<meta property="og:title" content="Evolvo Ergo Sum - Automated download of weather data from Italian monitoring stations.">
+<meta property="og:description" content="Weather data for all to download and analyse - 1">
+<meta property="og:image" content="https://giulianocolosimo.github.com/posts/accessing_weather_data/asos_italy.png">
+<meta property="og:site-name" content="Evolvo Ergo Sum">
+<meta property="og:locale" content="en_US">
+<meta property="og:image:height" content="374">
+<meta property="og:image:width" content="337">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Evolvo Ergo Sum</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../aboutme.html" rel="" target="">
+ <span class="menu-text">About Me</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-publications" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Publications</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-publications">    
+        <li>
+    <a class="dropdown-item" href="../../peerreviewed.html" rel="" target="">
+ <span class="dropdown-text">Peer-reviewed</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../nonpeerreviewed.html" rel="" target="">
+ <span class="dropdown-text">Non Peer-reviewed</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../../taco.html" rel="" target="">
+ <span class="dropdown-text">T. A. Co.</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classes" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Classes</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-classes">    
+        <li>
+    <a class="dropdown-item" href="../../antboc.html" rel="" target="">
+ <span class="dropdown-text">Animal Tracking</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../biocon.html" rel="" target="">
+ <span class="dropdown-text">Conservation Biology</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contacts.html" rel="" target="">
+ <span class="menu-text">Contacts</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Automated download of weather data from Italian monitoring stations.</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../.././figures/avatar.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://www.linkedin.com/in/giulianocolosimo/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/GiulianoColosimo" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="mailto:giuliano.colosimo@uniroma2.it" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
+    <a href="https://drive.proton.me/urls/CD1HSP5K2G#7OtePIm9lQ5i" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-file-pdf"></i></a>
+</div>
+      </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Automated download of weather data from Italian monitoring stations.</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Climate change</div>
+    <div class="quarto-category">Automated tasks</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Weather data for all to download and analyse - 1
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Giuliano Colosimo </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 19, 2023</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">June 19, 2023</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>Last year, during the Conservation Biology course I was teaching, I had planned to do a practical exercise and have the students download and analyse some historical weather data for Italy.</p>
+<p>Not too long ago it was possible to download historical weather data relatively easily from a number of different websites. Unfortunately this option is no longer available and there really is only a handful of sites from which it is possible to download historical data for free.</p>
+<p>One of them is <a href="https://mesonet.agron.iastate.edu/request/download.phtml">here</a>, hosted on the Iowa State University website. The user interface is pretty intuitive and it is possible to select from a pretty amazing variety of network of data from all over the world.</p>
+<p>Another very cool thing about this portal is that it offers a few line of codes, in R and Python, to automate the download of the data of interest. I have tried the R script, but I couldn’t make it work “as is”. I did a few changes to the original code to make it do what it was supposed to do, and since I did it for my students I thought it would be nice to make a blog post. I here provide a full rundown on how to use the script. The description includes the installation of a few necessary packages to download historical weather data. The worked out example shows how to download data for the Italian peninsula, but with a few tweaks and changes it is possible to adapt it to download all data of interest.</p>
+<p>Buckle up and lets begin. First of all, let me give you an overview of the OS and R version I am working with. After downloading the appropriate packages the code should work for all platforms. Regardless, I will start by sharing my session information.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.3.1 (2023-06-16)
+Platform: aarch64-apple-darwin20 (64-bit)
+Running under: macOS Ventura 13.4.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: Europe/Rome
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] htmlwidgets_1.6.2 compiler_4.3.1    fastmap_1.1.1     cli_3.6.1        
+ [5] tools_4.3.1       htmltools_0.5.5   rstudioapi_0.14   yaml_2.3.7       
+ [9] rmarkdown_2.22    knitr_1.42        jsonlite_1.8.5    xfun_0.39        
+[13] digest_0.6.31     rlang_1.1.1       evaluate_0.21    </code></pre>
+</div>
+</div>
+<p>So, I pretty much just opened R and didn’t attach any package but the ones that automatically are loaded when you open a new working session.</p>
+<p>To accomplish this task we do need to install and load a few packages that will allow R to interact with web pages and read/download information from the specified website. The code below will install on your machine the necessary packages. Of course, you will not need this step if the packages are already installed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installing the appropriate packages</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"jsonlite"</span>, <span class="st">"RCurl"</span>, <span class="st">"lubridate"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggplot2"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The output of the above line of code is not shown, as the packages are already installed on my machine.</p>
+</div>
+</div>
+<p>Once installed we can load the packages in the current working session.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages in the working session</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"jsonlite"</span>, <span class="st">"RCurl"</span>, <span class="st">"lubridate"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggplot2"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(x, require, <span class="at">character.only =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: jsonlite</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: RCurl</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lubridate</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lubridate'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: dplyr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] TRUE
+
+[[2]]
+[1] TRUE
+
+[[3]]
+[1] TRUE
+
+[[4]]
+[1] TRUE
+
+[[5]]
+[1] TRUE</code></pre>
+</div>
+</div>
+<p>Perfect. If you have a list with all TRUE values it means that everything worked fine, and we can move on to the next steps. We can now specify 2 important variables that will be used in the automated script. We need a start and an end date that will be used to identify the time window of interest for which we would like to download the data of interest.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># specify the date boundaries of our dataset</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>date1 <span class="ot">&lt;-</span> <span class="fu">ISOdate</span>(<span class="dv">1990</span>,<span class="dv">1</span>,<span class="dv">1</span>)   <span class="co"># start date in year, month, day format</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>date2 <span class="ot">&lt;-</span> <span class="fu">ISOdate</span>(<span class="dv">2020</span>,<span class="dv">12</span>,<span class="dv">31</span>) <span class="co"># end date in year, month, day format</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The second step is to set 2 other variables containing the data network infrastructure from which we want to download the data and the specific country/state of interest.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>user.network <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ASOS"</span>) <span class="co"># data network</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>user.state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"IT"</span>)     <span class="co"># state</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If we were to do this procedure manually directly on the ISU web page at this point we will be selecting the appropriate country/state and network from the dedicated drop down menu, as shown in <a href="#fig-state_net">Figure&nbsp;1</a>.</p>
+<div id="fig-state_net" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./data_and_network_blue.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Highlighted in blue is the drop down menu that we could use on the web page to select the specific country/state and data network of interest.</figcaption>
+</figure>
+</div>
+<p>One of the advantages of the automated procedure through R, though, is that once we have perfected the procedure for a specified the country/state and data network we can repeat the same procedure over and over with different states and or location of interest. Anyway, lets keep going with our procedure. From <a href="#fig-state_net">Figure&nbsp;1</a> it is possible to see that, after selecting the Italian ASOS network, a list of of available weather stations appears in the left box right underneath the <strong>Select Widget for IT_ASOS Network</strong> claim. What the web page is telling us is that of all the weather stations available for the ASOS network in Italy we can pick and choose the ones we want to download the data from. Unless we really know what we are doing and unless we know exactly the precise station we want data from we need to do a little more work to figure out how many stations are available, where they are and what is their specific ID.</p>
+<p>So, using a little information taken directly from the URL bar of our browsers we can tell R to open a connection to the desired web page to download the information we need. We do this with the following few lines of code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and open a connection</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>network <span class="ot">&lt;-</span> <span class="fu">paste</span>(user.state, user.network, <span class="at">sep =</span> <span class="st">"__"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>uri <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"https://mesonet.agron.iastate.edu/geojson/network/"</span>, network, <span class="st">".geojson"</span>, <span class="at">sep=</span><span class="st">""</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">url</span>(uri)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>jdict <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(data)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(jdict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "list"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(jdict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "type"            "features"        "generation_time" "count"          </code></pre>
+</div>
+</div>
+<p>We have created and opened a connection to a <em>.geojson</em> file from the specified webpage containing all the necessary information. All the data are then stored in an object that we have called <strong>jdict</strong>. This is a list with four elements named as indicated above. Based on the names of the list elements we can infer that the second element of the list has the features of interest to us. We can look the first 5 rows of the data frame contained in the second element of the <strong>jdict</strong> list.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(jdict[[<span class="dv">2</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     type   id properties.elevation properties.sname properties.time_domain
+1 Feature LIMG              49.0000          Albenga             (1973-Now)
+2 Feature LIEA              23.0000          Alghero             (1957-Now)
+3 Feature LIBA              60.0000         Amendola             (1944-Now)
+4 Feature LIPY              10.0000           Ancona             (1945-Now)
+5 Feature LIMW             545.0000            Aosta             (1984-Now)
+6 Feature LIQB             246.8307           Arezzo            (1978-2016)
+  properties.archive_begin properties.archive_end properties.state
+1               1973-01-01                   &lt;NA&gt;             &lt;NA&gt;
+2               1957-06-30                   &lt;NA&gt;             &lt;NA&gt;
+3               1944-01-31                   &lt;NA&gt;             &lt;NA&gt;
+4               1945-04-14                   &lt;NA&gt;             &lt;NA&gt;
+5               1984-06-30                   &lt;NA&gt;             &lt;NA&gt;
+6               1978-09-14             2016-03-06                 
+  properties.country properties.climate_site properties.wfo properties.tzname
+1                 IT                      NA             NA       Europe/Rome
+2                 IT                      NA             NA       Europe/Rome
+3                 IT                      NA             NA       Europe/Rome
+4                 IT                      NA             NA       Europe/Rome
+5                 IT                      NA             NA       Europe/Rome
+6                 IT                      NA             NA       Europe/Rome
+  properties.ncdc81 properties.ncei91 properties.ugc_county properties.ugc_zone
+1                NA                NA                    NA                  NA
+2                NA                NA                    NA                  NA
+3                NA                NA                    NA                  NA
+4                NA                NA                    NA                  NA
+5                NA                NA                    NA                  NA
+6                NA                NA                    NA                  NA
+  properties.county properties.sid properties.network geometry.type
+1                NA           LIMG           IT__ASOS         Point
+2                NA           LIEA           IT__ASOS         Point
+3                NA           LIBA           IT__ASOS         Point
+4                NA           LIPY           IT__ASOS         Point
+5                NA           LIMW           IT__ASOS         Point
+6                NA           LIQB           IT__ASOS         Point
+  geometry.coordinates
+1      8.1256, 44.0458
+2      8.2886, 40.6311
+3     15.7139, 41.5381
+4     13.3603, 43.6167
+5      7.3687, 45.7385
+6     11.8456, 43.4597</code></pre>
+</div>
+</div>
+<p>As anticipated, this element contains all the information we need. There are 107 stations in Italy from where we can download data. Of the many variables for each location what is more important to us is the <strong>id</strong> of each station, its <strong>properties.sname</strong>, the <strong>properties.time_domain</strong> and the <strong>geometry.coordinates</strong> of each station. In fact, as a simple exercise we can make a plot to see how and where are the stations distributed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>stationsPlot <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">unlist</span>(jdict<span class="sc">$</span>features<span class="sc">$</span>geometry<span class="sc">$</span>coordinates), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stationsPlot[<span class="dv">1</span>,], stationsPlot[<span class="dv">2</span>,], <span class="at">asp =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-weather_stations" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./weather_station.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Location of all weather stations around available from the ISU repository.</figcaption>
+</figure>
+</div>
+<p>It is interesting to see that there are so many stations that they can pretty much reproduce the outline and profile of the iconic Italian boot (<a href="#fig-weather_stations">Figure&nbsp;2</a>)! This is all nice and good. Now lets get to the fun part. Let us say that we want to download data from ALL the stations available. Using the web interface from <a href="#fig-state_net">Figure&nbsp;1</a> we would be selecting all the stations from the left box, move them to the right box. Then go to the right side of the page (<a href="#fig-download_protocol">Figure&nbsp;3</a>) and specify a number of things like the kind of desired output (CSV rather than TXT rather than DAT), the appropriate dates for the time window of interest and what kind of weather variable we would like data for (temperature, rain, wind, etc. etc. etc.).</p>
+<div id="fig-download_protocol" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./data_and_network_red.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Highlighted in red is the section of the page where to specifiy the kind of information needed, the time window of interest and the specific output format.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please remember these two points. First, not all stations will have data available for the time window selected. Some stations were only recently activated and it is therefore unlikely that we will be able to get data since, for example, 1970. The other issue is related to the type of variable available for download. The only variable available for bulk download in many data network not US based is only temperature!</p>
+</div>
+</div>
+<p>Now we create a string that contains an URL with the start date and the end date. This is the URL that would appear every time we would download manually the information from the website. At this time we still do not have any information re which station we request the data from.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>service <span class="ot">&lt;-</span> <span class="st">"https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?"</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>service <span class="ot">&lt;-</span> <span class="fu">paste</span>(service, <span class="st">"data=all&amp;tz=Etc/UTC&amp;format=comma&amp;latlon=yes&amp;"</span>, <span class="at">sep=</span><span class="st">""</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>service <span class="ot">&lt;-</span> <span class="fu">paste</span>(service, <span class="st">"year1="</span>, <span class="fu">year</span>(date1), <span class="st">"&amp;month1="</span>, <span class="fu">month</span>(date1), <span class="st">"&amp;day1="</span>, <span class="fu">mday</span>(date1), <span class="st">"&amp;"</span>, <span class="at">sep=</span><span class="st">""</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>service <span class="ot">&lt;-</span> <span class="fu">paste</span>(service, <span class="st">"year2="</span>, <span class="fu">year</span>(date2), <span class="st">"&amp;month2="</span>, <span class="fu">month</span>(date2), <span class="st">"&amp;day2="</span>, <span class="fu">mday</span>(date2), <span class="st">"&amp;"</span>, <span class="at">sep=</span><span class="st">""</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>service</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?data=all&amp;tz=Etc/UTC&amp;format=comma&amp;latlon=yes&amp;year1=1990&amp;month1=1&amp;day1=1&amp;year2=2020&amp;month2=12&amp;day2=31&amp;"</code></pre>
+</div>
+</div>
+<p>Now we set the working directory to a dedicated folder. Note that the data could be large several GB, and it may be convenient to store them on an external hard drive.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"path/to/your/folder/of/choice"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>OK. We are almost there. The final part of this tutorial consists in creating a loop that will take the part of the URL that is constant every time and add, recursively until the very last one, the ID of the weather station we want the data from. Once again, when you run the script make sure that you have enough space on your dedicated folder and that you have enough time and a good internet connection to download all the data. Needless to say that if you first want to try the script on only a few stations you can subset the stations ID and select only 1 or 2 for a quick test.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>it_stations_id <span class="ot">&lt;-</span> jdict<span class="sc">$</span>features<span class="sc">$</span>id</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>it_stations_nm <span class="ot">&lt;-</span> jdict<span class="sc">$</span>features<span class="sc">$</span>properties<span class="sc">$</span>sname</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(it_stations_id[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])){</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  uri <span class="ot">&lt;-</span> <span class="fu">paste</span>(service, <span class="st">"station="</span>, it_stations_id[i], <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Network:"</span>, network, </span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>              <span class="st">"Downloading:"</span>, it_stations_nm[i], it_stations_id[i], <span class="at">sep=</span><span class="st">" "</span>))</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">url</span>(uri)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  datestring1 <span class="ot">&lt;-</span> <span class="fu">format</span>(date1, <span class="st">"%Y%m%d"</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  datestring2 <span class="ot">&lt;-</span> <span class="fu">format</span>(date2, <span class="st">"%Y%m%d"</span>)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  outfn <span class="ot">&lt;-</span> <span class="fu">paste</span>(network, <span class="st">"_"</span>, it_stations_id[i], <span class="st">"_"</span>, datestring1, <span class="st">"_to_"</span>, datestring2, <span class="at">sep=</span><span class="st">""</span>)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(uri, <span class="fu">paste</span>(outfn, <span class="st">".csv"</span>), <span class="st">"auto"</span>)</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As the loop proceeds you should see information on what is being downloaded printed on your R prompt.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Depending on your internet connection it may happen that your download procedure will stop because of time out issues! Unfortunately I am yet to find a proper solution to this problem. Of course, you should make sure that you work with a stable and fast internet connection. If the issue manifests itself, and it usually does with large files, what you can do is to edit the vector of stations to download to momentary exclude the station that gives you problem, finish the download of the other stations and then come back to the one that gives problem to download it by itself.</p>
+</div>
+</div>
+<p>Once the procedure is completed you will have all your data ready to be analysed in your folder. In the next post we will try to look at some of the downloaded data and make a few basic analysis.</p>
+<p>Did you like this post? Let me know by e-mail what you think of it or if you were unable to make it work. Till next time.</p>
+<p>Cheers</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Copyright 2023 Giuliano Colosimo</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>. Inspiration for this site comes from <a href="https://www.mm218.dev">here</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
