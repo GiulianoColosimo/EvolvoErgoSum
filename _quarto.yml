@@ -32,12 +32,12 @@ website:
         menu: 
           - href: taco.qmd
             text: "T. A. Co."
-      - text: "Classes"
-        menu: 
-          - href: antboc.qmd
-            text: "Animal Tracking"
-          - href: biocon.qmd
-            text: "Conservation Biology"
+      #- text: "Classes"
+      #  menu: 
+      #    - href: antboc.qmd
+      #      text: "Animal Tracking"
+      #    - href: biocon.qmd
+      #      text: "Conservation Biology"
       - text: "Blog"
         href: blog.qmd
       #- text: "Photos"
