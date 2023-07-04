@@ -10,7 +10,7 @@
 <atom:link href="https://giulianocolosimo.github.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Ecology, Evolution with a sprinkle of Technology</description>
 <generator>quarto-1.3.353</generator>
-<lastBuildDate>Sun, 18 Jun 2023 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 03 Jul 2023 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Automated download of weather data from Italian monitoring stations.</title>
   <dc:creator>Giuliano Colosimo</dc:creator>
@@ -596,7 +596,7 @@ Important
   <category>Climate change</category>
   <category>Automated tasks</category>
   <guid>https://giulianocolosimo.github.com/posts/accessing_weather_data/index.html</guid>
-  <pubDate>Sun, 18 Jun 2023 22:00:00 GMT</pubDate>
+  <pubDate>Mon, 03 Jul 2023 22:00:00 GMT</pubDate>
   <media:content url="https://giulianocolosimo.github.com/posts/accessing_weather_data/asos_italy.png" medium="image" type="image/png" height="160" width="144"/>
 </item>
 </channel>

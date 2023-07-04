@@ -4,8 +4,8 @@ description: "Weather data for all to download and analyse - 1"
 author:
   - name: Giuliano Colosimo
     url: 
-date: "2023-06-19"
-date-modified: "2023-06-19"
+date: "2023-07-04"
+date-modified: "2023-07-04"
 categories: ["R", "Climate change", "Automated tasks"]
 image: asos_italy.png
 format: 
