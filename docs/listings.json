@@ -6,6 +6,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/translocation/index.html",
       "/posts/accessing_weather_data/index.html"
     ]
   }
