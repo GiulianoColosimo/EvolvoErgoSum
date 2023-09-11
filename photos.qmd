@@ -13,12 +13,11 @@ When I travel, for pleasure of work, I do like to take pictures! I do not necess
 ## Big, medium, and small lizards.
 
 ::: {layout="[[1], [1, 1], [1]]"}
-![*Leiocephalus carinatus*](photos/leiocephalus.jpeg){description="The lion lizard from the Turks and Caicos. _credit:_ Giuliano Colosimo" desc-position="left" group="lizards"}
+![*Leiocephalus carinatus*](photos/leiocephalus.jpeg){group="lizards" description="The lion lizard from the Turks and Caicos. _credit:_ Giuliano Colosimo"}
 
+![*Cyclura carinata*](photos/ccarinata.jpeg){group="lizards" description="Something _credit:_ Giuliano Colosimo"}
 
-![*Cyclura carinata*](photos/ccarinata.jpeg){group="lizards" description="Something"}
+![*Cyclura nubila*](photos/cnubila.jpeg){group="lizards" description="Something _credit:_ Giuliano Colosimo"}
 
-![*Cyclura nubila*](photos/cnubila.jpeg){group="lizards" description="Something"}
-
-![*Amblyrhincus cristatus*](photos/amblyrhincus.jpeg){group="lizards" description="Something"}
+![*Amblyrhincus cristatus*](photos/amblyrhincus.jpeg){group="lizards" description="Something _credit:_ Giuliano Colosimo"}
 :::
