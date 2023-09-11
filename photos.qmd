@@ -12,9 +12,10 @@ When I travel, for pleasure of work, I do like to take pictures! I do not necess
 
 ## Big, medium, and small lizards.
 
+::: {layout="[[1], [1, 1], [1]]"}
 ![*Leiocephalus carinatus*](photos/leiocephalus.jpeg){description="The lion lizard from the Turks and Caicos. _credit:_ Giuliano Colosimo" desc-position="left" group="lizards"}
 
-::: {layout="[[1, 1], [1]]"}
+
 ![*Cyclura carinata*](photos/ccarinata.jpeg){group="lizards" description="Something"}
 
 ![*Cyclura nubila*](photos/cnubila.jpeg){group="lizards" description="Something"}
