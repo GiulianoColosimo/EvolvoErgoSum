@@ -1,21 +1,26 @@
 ---
-pagetitle: "Photos"
-format:
-  html:
-    toc: false
-#image: articles/advanced-layout-pdf.png
-search: false
-execute:
-  echo: false
-listing:
-  - id: photos
-    template: photos.ejs
-    contents: photos.yml
-    categories: true
-description: |
-  A gallery of example documents, websites, books, and presentations created with Quarto.
+title: "Photos"
+author: Giuliano Colosimo
+date: "2023-09-11"
+date-modified: "2023-09-11"
+filters:
+  - lightbox
+lightbox: auto
 ---
 
+When I travel, for pleasure of work, I do like to take pictures! I do not necessarily use my phone, although I would lie if I said that it is way easier to take pictures with a cell phone and the quality is, sometimes, pretty amazing. I shoot using a Canon EOS-77D and different optics. Below is a showcase of some of the pictures I like the most.
 
+## Big, medium, and small lizards.
 
+![*Leiocephalus carinatus*](photos/leiocephalus.jpeg){description="The lion lizard from the Turks and Caicos. _credit:_ Giuliano Colosimo" desc-position="left"}
 
+::: {layout="[[1, 1], [1]]"}
+![*Cyclura carinata*](photos/ccarinata.jpeg){group="elsewhere"
+description="Something"}
+
+![*Cyclura nubila*](photos/cnubila.jpeg){group="elsewhere"
+description="Something"}
+
+![*Amblyrhincus cristatus*](photos/amblyrhincus.jpeg){group="elsewhere"
+description="Something"}
+:::

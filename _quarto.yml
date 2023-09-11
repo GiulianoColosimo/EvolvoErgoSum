@@ -40,8 +40,8 @@ website:
       #      text: "Conservation Biology"
       - text: "Blog"
         href: blog.qmd
-      #- text: "Photos"
-      #  href: photos.qmd
+      - text: "Photos"
+        href: photos.qmd
       #- text: "Quotes"
       #  href: quotes.qmd
       - text: "Contacts"
