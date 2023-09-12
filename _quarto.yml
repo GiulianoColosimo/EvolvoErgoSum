@@ -13,13 +13,13 @@ website:
   #repo-url: https://github.com/quarto-dev/quarto-demo
   #repo-actions: [issue]
   favicon: "./figures/avatar.jpg"
-  twitter-card: true
+  #twitter-card: true
   google-analytics: 
     tracking-id: "UA-24215497"
-  cookie-consent:
-    type: express
-    style: headline
-    palette: dark
+  #cookie-consent:
+  #  type: express
+  #  style: headline
+  #  palette: dark
   open-graph:
     locale: en_US
   
