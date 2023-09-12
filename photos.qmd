@@ -13,11 +13,27 @@ When I travel, for pleasure of work, I do like to take pictures! I do not necess
 ## Big, medium, and small lizards.
 
 ::: {layout="[[1], [1, 1], [1]]"}
-![*Leiocephalus carinatus*](photos/leiocephalus.jpeg){group="lizards" description="The lion lizard from the Turks and Caicos. _credit:_ Giuliano Colosimo"}
+![*Leiocephalus carinatus*](photos/leiocephalus.jpeg){group="lizards" description="The lion lizard from the Turks and Caicos. _Credit:_ Giuliano Colosimo"}
 
-![*Cyclura carinata*](photos/ccarinata.jpeg){group="lizards" description="Something _credit:_ Giuliano Colosimo"}
+![*Cyclura carinata*](photos/ccarinata.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
 
-![*Cyclura nubila*](photos/cnubila.jpeg){group="lizards" description="Something _credit:_ Giuliano Colosimo"}
+![*Cyclura nubila*](photos/cnubila.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
 
-![*Amblyrhincus cristatus*](photos/amblyrhincus.jpeg){group="lizards" description="Something _credit:_ Giuliano Colosimo"}
+![*Amblyrhincus cristatus*](photos/amblyrhincus.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
 :::
+
+![*Cyclura pinguis*](photos/cpinguis.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
+
+## Other animals.
+
+And since life is not just about lizards...
+
+![*Macaca sinica*](photos/macacasinica.jpeg){group="animals" description="Something _credit:_ Giuliano Colosimo"}
+
+![*Ophiophagus hannah*](photos/kingcobra.jpeg){group="animals" description="Something _credit:_ Giuliano Colosimo"}
+
+## Places.
+
+Places I visited and things I found fascinating and pic worthy.
+
+![Mareri (Lazio, IT)](photos/mareri.jpeg){group="places" description="Something _credit:_ Giuliano Colosimo"}

@@ -1,0 +1,7 @@
+# Options specified here will apply to all posts in this folder
+
+#########################
+comments: 
+  utterances: 
+    repo:  GiulianoColosimo/EvolvoErgoSum 
+#########################

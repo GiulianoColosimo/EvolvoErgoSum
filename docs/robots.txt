@@ -1,1 +1,1 @@
-Sitemap: https://giulianocolosimo.github.com/sitemap.xml
+Sitemap: https://giulianocolosimo.github.io/EvolvoErgoSum/sitemap.xml

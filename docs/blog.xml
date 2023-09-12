@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Evolvo Ergo Sum</title>
-<link>https://giulianocolosimo.github.com/blog.html</link>
-<atom:link href="https://giulianocolosimo.github.com/blog.xml" rel="self" type="application/rss+xml"/>
+<link>https://giulianocolosimo.github.io/EvolvoErgoSum/blog.html</link>
+<atom:link href="https://giulianocolosimo.github.io/EvolvoErgoSum/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Ecology, Evolution with a sprinkle of Technology</description>
 <generator>quarto-1.3.353</generator>
 <lastBuildDate>Fri, 18 Aug 2023 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Translocation of Cyclura carinata from Little Water Cay to Grouper Cay.</title>
   <dc:creator>Giuliano Colosimo</dc:creator>
-  <link>https://giulianocolosimo.github.com/posts/translocation/index.html</link>
+  <link>https://giulianocolosimo.github.io/EvolvoErgoSum/posts/translocation/index.html</link>
   <description><![CDATA[ 
 
 
@@ -22,15 +22,15 @@
 <p>This summer, in the midst of the heat wave of late July and early August, we performed a translocation of <em>Cyclura carinata</em> individuals, the Turks and Caicos Rock Iguana, from Little Water Cay to Grouper Cay! Keep reading if you want to know more about this project and how it came about.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://giulianocolosimo.github.com/posts/translocation/cycar.png" class="img-fluid figure-img"></p>
+<p><img src="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/translocation/cycar.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">A young <em>Cyclura carinata</em> individual. (Photo credits: G. Colosimo)</figcaption>
 </figure>
 </div>
 <p><em>Cyclura carinata</em> is endemic to the Turks and Caicos Islands (TCI), a small and beautiful archipelago located north of Hispaniola Island (Haiti and Dominican Republic), in the Caribbean Sea. A species is defined endemic when it is native to a specific region and when it naturally can be found only in that particular area. Turks and Caicos Rock Iguanas is, in fact, native to the TCI and can only be found in this archipelago. The only exception is represented by a small population of TCI Rock Iguanas found on Booby Cay, The Bahamas. Genetic studies have recently demonstrated that the Booby Cay population is the outcome of a past introduction event <span class="citation" data-cites="Welch2017">(Welch <em>et al.</em>, 2017)</span>. Once occupying almost every single island in the TCI, the distribution range of <em>C carinata</em> dramatically decreased and they are considered extirpated from ca. 95% of their former range <span class="citation" data-cites="Gerber2007">(Gerber, 2007)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-015601bfd8dbbe3c8273" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-015601bfd8dbbe3c8273">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[21.8347,-72.1497,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Little Water Cay, the source population",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[21.8826,-72.0776,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Grouper Cay, the site selected for translocation",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[21.8347,21.8826],"lng":[-72.1497,-72.0776]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6b0070bc49e3e71b454e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-6b0070bc49e3e71b454e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[21.8347,-72.1497,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Little Water Cay, the source population",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[21.8826,-72.0776,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Grouper Cay, the site selected for translocation",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[21.8347,21.8826],"lng":[-72.1497,-72.0776]}},"evals":[],"jsHooks":[]}</script>
 <p>An interactive map showing the Turks and Caicos Archipelago and the relative position of source and recipient sites used for the translocation.</p>
 </div>
 </div>
@@ -38,7 +38,7 @@
 <p>A group of international researchers and volunteers, collaborating with local institutions like the Department of Environment and Coastal Resources (DECR) and the Turks and Caicos National Trust (TCINT), has been working for many years to ensure that this species could persist and thrive in its natural habitat. Thanks to their work, the implementation of different conservation strategies, and the involvement of local communities, the species has recently been down-listed from CR to Endangered (EN) in the IUCN Red-List of Threatened Species <span class="citation" data-cites="Gerber2020">(Gerber <em>et al.</em>, 2020)</span>. Although this represents very good news, it does not mean that conservation efforts can come to a stop. On the contrary, as the species persistence is still challenged by new development and the presence of introduced feral mammals, the level of guard and attention should not dim.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://giulianocolosimo.github.com/posts/translocation/cychead.png" class="img-fluid figure-img"></p>
+<p><img src="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/translocation/cychead.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">A young adult with its bead tag. The colored beads allow for an easy and effective way to remotely identifying the individual without the necessity to capture it. Each color corresponds to a number and a combination of different colors provides the individual numeric identifier. In this case only the white bead is present, indicating that this is individual number 1. (Photo credits: G. Colosimo)</figcaption>
 </figure>
 </div>
@@ -46,25 +46,25 @@
 <p>A first translocation program was conducted in 2002 and 2003 <span class="citation" data-cites="Gerber2004 Gerber2007">(Gerber <em>et al.</em>, 2004; Gerber, 2007)</span>. This year, following up on an intensive project to eradicate invasive mammals from some of the islands in the vicinity of Providenciales, another translocation was performed. Between July and August 2023 we moved 74 adults from Little Water Cay to Grouper Cay. The project authorized by the Scientific Research Permit No.&nbsp;2023-06-30-32 issued by DECR, was funded through a Darwin grant and leaded by senior research scientist Dr.&nbsp;Glenn Gerber (San Diego Zoo Wildlife Alliance). We received support from many local political institutions as well from local tour operators.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://giulianocolosimo.github.com/posts/translocation/georgeandflesh.png" class="img-fluid figure-img"></p>
+<p><img src="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/translocation/georgeandflesh.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Flesh, a representative of the Department of Environment and Coastal Resources, with an adult male <em>Cyclura carinata</em>. Flesh is receiving help from George, a volunteer with years of field experience in the Turks and Caicos Islands. (Photo credits: Dodly).</figcaption>
 </figure>
 </div>
 <p>Once captured, individuals are measured and sexed to make sure that an equal ratio of males and females are moved. Every individual is also assigned a unique identifier (Passive Integrated Trasponder-PIT), very much like the transponders that are used for house cats and dogs. These identifiers will ensure that, if recaptured in the future, that individual will be recognized as one of the animals already sampled. This is a more permanent solution to the application of colored beads. As beads are exposed, they can, eventually, fall from the animal following a fight between individual or the mating between males and females or simply because the wire used for attaching them to the nucal crest breaks.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://giulianocolosimo.github.com/posts/translocation/joemorgannick.png" class="img-fluid figure-img"></p>
+<p><img src="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/translocation/joemorgannick.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Joe (left, U.S. National Park Service), Morgan (center, local tour operato) and Nickoy (right, Turks and Caicos National Trust), while preparing a young adult for the application of beads and radio frequency identifier (RFID) transponder. (Photo credits: G. Colosimo)</figcaption>
 </figure>
 </div>
 <p>In future years it will be necessary to monitor the recipient island of Grouper Cay to make sure that the translocated animals have successfully acclimated to the new island. The best way to monitor the success of a translocation is to document the reproduction of the translocated individuals. In the next few years we will monitor for the presence of hatchlings or yearlings. Stay tuned.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://giulianocolosimo.github.com/posts/translocation/cycjuvi.png" class="img-fluid figure-img"></p>
+<p><img src="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/translocation/cycjuvi.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">A hatchling hiding in the vegetation. (Photo credits: G. Colosimo)</figcaption>
 </figure>
 </div>
-<p>Did you like this post? Let me know by e-mail what you think of it or if you have questions or curiosities. Till next time.</p>
+<p>Did you like this post? Drop a comment down here or let me know by e-mail what you think of it or if you have questions or curiosities. Till next time.</p>
 <p>Cheers</p>
 <section id="references" class="level1">
 
@@ -94,14 +94,14 @@ Welch, M.E., Colosimo, G., Pasachnik, S.A., Malone, C.L., Hilton, J., Long, J., 
   <category>Conservation</category>
   <category>Cyclura</category>
   <category>Turks and Caicos</category>
-  <guid>https://giulianocolosimo.github.com/posts/translocation/index.html</guid>
+  <guid>https://giulianocolosimo.github.io/EvolvoErgoSum/posts/translocation/index.html</guid>
   <pubDate>Fri, 18 Aug 2023 22:00:00 GMT</pubDate>
-  <media:content url="https://giulianocolosimo.github.com/posts/translocation/cycmale.png" medium="image" type="image/png" height="96" width="144"/>
+  <media:content url="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/translocation/cycmale.png" medium="image" type="image/png" height="96" width="144"/>
 </item>
 <item>
   <title>Automated download of weather data from Italian monitoring stations.</title>
   <dc:creator>Giuliano Colosimo</dc:creator>
-  <link>https://giulianocolosimo.github.com/posts/accessing_weather_data/index.html</link>
+  <link>https://giulianocolosimo.github.io/EvolvoErgoSum/posts/accessing_weather_data/index.html</link>
   <description><![CDATA[ 
 
 
@@ -311,7 +311,7 @@ font-style: inherit;"># state</span></span></code></pre></div>
 <p>If we were to do this procedure manually directly on the ISU web page at this point we will be selecting the appropriate country/state and network from the dedicated drop down menu, as shown in Figure&nbsp;1.</p>
 <div id="fig-state_net" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://giulianocolosimo.github.com/posts/accessing_weather_data/data_and_network_blue.png" class="img-fluid figure-img"></p>
+<p><img src="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/accessing_weather_data/data_and_network_blue.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: Highlighted in blue is the drop down menu that we could use on the web page to select the specific country/state and data network of interest.</figcaption>
 </figure>
 </div>
@@ -451,14 +451,14 @@ font-style: inherit;">1</span>)</span></code></pre></div>
 </div>
 <div id="fig-weather_stations" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://giulianocolosimo.github.com/posts/accessing_weather_data/weather_station.png" class="img-fluid figure-img"></p>
+<p><img src="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/accessing_weather_data/weather_station.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;2: Location of all weather stations around available from the ISU repository.</figcaption>
 </figure>
 </div>
 <p>It is interesting to see that there are so many stations that they can pretty much reproduce the outline and profile of the iconic Italian boot (Figure&nbsp;2)! This is all nice and good. Now lets get to the fun part. Let us say that we want to download data from ALL the stations available. Using the web interface from Figure&nbsp;1 we would be selecting all the stations from the left box, move them to the right box. Then go to the right side of the page (Figure&nbsp;3) and specify a number of things like the kind of desired output (CSV rather than TXT rather than DAT), the appropriate dates for the time window of interest and what kind of weather variable we would like data for (temperature, rain, wind, etc. etc. etc.).</p>
 <div id="fig-download_protocol" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://giulianocolosimo.github.com/posts/accessing_weather_data/data_and_network_red.png" class="img-fluid figure-img"></p>
+<p><img src="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/accessing_weather_data/data_and_network_red.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;3: Highlighted in red is the section of the page where to specifiy the kind of information needed, the time window of interest and the specific output format.</figcaption>
 </figure>
 </div>
@@ -682,9 +682,9 @@ Important
   <category>R</category>
   <category>Climate change</category>
   <category>Automated tasks</category>
-  <guid>https://giulianocolosimo.github.com/posts/accessing_weather_data/index.html</guid>
+  <guid>https://giulianocolosimo.github.io/EvolvoErgoSum/posts/accessing_weather_data/index.html</guid>
   <pubDate>Mon, 03 Jul 2023 22:00:00 GMT</pubDate>
-  <media:content url="https://giulianocolosimo.github.com/posts/accessing_weather_data/asos_italy.png" medium="image" type="image/png" height="160" width="144"/>
+  <media:content url="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/accessing_weather_data/asos_italy.png" medium="image" type="image/png" height="160" width="144"/>
 </item>
 </channel>
 </rss>

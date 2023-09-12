@@ -5,7 +5,7 @@ author:
   - name: Giuliano Colosimo
     url: 
 date: "2023-08-19"
-date-modified: "2023-08-19"
+date-modified: "2023-09-12"
 categories: ["Field work", "Conservation", "Cyclura", "Turks and Caicos"]
 image: cycmale.png
 format: 
@@ -55,7 +55,7 @@ In future years it will be necessary to monitor the recipient island of Grouper 
 
 ![A hatchling hiding in the vegetation. (Photo credits: G. Colosimo)](./cycjuvi.png)
 
-Did you like this post? Let me know by e-mail what you think of it or if you have questions or curiosities. Till next time.
+Did you like this post? Drop a comment down here or let me know by e-mail what you think of it or if you have questions or curiosities. Till next time.
 
 Cheers
 
