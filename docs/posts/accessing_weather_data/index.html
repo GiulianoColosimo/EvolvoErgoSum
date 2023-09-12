@@ -67,6 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../.././figures/avatar.jpg" rel="icon" type="image/jpeg">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,10 +99,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-24215497', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+
 
 <meta property="og:title" content="Evolvo Ergo Sum - Automated download of weather data from Italian monitoring stations.">
 <meta property="og:description" content="Weather data for all to download and analyse - 1">
-<meta property="og:image" content="https://giulianocolosimo.github.com/posts/accessing_weather_data/asos_italy.png">
+<meta property="og:image" content="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/accessing_weather_data/asos_italy.png">
 <meta property="og:site-name" content="Evolvo Ergo Sum">
 <meta property="og:locale" content="en_US">
 <meta property="og:image:height" content="374">
@@ -162,6 +177,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../../blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml" rel="" target=""><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../photos.html" rel="" target="">
+ <span class="menu-text">Photos</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../contacts.html" rel="" target="">
@@ -269,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.3.1 (2023-06-16)
 Platform: aarch64-apple-darwin20 (64-bit)
-Running under: macOS Ventura 13.4.1
+Running under: macOS Ventura 13.5.2
 
 Matrix products: default
 BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib 
@@ -453,7 +477,7 @@ Attaching package: 'dplyr'</code></pre>
 6     11.8456, 43.4597</code></pre>
 </div>
 </div>
-<p>As anticipated, this element contains all the information we need. There are 107 stations in Italy from where we can download data. Of the many variables for each location what is more important to us is the <strong>id</strong> of each station, its <strong>properties.sname</strong>, the <strong>properties.time_domain</strong> and the <strong>geometry.coordinates</strong> of each station. In fact, as a simple exercise we can make a plot to see how and where are the stations distributed.</p>
+<p>As anticipated, this element contains all the information we need. There are 108 stations in Italy from where we can download data. Of the many variables for each location what is more important to us is the <strong>id</strong> of each station, its <strong>properties.sname</strong>, the <strong>properties.time_domain</strong> and the <strong>geometry.coordinates</strong> of each station. In fact, as a simple exercise we can make a plot to see how and where are the stations distributed.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>stationsPlot <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">unlist</span>(jdict<span class="sc">$</span>features<span class="sc">$</span>geometry<span class="sc">$</span>coordinates), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stationsPlot[<span class="dv">1</span>,], stationsPlot[<span class="dv">2</span>,], <span class="at">asp =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -530,7 +554,7 @@ Important
 </div>
 </div>
 <p>Once the procedure is completed you will have all your data ready to be analysed in your folder. In the next post we will try to look at some of the downloaded data and make a few basic analysis.</p>
-<p>Did you like this post? Let me know by e-mail what you think of it or if you were unable to make it work. Till next time.</p>
+<p>Did you like this post? Drop a comment down here or let me know by e-mail what you think of it or if you have questions or curiosities. Till next time.</p>
 <p>Cheers</p>
 
 
@@ -884,13 +908,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="GiulianoColosimo/EvolvoErgoSum" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">© Copyright 2023 Giuliano Colosimo</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>. Inspiration for this site comes from <a href="https://www.mm218.dev">here</a></div>
   </div>
 </footer>

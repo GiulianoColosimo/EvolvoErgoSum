@@ -29,8 +29,8 @@
 <p><em>Cyclura carinata</em> is endemic to the Turks and Caicos Islands (TCI), a small and beautiful archipelago located north of Hispaniola Island (Haiti and Dominican Republic), in the Caribbean Sea. A species is defined endemic when it is native to a specific region and when it naturally can be found only in that particular area. Turks and Caicos Rock Iguanas is, in fact, native to the TCI and can only be found in this archipelago. The only exception is represented by a small population of TCI Rock Iguanas found on Booby Cay, The Bahamas. Genetic studies have recently demonstrated that the Booby Cay population is the outcome of a past introduction event <span class="citation" data-cites="Welch2017">(Welch <em>et al.</em>, 2017)</span>. Once occupying almost every single island in the TCI, the distribution range of <em>C carinata</em> dramatically decreased and they are considered extirpated from ca. 95% of their former range <span class="citation" data-cites="Gerber2007">(Gerber, 2007)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6b0070bc49e3e71b454e" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-6b0070bc49e3e71b454e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[21.8347,-72.1497,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Little Water Cay, the source population",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[21.8826,-72.0776,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Grouper Cay, the site selected for translocation",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[21.8347,21.8826],"lng":[-72.1497,-72.0776]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3192220d2f77f3326bb4" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3192220d2f77f3326bb4">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[21.8347,-72.1497,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Little Water Cay, the source population",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[21.8826,-72.0776,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Grouper Cay, the site selected for translocation",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[21.8347,21.8826],"lng":[-72.1497,-72.0776]}},"evals":[],"jsHooks":[]}</script>
 <p>An interactive map showing the Turks and Caicos Archipelago and the relative position of source and recipient sites used for the translocation.</p>
 </div>
 </div>
@@ -118,7 +118,7 @@ font-style: inherit;">sessionInfo</span>()</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.3.1 (2023-06-16)
 Platform: aarch64-apple-darwin20 (64-bit)
-Running under: macOS Ventura 13.4.1
+Running under: macOS Ventura 13.5.2
 
 Matrix products: default
 BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib 
@@ -418,7 +418,7 @@ font-style: inherit;">2</span>]])</span></code></pre></div>
 6     11.8456, 43.4597</code></pre>
 </div>
 </div>
-<p>As anticipated, this element contains all the information we need. There are 107 stations in Italy from where we can download data. Of the many variables for each location what is more important to us is the <strong>id</strong> of each station, its <strong>properties.sname</strong>, the <strong>properties.time_domain</strong> and the <strong>geometry.coordinates</strong> of each station. In fact, as a simple exercise we can make a plot to see how and where are the stations distributed.</p>
+<p>As anticipated, this element contains all the information we need. There are 108 stations in Italy from where we can download data. Of the many variables for each location what is more important to us is the <strong>id</strong> of each station, its <strong>properties.sname</strong>, the <strong>properties.time_domain</strong> and the <strong>geometry.coordinates</strong> of each station. In fact, as a simple exercise we can make a plot to see how and where are the stations distributed.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">stationsPlot <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -673,7 +673,7 @@ Important
 </div>
 </div>
 <p>Once the procedure is completed you will have all your data ready to be analysed in your folder. In the next post we will try to look at some of the downloaded data and make a few basic analysis.</p>
-<p>Did you like this post? Let me know by e-mail what you think of it or if you were unable to make it work. Till next time.</p>
+<p>Did you like this post? Drop a comment down here or let me know by e-mail what you think of it or if you have questions or curiosities. Till next time.</p>
 <p>Cheers</p>
 
 
