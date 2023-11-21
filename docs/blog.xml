@@ -9,8 +9,502 @@
 <link>https://giulianocolosimo.github.io/EvolvoErgoSum/blog.html</link>
 <atom:link href="https://giulianocolosimo.github.io/EvolvoErgoSum/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Ecology, Evolution with a sprinkle of Technology</description>
-<generator>quarto-1.3.353</generator>
-<lastBuildDate>Fri, 18 Aug 2023 22:00:00 GMT</lastBuildDate>
+<generator>quarto-1.3.433</generator>
+<lastBuildDate>Mon, 20 Nov 2023 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>A test of HWE using permutations (to be completed)</title>
+  <dc:creator>Giuliano Colosimo</dc:creator>
+  <link>https://giulianocolosimo.github.io/EvolvoErgoSum/posts/chisq_permutation/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Working with microsatellite genotypes data for many years I always wanted to fully understand how to build a test to verify whether the population(s) under analysis is(are) in Hardy-Weinberg (HW) equilibrium <span class="citation" data-cites="Hardy1908">(Hardy, 1908)</span> (or, to be more precise, if the population’s genotypes reflects HW proportions). Checking for HW proportions is generally the first step in any kind of population genetic analysis <span class="citation" data-cites="Waples2019">(Waples <em>et al.</em>, 2018)</span>.</p>
+<p>One of the most basic approach to perform such a test is to use the <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E%7B2%7D"> method <span class="citation" data-cites="Allendorf2022">(Allendorf <em>et al.</em>, 2022)</span>. This approach is particularly useful when the number of loci and alleles is too big to perform a Fisher’s Exact Test <span class="citation" data-cites="Fisher1935">(Fisher, 1935)</span>. The straight up formula of the <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E%7B2%7D"> test is relatively simple: <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E%7B2%7D%20=%20%5Csum%5Cfrac%7B(OBSERVED-EXPECTED)%5E2%7D%7BEXPECTED%7D">, where OBSERVED and EXPECTED refer to the number of observed and expected genotypes for each locus and allele. The <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E%7B2%7D"> value obtained is then compared to a set of values obtained under the assumption of no violation of the <img src="https://latex.codecogs.com/png.latex?H_0">.</p>
+<div class="cell">
+<details>
+<summary>Show the R code used to produce the graph</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">chiTestVal <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> </span>
+<span id="cb1-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.001</span>)</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pchisq</span>(chiTestVal, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">df =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), chiTestVal, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"l"</span>,</span>
+<span id="cb1-5">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">expression</span>(chi<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"distribution"</span>),</span>
+<span id="cb1-6">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Test Statistic Value"</span>,</span>
+<span id="cb1-7">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"p-value"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lwd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb1-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pchisq</span>(chiTestVal, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">df =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), chiTestVal, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"l"</span>,</span>
+<span id="cb1-9">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lwd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>)</span>
+<span id="cb1-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pchisq</span>(chiTestVal, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">df =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>), chiTestVal, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"l"</span>,</span>
+<span id="cb1-11">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lwd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"green"</span>)</span>
+<span id="cb1-12"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pchisq</span>(chiTestVal, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">df =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>), chiTestVal, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"l"</span>,</span>
+<span id="cb1-13">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lwd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"brown"</span>)</span>
+<span id="cb1-14"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pchisq</span>(chiTestVal, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">df =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>), chiTestVal, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"l"</span>,</span>
+<span id="cb1-15">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lwd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"deeppink"</span>)</span>
+<span id="cb1-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">abline</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">v=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lwd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb1-17"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">legend</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"topright"</span>, </span>
+<span id="cb1-18">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DoF = 1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DoF = 2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DoF = 3"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DoF = 4"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"DoF = 5"</span>), </span>
+<span id="cb1-19">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"green"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"brown"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"deeppink"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-chisq" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/chisq_permutation/index_files/figure-html/fig-chisq-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E%7B2%7D"> distribution graph showing the test statistic on the y axis and its associated p-value on the x axis. The test statistic is calculated with different Degrees of Freedom (DoF). The red dashed line marks the widely used threshold of p-value = 0.05 under which we can reject <img src="https://latex.codecogs.com/png.latex?H_0">. As DoF increases, the test statistic value needed to reject <img src="https://latex.codecogs.com/png.latex?H_0"> gets higher.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>While the <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E%7B2%7D"> test is applied in many different situations, there are some cases, for example when there are many genotypes with low expected numbers due the presence of many different alleles, where a different approach may serve us better in testing <img src="https://latex.codecogs.com/png.latex?H_0">: permutation tests <span class="citation" data-cites="Allendorf2022">(Allendorf <em>et al.</em>, 2022)</span>.</p>
+<p>The overall idea behind this approach is to recreate X number of randomized datasets starting from the observed data. For each generated dataset a <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E%7B2%7D"> value is then calculated and compared with the value obtained from the original dataset. The prorportion of randomized dataset that produce a <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E%7B2%7D"> value as large as or lager than the observed data give us an unbiased estimate of the probability of rejecting <img src="https://latex.codecogs.com/png.latex?H_0"> <span class="citation" data-cites="Allendorf2022">(Allendorf <em>et al.</em>, 2022)</span>.</p>
+<p>In this post I will show how I build a permutation test procedure to evaluate the probability if rejecting <img src="https://latex.codecogs.com/png.latex?H_0"> when working with microsatellite genotypes. I will be using a microsatellite dataset available from Dryad (click <a href="https://drive.proton.me/urls/W9206FWP1C#LlZJdXqsWypn">here</a> to download). The dataset is borrowed from <span class="citation" data-cites="Chan2020">Chan <em>et al.</em> (2020)</span> and consists of 27 microsatellites typed in 237 individuals. The original dataset is available in <strong><font color="green"> genpop </font></strong> format. This is a widely used format in R applications. The procedure illustrated here works directly with matrices. Therefore in this first part of the post I will cover the step-by-step procedure to transition from <strong><font color="green"> genpop </font></strong> to <strong><font color="green"> matrix </font></strong>.</p>
+</section>
+<section id="data-wrangling" class="level1">
+<h1>Data wrangling</h1>
+<p>First thing to do is to load the data file using the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(adegenet)                                    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># package to load</span></span>
+<span id="cb2-2">sceloporus_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read.genepop</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"path/to/file.gen"</span>,  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># specify the path to the genepop file</span></span>
+<span id="cb2-3">                                <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ncode =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,           <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># how many digits are used for alleles</span></span>
+<span id="cb2-4">                                <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">quiet =</span> T)           <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># print loading progress on screen</span></span></code></pre></div>
+</div>
+<p>The <em>read.genepop()</em> function from <strong>adegenet</strong> <span class="citation" data-cites="Jombart2008a">(Jombart, 2008)</span> automatically converts the data in to a <strong><font color="green"> genind </font></strong> object, the data format used by <strong>adegenet</strong>. We can take a look at what it is like just by typing the name of data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">sceloporus_data</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/// GENIND OBJECT /////////
+
+ // 237 individuals; 27 loci; 442 alleles; size: 499.2 Kb
+
+ // Basic content
+   @tab:  237 x 442 matrix of allele counts
+   @loc.n.all: number of alleles per locus (range: 3-35)
+   @loc.fac: locus factor for the 442 columns of @tab
+   @all.names: list of allele names for each locus
+   @ploidy: ploidy of each individual  (range: 2-2)
+   @type:  codom
+   @call: read.genepop(file = "~/Documents/websites/EvolvoErgoSum/data/doi_10.5061_dryad.sxksn0316__v2/microsatellite_genotypes.gen", 
+    ncode = 3, quiet = T)
+
+ // Optional content
+   @pop: population of each individual (group size range: 6-76)</code></pre>
+</div>
+</div>
+<p>This data format is quite useful as it gives a first glance of what is that we are dealing with. Unfortunately this is not the format needed to perform this custom test so we first need to transform the data a bit. In fact this permutation procedure takes as input file a matrix of genotypes. Rather than giving you an example right now I think is best if we proceed and transform the dataset so that you can see how the input file should look like. The first step is to transform the data object in a data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">sceloporus_data_df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">genind2df</span>(sceloporus_data)</span>
+<span id="cb5-2">sceloporus_data_df[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>]</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              pop sa5220 sa5229 sa6002 sa6012  sar80  sar84 sarms0001 sarms0344
+DJL286  TCWC93505 109112 233233 121129 146146 362398 117123    207207    251251
+DJL297  TCWC93505 109109 201225 121129 134140 350358 117117    199199    242242
+DL924   TCWC93505 109112 185185 121129 146152   &lt;NA&gt; 117117    207207    242245
+DL925   TCWC93505 109112 221241 121121 142144 374382 117117    207199    251251
+ESP9057 TCWC93505 109109 225221 121121 136136 378378 117117    207207    242242
+ESP9070 TCWC93505 109112 205229 121121 140144 374374 117117    207199    251242
+ESP9479 TCWC93505 109109 229237 121121 146144 350354 117135    207207    251251
+ESP9480 TCWC93505 109109 201229 121121 134128 354353 117135    207207    251242
+ESP9485 TCWC93505 109112 233225 121121 128138 350353 117135    207207    251251
+ESP9486 TCWC93505 109112 225245 129117 140140 350382 117131    207207    242242</code></pre>
+</div>
+</div>
+<p>By inspecting the first 10 individuals and 9 loci we notice that the function has nicely organized our individuals in rows, kept the population information in the first column, and used the other columns for the genotypes. This format is very close to what we need, but not quite yet. First, we change the coding scheme of missing genotypes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">sceloporus_data_df[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">apply</span>(sceloporus_data_df, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, is.na)] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"000000"</span></span>
+<span id="cb7-2">sceloporus_data_df[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>]</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              pop sa5220 sa5229 sa6002 sa6012  sar80  sar84 sarms0001 sarms0344
+DJL286  TCWC93505 109112 233233 121129 146146 362398 117123    207207    251251
+DJL297  TCWC93505 109109 201225 121129 134140 350358 117117    199199    242242
+DL924   TCWC93505 109112 185185 121129 146152 000000 117117    207207    242245
+DL925   TCWC93505 109112 221241 121121 142144 374382 117117    207199    251251
+ESP9057 TCWC93505 109109 225221 121121 136136 378378 117117    207207    242242
+ESP9070 TCWC93505 109112 205229 121121 140144 374374 117117    207199    251242
+ESP9479 TCWC93505 109109 229237 121121 146144 350354 117135    207207    251251
+ESP9480 TCWC93505 109109 201229 121121 134128 354353 117135    207207    251242
+ESP9485 TCWC93505 109112 233225 121121 128138 350353 117135    207207    251251
+ESP9486 TCWC93505 109112 225245 129117 140140 350382 117131    207207    242242</code></pre>
+</div>
+</div>
+<p>Just a few more lines of code to transform everything from a data frame to a matrix and retain all the information that may be useful down the road.</p>
+<div class="cell">
+<details>
+<summary>Show the R code</summary>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">sceloporus_data_mt <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">apply</span>(sceloporus_data_df[,<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(x){</span>
+<span id="cb9-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">substr</span>(x, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">substr</span>(x, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sep =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/"</span>)</span>
+<span id="cb9-3">})</span>
+<span id="cb9-4">sceloporus_data_mt <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cbind</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.character</span>(sceloporus_data_df[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]), sceloporus_data_mt)</span>
+<span id="cb9-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rownames</span>(sceloporus_data_mt) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rownames</span>(sceloporus_data_df)</span>
+<span id="cb9-6">sceloporus_data_mt[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>]</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    sa5220    sa5229    sa6002    sa6012    sar80     sar84    
+DJL286  "TCWC93505" "109/112" "233/233" "121/129" "146/146" "362/398" "117/123"
+DJL297  "TCWC93505" "109/109" "201/225" "121/129" "134/140" "350/358" "117/117"
+DL924   "TCWC93505" "109/112" "185/185" "121/129" "146/152" "000/000" "117/117"
+DL925   "TCWC93505" "109/112" "221/241" "121/121" "142/144" "374/382" "117/117"
+ESP9057 "TCWC93505" "109/109" "225/221" "121/121" "136/136" "378/378" "117/117"
+ESP9070 "TCWC93505" "109/112" "205/229" "121/121" "140/144" "374/374" "117/117"
+ESP9479 "TCWC93505" "109/109" "229/237" "121/121" "146/144" "350/354" "117/135"
+ESP9480 "TCWC93505" "109/109" "201/229" "121/121" "134/128" "354/353" "117/135"
+ESP9485 "TCWC93505" "109/112" "233/225" "121/121" "128/138" "350/353" "117/135"
+ESP9486 "TCWC93505" "109/112" "225/245" "129/117" "140/140" "350/382" "117/131"</code></pre>
+</div>
+</div>
+</section>
+<section id="next-step-coming-soon" class="level1">
+<h1>Next step coming soon…</h1>
+</section>
+<section id="references" class="level1">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Allendorf2022" class="csl-entry">
+Allendorf, F.W., Funk, W.C., Aitken, S.N., Byrne, M., Luikart, G. and Antunes, A. 2022. <em><a href="https://doi.org/10.1093/oso/9780198856566.001.0001"><span class="nocase">Conservation and the Genomics of Populations</span></a></em>. Oxford University Press.
+</div>
+<div id="ref-Chan2020" class="csl-entry">
+Chan, L.M., Painter, C.W., Hill, M.T., Hibbitts, T.J., Leavitt, D.J., Ryberg, W.A., <em>et al.</em> 2020. <a href="https://doi.org/10.1371/journal.pone.0238194">Phylogeographic structure of the dunes sagebrush lizard, an endemic habitat specialist</a>. <em><span>PLOS</span> <span>ONE</span></em>, <strong>15</strong>: e0238194. Public Library of Science (<span>PLoS</span>).
+</div>
+<div id="ref-Fisher1935" class="csl-entry">
+Fisher, R.A. 1935. <a href="https://doi.org/10.1111/j.2397-2335.1935.tb04208.x">The logic of inductive inference</a>. <em>Journal of the Royal Statistical Society</em>, <strong>98</strong>: 39–54.
+</div>
+<div id="ref-Hardy1908" class="csl-entry">
+Hardy, G.H. 1908. <a href="https://doi.org/10.1126/science.28.706.49">Mendelian proportions in a mixed population</a>. <em>Science</em>, <strong>28</strong>: 49–50.
+</div>
+<div id="ref-Jombart2008a" class="csl-entry">
+Jombart, T. 2008. <a href="https://doi.org/10.1093/bioinformatics/btn129"><span class="nocase">adegenet: a R package for the multivariate analysis of genetic markers.</span></a> <em>Bioinformatics</em>, <strong>24</strong>: 1403–1405.
+</div>
+<div id="ref-Waples2019" class="csl-entry">
+Waples, R.S., Rus Hoelzel, A., Gaggiotti, O., Tiedemann, R., Palsbøll, P.J., Cipriano, F., <em>et al.</em> 2018. Guidelines for genetic data analysis. <em>Journal of Cetacean Research and Management</em>, <strong>18</strong>: 33–80.
+</div>
+</div></section></div> ]]></description>
+  <category>R</category>
+  <category>Chi square</category>
+  <category>Permutation</category>
+  <category>Statistics</category>
+  <guid>https://giulianocolosimo.github.io/EvolvoErgoSum/posts/chisq_permutation/index.html</guid>
+  <pubDate>Mon, 20 Nov 2023 23:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Translocation of Cyclura carinata from Little Water Cay to Grouper Cay.</title>
   <dc:creator>Giuliano Colosimo</dc:creator>
