@@ -11,3 +11,5 @@ citecolor: "red"
 nocite: |
  @Lewbart2023 @Castano2023, @Gargano2022, @Graham2022, @Colosimo2022, @Colosimo2022b, @Colosimo2021b, @Colosimo2020, @Colosimo2020a, @Gerber2020, @Loreti2020, @Pasachnik2020, @Russo2020, @Mariani2019, @Welch2017, @Aplasca2016a, @Colosimo2014 
 ---
+
+This is a complete list of all my peer-reviewed publications. They are sorted alphabetically based on the last name of the first author.
