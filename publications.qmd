@@ -30,6 +30,7 @@ myPub <- bib_df %>%
 myPub$YEAR[myPub$YEAR == "2009}"] <- 2009
 myPub$YEAR[myPub$YEAR == "2016}"] <- 2016
 myPub$YEAR[myPub$YEAR == "2020}"] <- 2020
+myPub$YEAR[myPub$YEAR == "2021}"] <- 2021
 myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
 myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
 myPub$YEAR <- as.numeric(myPub$YEAR)
