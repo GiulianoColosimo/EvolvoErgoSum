@@ -31,11 +31,7 @@ website:
       - text: "About Me"
         href: aboutme.qmd
       - text: "Publications"
-        menu: 
-          - href: peerreviewed.qmd
-            text: "Peer-reviewed"
-          - href: nonpeerreviewed.qmd
-            text: "Non Peer-reviewed"
+        href: publications.qmd
       - text: "Projects"
         menu: 
           - href: taco.qmd
