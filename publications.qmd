@@ -33,6 +33,7 @@ myPub$YEAR[myPub$YEAR == "2020}"] <- 2020
 myPub$YEAR[myPub$YEAR == "2021}"] <- 2021
 myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
 myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
+myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
 myPub$YEAR <- as.numeric(myPub$YEAR)
 myPub <- myPub[order(myPub$YEAR, decreasing = T), ]
 myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){x[,c("last_name", "first_name")]})
@@ -60,14 +61,76 @@ myPub$JOURNAL <- apply(myPub[, c("JOURNAL", "VOLUME", "PAGES")], 1,
 
 myPub$COUNT <- rev(seq(1:nrow(myPub)))
 
+linkColor <- ifelse(is.na(myPub$DOI), "gold", "")
+
 kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html", escape = F) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
                 font_size = 7) %>%
   column_spec(1, bold = F, width = "5em", border_right = T) %>%
   column_spec(2, bold = F, width = "5em", border_right = T) %>%
-  column_spec(3, width = "40em", border_right = T) %>%
+  column_spec(3, width = "40em", border_right = T, background = linkColor) %>%
   column_spec(4, width = "25em", border_right = T) %>%
   column_spec(5, width = "10em",color = "red")
+```
+
+
+## In review
+
+Below is a list of publication currently undergoing the peer-review process.
+
+```{r inreview, echo = FALSE, warning = FALSE, message = FALSE}
+bib_df <- bib2df("./GiulianosPubs.bib", separate_names = TRUE)
+
+myPub <- bib_df %>% 
+  filter(NOTE == "In review") %>% 
+  select("TITLE", "YEAR", "AUTHOR", "JOURNAL", "CATEGORY",
+          "DOI", "VOLUME", "NUMBER", "PAGES", "NOTE")
+
+myPub$YEAR[myPub$YEAR == "2009}"] <- 2009
+myPub$YEAR[myPub$YEAR == "2016}"] <- 2016
+myPub$YEAR[myPub$YEAR == "2020}"] <- 2020
+myPub$YEAR[myPub$YEAR == "2021}"] <- 2021
+myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
+myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
+myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
+myPub$YEAR <- as.numeric(myPub$YEAR)
+myPub <- myPub[order(myPub$YEAR, decreasing = T), ]
+myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){x[,c("last_name", "first_name")]})
+myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){
+  paste(x[,"last_name"],
+        substr(x[,"first_name"],1,1))
+})
+
+myPub$AUTHOR <- lapply(myPub$AUTHOR, function(y){unlist(lapply(y, function(x){if (x == "Colosimo G"){
+  paste("<b>", x, "</b>", sep = "")
+} else {
+  x
+}}))})
+
+myPub$AUTHOR <- unlist(lapply(myPub$AUTHOR, paste, collapse = ", "))
+myPub$TITLE <- text_spec(myPub$TITLE, link = myPub$DOI, format = "html",
+                         color = "blue")
+
+myPub$JOURNAL <- apply(myPub[, c("JOURNAL", "VOLUME", "PAGES")], 1,
+      function(x){
+        Selector <- as.matrix(x)
+        Selector <- !is.na(Selector)
+        paste(x[Selector], collapse = ", ")
+      })
+
+myPub$COUNT <- rev(seq(1:nrow(myPub)))
+
+linkColor <- ifelse(is.na(myPub$DOI), "gold", "")
+
+kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html", escape = F) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                font_size = 7) %>%
+  column_spec(1, bold = F, width = "5em", border_right = T) %>%
+  column_spec(2, bold = F, width = "5em", border_right = T) %>%
+  column_spec(3, width = "40em", border_right = T, background = linkColor) %>%
+  column_spec(4, width = "25em", border_right = T) %>%
+  column_spec(5, width = "10em",color = "red")
+
 ```
 
 
@@ -88,6 +151,7 @@ myPub$YEAR[myPub$YEAR == "2016}"] <- 2016
 myPub$YEAR[myPub$YEAR == "2020}"] <- 2020
 myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
 myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
+myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
 myPub$YEAR <- as.numeric(myPub$YEAR)
 myPub <- myPub[order(myPub$YEAR, decreasing = T), ]
 myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){x[,c("last_name", "first_name")]})
@@ -108,12 +172,14 @@ myPub$TITLE <- text_spec(myPub$TITLE, link = myPub$DOI, format = "html",
 
 myPub$COUNT <- rev(seq(1:nrow(myPub)))
 
+linkColor <- ifelse(is.na(myPub$DOI), "gold", "")
+
 kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR")], format = "html", escape = F) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
                 font_size = 7) %>%
   column_spec(1, bold = F, width = "5em", border_right = T) %>%
   column_spec(2, bold = F, width = "5em", border_right = T) %>%
-  column_spec(3, width = "40em", border_right = T) %>%
+  column_spec(3, width = "40em", border_right = T, background = linkColor) %>%
   column_spec(4, width = "25em", border_right = T)
 ```
 
