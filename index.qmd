@@ -7,7 +7,7 @@ date: "2023-03-31"
 
 ## Welcome!
 
-This is where I keep track of my projects, publications, research work, and ideas. While helping me to keep my thoughts organized, this space is also an opportunity to share them with the rest of the world. Not that the world needs my thoughts, but I most definitely could benefit from the world's feedback. At any rate, welcome! Hope you will find something interesting, eventually.
+This is where I keep track of my projects, publications, research, work, and ideas. While helping me to keep my thoughts organized, this space is also an opportunity to share them with the rest of the world. Not that the world needs my thoughts, but I most definitely could benefit from the world's feedback. At any rate, welcome! Hope you will find something interesting, eventually.
 
 ### A brief introduction.
 
@@ -16,7 +16,7 @@ I am a research associate working at the University of Rome Tor Vergata. One of 
 
 ### Navigation tips.
 
-If you want to write me, or you need quick access to my CV or some of my linked accounts you can click on the icons located right below my picture, in the upper left side corner. Use the top navigation bar to know more about me, my research, my publications, some of the things I share on my blog, or simply to switch to Dark Mode (highly recommended).
+If you want to write me, or you need quick access to my CV or some of my linked accounts you can click on the icons located right below my picture, in the upper left side corner. Use the top navigation bar to know more about me, my research, my publications, some of the things I share on my blog, or simply to switch to Dark Mode (highly recommended). I most recently joined the <a rel="me" href="https://mastodon.social/@cinghio">Mastodon</a> community and you can follow me there as well.
 
 
 

@@ -84,15 +84,22 @@ website:
     tools:
       - url: "https://www.linkedin.com/in/giulianocolosimo/"
         icon: linkedin
+        text: LinkedIn
       - icon: github
         url: "https://github.com/GiulianoColosimo"
+        text: GitHub
       - icon: envelope
         url: "mailto:giuliano.colosimo@uniroma2.it"
+        text: Wrtie me an e-mail
       - url: "https://drive.proton.me/urls/TYWCJ0QRR8#ughIubjXdiay"
         icon: file-pdf
+        text: Curriculum Vitae
+      - text: Mastodon
+        icon: mastodon
+        url: "https://mastodon.social/@cinghio"
         
   page-footer:
-    left: "© Copyright 2023 Giuliano Colosimo"
+    left: "© Copyright 2024 Giuliano Colosimo"
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/). Inspiration for this site comes from [here](https://www.mm218.dev)"
     background: dark
     
