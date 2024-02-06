@@ -12,8 +12,8 @@ format:
   html:
     toc: true
 engine: knitr
-bibliography: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/comprehensive_database.bib
-csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/evolutionary-ecology-research.csl
+bibliography: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/evolutionary-ecology-research.csl
 citation_package: biblatex
 citecolor: "red"
 ---
@@ -22,7 +22,7 @@ citecolor: "red"
 
 Working with microsatellite genotypes data for many years I always wanted to fully understand how to build a test to verify whether the population(s) under analysis is(are) in Hardy-Weinberg (HW) equilibrium [@Hardy1908] (or, to be more precise, if the population's genotypes reflects HW proportions). Checking for HW proportions is generally the first step in any kind of population genetic analysis [@Waples2019].
 
-One of the most basic approach to perform such a test is to use the $\chi^{2}$ method [@Allendorf2022]. This approach is particularly useful when the number of loci and alleles is too big to perform a Fisher's Exact Test [@Fisher1935]. The straight up formula of the $\chi^{2}$ test is relatively simple: $\chi^{2} = \sum\frac{(OBSERVED-EXPECTED)^2}{EXPECTED}$, where OBSERVED and EXPECTED refer to the number of observed and expected genotypes for each locus and allele. The $\chi^{2}$ value obtained is then compared to a set of values obtained under the assumption of no violation of the $H_0$.
+One of the most basic approach to perform such a test is to use the $\chi^{2}$ method [@Allendorf2022]. This approach is particularly useful when the number of loci and alleles is too big to perform a Fisher's Exact Test [@Fisher1935]. The straight up formula of the $\chi^{2}$ test is relatively simple: $\chi^{2} = \sum\frac{(OBSERVED-EXPECTED)^2}{EXPECTED}$, where OBSERVED and EXPECTED refer to the number of observed and expected genotypes for each locus and allele. The computed $\chi^{2}$ value is then compared to a set of values obtained under the assumption of no violation of the $H_0$.
 
 
 ```{r chisq}
@@ -54,13 +54,15 @@ legend("topright",
 
 While the $\chi^{2}$ test is applied in many different situations, there are some cases, for example when there are many genotypes with low expected numbers due the presence of many different alleles, where a different approach may serve us better in testing $H_0$: permutation tests [@Allendorf2022].
 
-The overall idea behind this approach is to recreate X number of randomized datasets starting from the observed data. For each generated dataset a $\chi^{2}$ value is then calculated and compared with the value obtained from the original dataset. The prorportion of randomized dataset that produce a $\chi^{2}$ value as large as or lager than the observed data give us an unbiased estimate of the probability of rejecting $H_0$ [@Allendorf2022].
+The overall idea behind this approach is to recreate X number of randomized datasets starting from the observed data. For each generated dataset a $\chi^{2}$ value is then calculated and compared with the value obtained from the original dataset. The proportion of randomized dataset that produce a $\chi^{2}$ value as large as or lager than the observed data gives us an unbiased estimate of the probability of rejecting $H_0$ [@Allendorf2022].
 
-In this post I will show how I build a permutation test procedure to evaluate the probability if rejecting $H_0$ when working with microsatellite genotypes. I will be using a microsatellite dataset available from Dryad (click [here](https://drive.proton.me/urls/W9206FWP1C#LlZJdXqsWypn) to download). The dataset is borrowed from @Chan2020 and consists of 27 microsatellites typed in 237 individuals. The original dataset is available in **<font color="green"> genpop </font>** format. This is a widely used format in R applications. The procedure illustrated here works directly with matrices. Therefore in this first part of the post I will cover the step-by-step procedure to transition from **<font color="green"> genpop </font>** to **<font color="green"> matrix </font>**. 
+In this post I will show how I build a permutation test procedure to evaluate the probability of rejecting $H_0$ when working with microsatellite genotypes. I will be using a microsatellite dataset available from Dryad (click [here](https://drive.proton.me/urls/W9206FWP1C#LlZJdXqsWypn) to download). The dataset is borrowed from @Chan2020 and consists of 27 microsatellites typed in 237 individuals. The original dataset is available in **<font color="green"> genpop </font>** format. This is a widely used format in R applications and in population genetics analyses. 
+
+The procedure illustrated here works directly with matrices. Therefore in this first part I will cover the step-by-step procedure to transition from **<font color="green"> genpop </font>** to **<font color="green"> matrix </font>** format. 
 
 # Data wrangling
 
-First thing to do is to load the data file using the following code:
+To load the data file, encoded in **<font color="green"> genpop </font>** format, we will be using one of the most populat package for genetic analyses in R: **adegenet** [@Jombart2008a]. I will assume you have the package already installed locally on your computer. So, the first thing to do is to load the data file using the following code:
 
 ```{r loadDataShow, echo=TRUE, eval=FALSE, message=FALSE}
 library(adegenet)                                    # package to load
@@ -77,13 +79,13 @@ sceloporus_data <-
                quiet = T)
 ```
 
-The *read.genepop()* function from **adegenet** [@Jombart2008a] automatically converts the data in to a  **<font color="green"> genind </font>**  object, the data format used by **adegenet**. We can take a look at what it is like just by typing the name of data.
+The *read.genepop()* function from **adegenet** automatically converts the data in to a  **<font color="green"> genind </font>**  object, the data format used by **adegenet**. We can take a look at what it is like just by typing the name of data.
 
 ```{r seeData, echo=TRUE}
 sceloporus_data
 ```
 
-This data format is quite useful as it gives a first glance of what is that we are dealing with. Unfortunately this is not the format needed to perform this custom test so we first need to transform the data a bit. In fact this permutation procedure takes as input file a matrix of genotypes. Rather than giving you an example right now I think is best if we proceed and transform the dataset so that you can see how the input file should look like. The first step is to transform the data object in a data frame.
+This data format is quite useful as it gives a first glance of what is that we are dealing with. Unfortunately this is not the format needed to perform this custom test. In fact this permutation procedure takes as input file a matrix of genotypes. Rather than giving you an example right now I think is best if we proceed and transform the dataset so that you can see how the input file should look like. The first step is to transform the data object in a data frame.
 
 ```{r genind2df, echo=TRUE}
 sceloporus_data_df <- genind2df(sceloporus_data)

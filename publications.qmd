@@ -16,9 +16,7 @@ library(formattable)
 library(dplyr)
 ```
 
-
 My publications organized in different tables: peer reviewed pubs; pubs that are still undergoing the review process; other more general publications. The title of each publication is actually a link to either the official journal web-page where it was published or to a repository where you can find a PDF copy of it. If the link doesn't work (or currently is not available) the cell will have a gold-ish background color. I periodically check this list and the link to make sure that it is up to date.
-
 
 ## Peer reviewed (Published/Accepted)
 
@@ -76,8 +74,7 @@ kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html",
   column_spec(5, width = "10em",color = "red")
 ```
 
-
-## In review 
+## In review
 
 Below is a list of publication currently undergoing the peer-review process.
 
@@ -136,7 +133,6 @@ kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html",
 
 ```
 
-
 ## Non Peer-reviewed
 
 Here is a list of publications that did not undergo the peer review process. Some of them are manuscripts that I am currently working on, others are the result of other projects that I have been involved in. There is also reference to articles that have been published to reach out to the wider public.
@@ -185,5 +181,3 @@ kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR")], format = "html", escape = F
   column_spec(3, width = "40em", border_right = T, background = linkColor) %>%
   column_spec(4, width = "25em", border_right = T)
 ```
-
-
