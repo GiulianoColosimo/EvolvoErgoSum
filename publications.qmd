@@ -4,7 +4,7 @@ editor: visual
 citation_package: biblatex
 citecolor: "red"
 date: "2023-03-31"
-date-modified: "2024-03-06"
+date-modified: "2024-03-07"
 ---
 
 ```{r setup, include=FALSE}
@@ -76,9 +76,9 @@ kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html",
 
 ## In review
 
-Below is a list of publication currently undergoing the peer-review process.
+Below is a list of publications currently undergoing the peer-review process or that are about to be submitted for the review process to begin.
 
-```{r inreview, echo = FALSE, warning = FALSE, message = FALSE}
+```{r inreview, echo = FALSE, warning = FALSE, message = FALSE, eval=TRUE}
 bib_df <- bib2df("./GiulianosPubs.bib", separate_names = TRUE)
 
 myPub <- bib_df %>% 
@@ -93,6 +93,7 @@ myPub$YEAR[myPub$YEAR == "2021}"] <- 2021
 myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
 myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
 myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
+myPub$YEAR[myPub$YEAR == "2025}"] <- 2025
 myPub$YEAR <- as.numeric(myPub$YEAR)
 myPub <- myPub[order(myPub$YEAR, decreasing = T), ]
 myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){x[,c("last_name", "first_name")]})
