@@ -12,8 +12,8 @@ format:
   html:
     toc: true
 engine: knitr
-bibliography: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/comprehensive_database.bib
-csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/evolutionary-ecology-research.csl
+bibliography: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/evolutionary-ecology-research.csl
 citation_package: biblatex
 citecolor: "red"
 ---

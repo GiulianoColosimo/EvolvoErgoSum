@@ -4,7 +4,7 @@ editor: visual
 citation_package: biblatex
 citecolor: "red"
 date: "2023-03-31"
-date-modified: "2024-04-23"
+date-modified: "2024-05-06"
 ---
 
 ```{r setup, include=FALSE}
@@ -18,8 +18,6 @@ library(wordcloud)
 library(RColorBrewer)
 library(wordcloud2)
 ```
-
-
 
 ```{r cloudWord, echo = FALSE, warning = FALSE, message = FALSE}
 set.seed(18792)
@@ -98,7 +96,7 @@ kable(myPub[, c("COUNT","YEAR", "MONTH", "TITLE", "AUTHOR", "JOURNAL")], format 
   column_spec(6, width = "10em", color = "red")
 ```
 
-## In review/preparation
+## In review
 
 ```{r inreview, echo = FALSE, warning = FALSE, message = FALSE, eval=TRUE}
 bib_df <- bib2df("./GiulianosPubs.bib", separate_names = TRUE)
@@ -143,7 +141,7 @@ myPub$JOURNAL <- apply(myPub[, c("JOURNAL", "VOLUME", "PAGES")], 1,
 
 myPub$COUNT <- rev(seq(1:nrow(myPub)))
 
-linkColor <- ifelse(is.na(myPub$DOI), "gold", "")
+linkColor <- ifelse(is.na(myPub$DOI), "orange", "")
 
 kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html", escape = F) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
@@ -155,6 +153,67 @@ kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html",
   column_spec(5, width = "10em",color = "red")
 
 ```
+
+## In preparation
+
+```{r inprep, echo = FALSE, warning = FALSE, message = FALSE, eval=TRUE}
+bib_df <- bib2df("./GiulianosPubs.bib", separate_names = TRUE)
+
+myPub <- bib_df %>% 
+  filter(NOTE == "In preparation") %>% 
+  select("TITLE", "YEAR", "AUTHOR", "JOURNAL", "CATEGORY",
+          "DOI", "VOLUME", "NUMBER", "PAGES", "NOTE")
+
+myPub$YEAR[myPub$YEAR == "2009}"] <- 2009
+myPub$YEAR[myPub$YEAR == "2016}"] <- 2016
+myPub$YEAR[myPub$YEAR == "2020}"] <- 2020
+myPub$YEAR[myPub$YEAR == "2021}"] <- 2021
+myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
+myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
+myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
+myPub$YEAR[myPub$YEAR == "2025}"] <- 2025
+myPub$YEAR <- as.numeric(myPub$YEAR)
+myPub <- myPub[order(myPub$YEAR, decreasing = T), ]
+myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){x[,c("last_name", "first_name")]})
+myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){
+  paste(x[,"last_name"],
+        substr(x[,"first_name"],1,1))
+})
+
+myPub$AUTHOR <- lapply(myPub$AUTHOR, function(y){unlist(lapply(y, function(x){if (x == "Colosimo G"){
+  paste("<b>", x, "</b>", sep = "")
+} else {
+  x
+}}))})
+
+myPub$AUTHOR <- unlist(lapply(myPub$AUTHOR, paste, collapse = ", "))
+myPub$TITLE <- text_spec(myPub$TITLE, link = myPub$DOI, format = "html",
+                         color = "gold")
+
+myPub$JOURNAL <- apply(myPub[, c("JOURNAL", "VOLUME", "PAGES")], 1,
+      function(x){
+        Selector <- as.matrix(x)
+        Selector <- !is.na(Selector)
+        paste(x[Selector], collapse = ", ")
+      })
+
+myPub$COUNT <- rev(seq(1:nrow(myPub)))
+
+linkColor <- ifelse(is.na(myPub$DOI), "forestgreen", "")
+
+kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html", escape = F) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                font_size = 7) %>%
+  column_spec(1, bold = F, width = "5em", border_right = T) %>%
+  column_spec(2, bold = F, width = "5em", border_right = T) %>%
+  column_spec(3, width = "40em", border_right = T, background = linkColor) %>%
+  column_spec(4, width = "25em", border_right = T) %>%
+  column_spec(5, width = "10em",color = "red")
+
+
+
+```
+
 
 ## Non peer reviewed
 
