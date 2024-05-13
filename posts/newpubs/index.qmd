@@ -18,4 +18,4 @@ citation_package: biblatex
 citecolor: "red"
 ---
 
-Early in 2024 my colleagues and I had two manuscript published. The first one was published in [Conservation Science and Practice](https://conbio.onlinelibrary.wiley.com/doi/10.1111/csp2.13108), while the second one was published in [PeerJ](https://peerj.com/articles/17171/?td=bl).
+Early in 2024 my colleagues and I had two manuscript published. The first one was published in [Conservation Science and Practice](https://conbio.onlinelibrary.wiley.com/doi/10.1111/csp2.13108), while the second was published in [PeerJ](https://peerj.com/articles/17171/?td=bl).
