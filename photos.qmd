@@ -2,7 +2,7 @@
 title: "Photos"
 author: Giuliano Colosimo
 date: "2023-09-11"
-date-modified: "2024-05-06"
+date-modified: last-modified
 filters:
   - lightbox
 lightbox: auto
