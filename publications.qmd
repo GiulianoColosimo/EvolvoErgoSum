@@ -213,7 +213,6 @@ kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html",
 
 ```
 
-
 ## Non peer reviewed
 
 ```{r nonpeereviewed, echo = FALSE, warning = FALSE, message = FALSE}

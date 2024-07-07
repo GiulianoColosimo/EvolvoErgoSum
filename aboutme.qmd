@@ -1,6 +1,7 @@
 ---
 title: "About Me"
 editor: visual
+date-modified: last-modified
 ---
 
 I was born in 1985 and raised in Rome (IT). Always enthusiastic about the outdoors and all critters populating it. I got my primary and secondary education in Rome, but when I got to college I knew I wanted to experience research outside of Italy and Europe. During my master I spent 6 months at Aarhus University (Denmark) thanks to the ERASMUS project. I graduated with a Master in Ecology and Evolution from the University of Rome Tor Vergata. I then decided to get a PhD and started looking for a program that could interest me. I found one at Mississippi State University (Mississippi, USA), and Starkville became home for about 6 years.
@@ -16,7 +17,7 @@ Research associate \@ University of Rome Tor Vergata
 ## Education and professional experience
 
 | What                         | Where                                                     | When      |
-|------------------------------|-----------------------------------------------------------|-----------|
+|-------------------|--------------------------------------|---------------|
 | Research associate           | University of Rome Tor Vergata, Rome (IT)                 | 2022-2025 |
 | PostDoctoral Fellowship      | San Diego Zoo Wildlife Alliance, San Diego, CA (USA)      | 2017-2022 |
 | PhD in Conservation Genetics | Mississippi State University, Mississippi State, MS (USA) | 2011-2016 |
