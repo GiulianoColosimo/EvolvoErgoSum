@@ -1,7 +1,9 @@
 ---
 title: "Evolvo Ergo Sum"
 subtitle: "Jesus told me: *Come forth, and you will have eternal life*! I came fifth, and I got a toaster!"
-author: Giuliano Colosimo
+author:
+    - name: Giuliano Colosimo
+      orcid: 0000-0002-0485-9758
 date: "2023-03-31"
 date-modified: last-modified
 ---

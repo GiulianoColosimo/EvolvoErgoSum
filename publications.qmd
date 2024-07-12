@@ -1,5 +1,8 @@
 ---
 title: "Publications"
+author:
+  - name: Giuliano Colosimo
+    orcid: 0000-0002-0485-9758
 editor: visual
 citation_package: biblatex
 citecolor: "red"
@@ -259,3 +262,13 @@ kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR")], format = "html", escape = F
   column_spec(3, width = "40em", border_right = T, background = linkColor) %>%
   column_spec(4, width = "25em", border_right = T)
 ```
+
+## Review services
+
+Throughout my career I have been offering my services as a reviewer for various scientific journals. Below is a list of the journals I reviewed publications for:
+
+- Conservation Genetics
+- PLoS ONE
+- Biological Invasion
+- Journal for Nature Conservation
+ 
