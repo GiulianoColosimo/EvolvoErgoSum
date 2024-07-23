@@ -1,5 +1,8 @@
 ---
 title: "About Me"
+author:
+    - name: Giuliano Colosimo
+      orcid: 0000-0002-0485-9758
 editor: visual
 date-modified: last-modified
 ---

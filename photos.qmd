@@ -1,6 +1,8 @@
 ---
 title: "Photos"
-author: Giuliano Colosimo
+author:
+    - name: Giuliano Colosimo
+      orcid: 0000-0002-0485-9758
 date: "2023-09-11"
 date-modified: last-modified
 filters:
