@@ -38,7 +38,9 @@ wordcloud2(textCloud)
 
 <br>
 
-The above word-cloud shows the keywords associated with my publications. A complete list of all my publications is presented below, organized in different tables: peer reviewed pubs (including accepted manuscripts that are currently undergoing the publication process); pubs that are still through the review process; manuscripts that are about to be submitted to a scientific journal or are still in the making; other more general publications including my PhD dissertation and my MS thesis. The title of each publication is actually a link to either the official journal web-page where it was published or to a repository where you can find a PDF copy of it. If the link doesn't work (or currently is not available) the cell will have a gold-ish background color. Manuscripts in review or that are still in the making have a orange or forest green color, respectively, and the link will take you nowhere unless there is a preview version of the draft. I periodically check these lists and the link to make sure that it is up to date.
+The above word-cloud shows the keywords associated with my publications. A complete list of all my publications is shown below, organized in different tables: peer reviewed pubs (including accepted manuscripts that are currently undergoing the publication process); pubs that are still through the review process; manuscripts that are about to be submitted to a scientific journal or are still in the making; other more general publications including my PhD dissertation and my MS thesis. 
+
+The title of each publication is actually a link to either the official journal web-page where it was published or to a repository where you can find a PDF copy of it. If the link doesn't work (or currently is not available) the cell will have a gold-ish background color. Manuscripts in review or that are still in the making have an orange or forest green color, respectively, and the link will take you nowhere unless there is a preview version of the draft. I periodically check these lists and the links to make sure they are up to date.
 
 ## Peer reviewed (published/accepted)
 
