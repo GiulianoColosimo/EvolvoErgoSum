@@ -33,6 +33,8 @@ When I travel, for pleasure of work, I do like to take pictures! I do not necess
 
 ![*Cyclura pinguis*, photo credit: Giuliano Colosimo](photos/cpinguis.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
 
+![*Amblyrhincus cristatus*, photo credit: Giuliano Colosimo](./photos/IMG_4740.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
+
 :::
 
 ![*Aristelliger*, photo credit: Giuliano Colosimo](photos/aristelliger.png){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
@@ -45,11 +47,15 @@ And since life is not just about lizards...
 
 ![*Ophiophagus hannah*](photos/kingcobra.jpeg){group="animals" description="Something _credit:_ Giuliano Colosimo"}
 
+![*A racer eating an Anole lizards on Anegada Island (BVI)*](photos/racereatsanole.jpeg){group="animals" description="Something _credit:_ Giuliano Colosimo"}
+
 ## Places
 
 Places I visited and things I found fascinating and pic worthy.
 
 ![Mareri (Lazio, IT)](photos/mareri.jpeg){group="places" description="Something _credit:_ Giuliano Colosimo"}
+
+![Colorful seeds in a market place in Colombo (Sri Lanka)](photos/seeds.jpeg){group="places" description="Something _credit:_ Giuliano Colosimo"}
 
 ## People
 

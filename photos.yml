@@ -69,7 +69,11 @@
       subtitle: British Virgin Islands
       thumbnail: photos/flamingowannabe.jpeg
       categories: ["Birds", "BVI"]
-  
+     - title: Snake
+      subtitle: BVI
+      thumbnail: photos/racereatsanole.jpeg 
+      categories: ["Snake", "BVI", "Anole"]
+ 
 
 
 
