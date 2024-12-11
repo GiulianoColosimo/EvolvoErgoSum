@@ -59,6 +59,7 @@ myPub$YEAR[myPub$YEAR == "2021}"] <- 2021
 myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
 myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
 myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
+myPub$YEAR[myPub$YEAR == "2025}"] <- 2025
 myPub$YEAR <- as.numeric(myPub$YEAR)
 myPub$MONTH <- as.numeric(myPub$MONTH)
 myPub <- myPub[order(myPub$YEAR, myPub$MONTH, decreasing = T), ]
