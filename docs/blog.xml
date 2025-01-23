@@ -9,7 +9,7 @@
 <link>https://giulianocolosimo.github.io/EvolvoErgoSum/blog.html</link>
 <atom:link href="https://giulianocolosimo.github.io/EvolvoErgoSum/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Ecology, Evolution with a sprinkle of Technology</description>
-<generator>quarto-1.4.555</generator>
+<generator>quarto-1.6.39</generator>
 <lastBuildDate>Thu, 02 May 2024 22:00:00 GMT</lastBuildDate>
 <item>
   <title>New publications in early 2024!</title>
@@ -593,8 +593,10 @@ font-style: inherit;">$</span>sname</span>
 <span id="cb28-3"></span>
 <span id="cb28-4"><span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;

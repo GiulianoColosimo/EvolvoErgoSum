@@ -19,10 +19,10 @@ Research associate \@ University of Rome Tor Vergata
 
 ## Education and professional experience
 
-| What                         | Where                                                     | When      |
-|-------------------|--------------------------------------|---------------|
-| Research associate           | University of Rome Tor Vergata, Rome (IT)                 | 2022-2025 |
-| PostDoctoral Fellowship      | San Diego Zoo Wildlife Alliance, San Diego, CA (USA)      | 2017-2022 |
+| What | Where | When |
+|------------------|------------------------------------|-----------------|
+| Research associate | University of Rome Tor Vergata, Rome (IT) | 2022-2025 |
+| PostDoctoral Fellowship | San Diego Zoo Wildlife Alliance, San Diego, CA (USA) | 2017-2022 |
 | PhD in Conservation Genetics | Mississippi State University, Mississippi State, MS (USA) | 2011-2016 |
-| MS in Ecology and Evolution  | University of Rome Tor Vergata, Rome (IT)                 | 2008-2010 |
-| BS in Ecology                | University of Rome Tor Vergata, Rome (IT)                 | 2004-2007 |
+| MS in Ecology and Evolution | University of Rome Tor Vergata, Rome (IT) | 2008-2010 |
+| BS in Ecology | University of Rome Tor Vergata, Rome (IT) | 2004-2007 |

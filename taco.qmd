@@ -4,14 +4,14 @@ subtitle: "Tracking Animals and Conservation"
 editor: visual
 author: Giuliano Colosimo
 # date: 2022-09-29 
-bibliography: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/comprehensive_database.bib
-csl: /Users/giulianocolosimo/Library/CloudStorage/ProtonDrive-giuliano.colosimo@protonmail.com/manuscripts/literature/bibtex/evolutionary-ecology-research.csl
+bibliography: /Users/giulianocolosimo/Documents/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Documents/manuscripts/literature/bibtex/evolutionary-ecology-research.csl
 citation_package: biblatex
 citecolor: "red"
 ---
 
 **T.A.Co.** stands for **T**racking **A**nimal and **Co**nservation. Everything started back in 2015 while I was still working on my PhD. Back then I was mostly focused on applying molecular ecology techniques to describe the population genetic structure of different species of iguanas in the Caribbean. My colleagues in Rome had started to research in to ways to remotely monitor and track the critically endangered Galapagos pink land iguanas, *Conolophus marthae* [@Gentile2012].
 
-*Conolophus marthae* can only be found on the north-west slopes of Wolf Volcano, Galapagos, Ecuador. This is a very remote area, presenting numerous logistic challenges preventing the permanence in the field to conduct extensive monitoring.  
+*Conolophus marthae* can only be found on the north-west slopes of Wolf Volcano, Galapagos, Ecuador. This is a very remote area, presenting numerous logistic challenges preventing the permanence in the field to conduct extensive monitoring.
 
 # References
