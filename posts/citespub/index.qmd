@@ -1,0 +1,33 @@
+---
+title: "Smuggling of rare Galapagos Iguanas! "
+description: "Our latest manuscript provides insights and describes the *behind the scenes* of the illegal reptile's trade"
+author:
+  - name: Giuliano Colosimo
+    url: 
+date: "2025-03-25"
+date-modified: last-modified
+categories: ["Publications"]
+image: map.jpg
+format: 
+  html:
+    toc: true
+engine: knitr
+bibliography: /Users/giulianocolosimo/Documents/manuscripts/literature/bibtex/comprehensive_database.bib
+csl: /Users/giulianocolosimo/Documents/manuscripts/literature/bibtex/evolutionary-ecology-research.csl
+citation_package: biblatex
+citecolor: "red"
+---
+
+The latest paper titled *Trafficking of Galápagos iguanas as an example of a global problem: CITES permits, laundering and the role of transit countries in Europe and Africa* is finally out. Huge effort, involving 20 colleagues and authors and experts on the matter.
+
+The paper's highlights:
+
+- We highlight the smuggling of Galápagos iguanas in Africa, Asia, Europe, and the Pacific region.
+- Wild caught Galapagos iguanas are laundered into international trade declared as captive-bred. The offspring of such animals receive CITES permits in violation of CITES regulations.
+- Since 1975 all four iguana species have been listed on Appendix II of CITES.
+- We notice inaccuracies documented in the CITES trade database.
+- We urge CITES Parties to transfer all four species of Galápagos iguanas from CITES Appendix II to Appendix I.
+
+To read the full manuscript use [this link](https://doi.org/10.1016/j.biocon.2025.111104) or the link in the reference section.
+
+![Map of global trade in live Galapagos iguanas, as recorded in the CITES trade database [After @Auliya2025]](./map.jpg)

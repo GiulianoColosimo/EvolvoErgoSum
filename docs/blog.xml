@@ -10,7 +10,46 @@
 <atom:link href="https://giulianocolosimo.github.io/EvolvoErgoSum/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Ecology, Evolution with a sprinkle of Technology</description>
 <generator>quarto-1.6.39</generator>
-<lastBuildDate>Thu, 02 May 2024 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 24 Mar 2025 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Smuggling of rare Galapagos Iguanas!</title>
+  <dc:creator>Giuliano Colosimo</dc:creator>
+  <link>https://giulianocolosimo.github.io/EvolvoErgoSum/posts/citespub/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>The latest paper titled <em>Trafficking of Galápagos iguanas as an example of a global problem: CITES permits, laundering and the role of transit countries in Europe and Africa</em> is finally out. Huge effort, involving 20 colleagues and authors and experts on the matter.</p>
+<p>The paper’s highlights:</p>
+<ul>
+<li>We highlight the smuggling of Galápagos iguanas in Africa, Asia, Europe, and the Pacific region.</li>
+<li>Wild caught Galapagos iguanas are laundered into international trade declared as captive-bred. The offspring of such animals receive CITES permits in violation of CITES regulations.</li>
+<li>Since 1975 all four iguana species have been listed on Appendix II of CITES.</li>
+<li>We notice inaccuracies documented in the CITES trade database.</li>
+<li>We urge CITES Parties to transfer all four species of Galápagos iguanas from CITES Appendix II to Appendix I.</li>
+</ul>
+<p>To read the full manuscript use <a href="https://doi.org/10.1016/j.biocon.2025.111104">this link</a> or the link in the reference section.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/citespub/map.jpg" class="img-fluid figure-img"></p>
+<figcaption>Map of global trade in live Galapagos iguanas, as recorded in the CITES trade database <span class="citation" data-cites="Auliya2025">(After Auliya <em>et al.</em>, 2025)</span></figcaption>
+</figure>
+</div>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Auliya2025" class="csl-entry">
+Auliya, M., Nijman, V., Altherr, S., Aguilera, W.T., Ariano-Sanchéz, D., Cantu, J.C., <em>et al.</em> 2025. <a href="https://doi.org/10.1016/j.biocon.2025.111104"><span class="nocase">Trafficking of Gal<span class="nocase">á</span>pagos iguanas as an example of a global problem: CITES permits, laundering and the role of transit countries in Europe and Africa</span></a>. <em>Biological Conservation</em>, <strong>305</strong>: 111104.
+</div>
+</div></section></div> ]]></description>
+  <category>Publications</category>
+  <guid>https://giulianocolosimo.github.io/EvolvoErgoSum/posts/citespub/</guid>
+  <pubDate>Mon, 24 Mar 2025 23:00:00 GMT</pubDate>
+  <media:content url="https://giulianocolosimo.github.io/EvolvoErgoSum/posts/citespub/map.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>New publications in early 2024!</title>
   <dc:creator>Giuliano Colosimo</dc:creator>
