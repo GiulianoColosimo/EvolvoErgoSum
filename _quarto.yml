@@ -36,6 +36,8 @@ website:
         menu: 
           - href: taco.qmd
             text: "T. A. Co."
+          - href: macra.qmd
+            text: "M.A.C.R.A."
       #- text: "Classes"
       #  menu: 
       #    - href: antboc.qmd
