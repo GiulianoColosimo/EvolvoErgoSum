@@ -62,6 +62,11 @@ myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
 myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
 myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
 myPub$YEAR[myPub$YEAR == "2025}"] <- 2025
+
+myPub$YEAR[19] <- 2022
+myPub$YEAR[21] <- 2022
+myPub$MONTH[1]<- 10
+
 myPub$YEAR <- as.numeric(myPub$YEAR)
 myPub$MONTH <- as.numeric(myPub$MONTH)
 myPub <- myPub[order(myPub$YEAR, myPub$MONTH, decreasing = T), ]
@@ -272,6 +277,7 @@ kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR")], format = "html", escape = F
 
 Throughout my career I have been offering my services as a reviewer for various scientific journals. Below is a list of the journals I reviewed publications for:
 
+-   Herpetologica
 -   Conservation Genetics
 -   PLoS ONE
 -   Biological Invasion
