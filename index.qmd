@@ -14,6 +14,26 @@ This is where I keep track of my projects, publications, research, work, and ide
 
 ### A brief introduction.
 
+I am a dedicated and involved conservation biologist with over a decade of field and academic experience. My work has been driven by intense curiosity about evolutionary processes and ecological resilience in island systems, leading me to study some of the rarest and most critically endangered iguanas on Earth. 
+
+This intellectual drive is matched only by my deep empathy for the species I work to protect, their environment and the local communities who share their existence. I approach conservation not as an outsider, but as a collaborator, listening to local knowledge and integrating it into scientifically rigorous frameworks.
+
+I am team player, whether leading field crews in remote and isolated locations or co-developing research proposals with international and interdisciplinary colleagues. My charisma and communication skills have enabled me to inspire students, engage stakeholders, and present complex science to diverse audiences. I believe that trust, respect, and shared purpose are the foundation of successful conservation, and I consistently foster inclusive, motivated teams that achieve meaningful outcomes.
+
+
+
+### Navigation tips.
+
+If you want to write me, or you need quick access to my CV or some of my linked accounts you can click on the icons located right below my picture, in the upper left side corner. Use the top navigation bar to know more about me, my research, my publications, some of the things I share on my blog, or simply to switch to Dark Mode (highly recommended). I recently joined the <a rel="me" href="https://mastodon.social/@cinghio">Mastodon</a> community and you can follow me there as well.
+
+<!-- I am a dedicated and involved conservation biologist with over a decade of field and academic experience. My work has been driven by intense curiosity about evolutionary processes and ecological resilience in island systems, leading me to study some of the rarest and most critically endangered iguanas on Earth. 
+
+This intellectual drive is matched only by my deep empathy for the species I work to protect, their environment and the local communities who share their existence. I approach conservation not as an outsider, but as a collaborator, listening to local knowledge and integrating it into scientifically rigorous frameworks.
+
+I am team player, whether leading field crews in remote and isolated locations or co-developing research proposals with international and interdisciplinary colleagues. My charisma and communication skills have enabled me to inspire students, engage stakeholders, and present complex science to diverse audiences. I believe that trust, respect, and shared purpose are the foundation of successful conservation, and I consistently foster inclusive, motivated teams that achieve meaningful outcomes.
+
+Looking foward, I am committed to expanding our understanding of reptile resilience in the face of rapid environmental change and to training the next generation of conservation scientists. This position offers the opportunity to scale impactful research, deepen cross-sector partnerships, and contribute to global efforts to safeguard island biodiversity. I bring not only technical expertise but also a deep ethical commitment to conservation that is scientifically sound, socially just, and enduring. 
+
 I am an evolutionary and conservation biologist and a member of the IUCN-SSC-Iguana Specialist Group.
 
 From 2011 to 2016 I taught and conducted research at Mississippi State University (MSU, Mississippi, USA). My dissertation, with a focus in conservation genetics, tackled, using molecular tools, the population dynamic of small and isolated populations of endangered and critically endangered iguanas in the Bahamian Archipelagoes.
@@ -25,10 +45,7 @@ From 2022 to 2025 I held the role of non-tenure track researcher at the Departme
 My research interests encompass biogeography, molecular phylogeny, genetic structure of populations, movement and behavioral ecology, and bioinformatics. Given that my research has consistently involved a substantial field component for the collection of biological samples, I have developed extensive experience in organizing and conducting data collection missions in the field.
 
 
-### Navigation tips.
-
-If you want to write me, or you need quick access to my CV or some of my linked accounts you can click on the icons located right below my picture, in the upper left side corner. Use the top navigation bar to know more about me, my research, my publications, some of the things I share on my blog, or simply to switch to Dark Mode (highly recommended). I most recently joined the <a rel="me" href="https://mastodon.social/@cinghio">Mastodon</a> community and you can follow me there as well.
-
+-->
 
 
 

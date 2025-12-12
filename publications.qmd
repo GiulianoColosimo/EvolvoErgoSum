@@ -277,8 +277,10 @@ kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR")], format = "html", escape = F
 
 Throughout my career I have been offering my services as a reviewer for various scientific journals. Below is a list of the journals I reviewed publications for:
 
+-   Frontiers in Veterinary Science
 -   Herpetologica
 -   Conservation Genetics
 -   PLoS ONE
 -   Biological Invasion
 -   Journal for Nature Conservation
+-   Integrative Zoology
