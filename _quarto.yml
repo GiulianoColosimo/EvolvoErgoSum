@@ -1,7 +1,19 @@
 project:
   type: website
-  output-dir: docs # command to allow publishing using docs (https://quarto.org/docs/publishing/github-pages.html)
-
+  output-dir: docs # allows publishing from /docs on GitHub Pages
+  # Colosimo_CV_english.pdf is not linked from any page (the navbar CV link
+  # points at Proton Drive), but it has been published at
+  # /EvolvoErgoSum/documents/ for years — keep that URL alive.
+  resources:
+    - documents/
+  render:
+    - "*.qmd"
+    - "posts/**/*.qmd"
+    - "temp/**/*.qmd"
+    # Reads ~/Dropbox/iguanas/.../TCI_MasterDB.xlsx, which is not in the repo,
+    # so it can only be rendered on a machine where that Dropbox is mounted.
+    # Remove this line there to rebuild the page.
+    - "!temp/road_mortality_model/**"
 
 website:
 
@@ -10,111 +22,79 @@ website:
   page-navigation: true
   description: "Ecology, Evolution with a sprinkle of Technology"
   site-url: https://giulianocolosimo.github.io/EvolvoErgoSum/
-  #repo-url: https://github.com/quarto-dev/quarto-demo
-  #repo-actions: [issue]
   favicon: "./figures/avatar.jpg"
-  #twitter-card: true
-  google-analytics: 
+
+  repo-url: https://github.com/GiulianoColosimo/EvolvoErgoSum
+  repo-actions: [edit, issue]
+
+  google-analytics:
     tracking-id: "UA-24215497"
-  #cookie-consent:
-  #  type: express
-  #  style: headline
-  #  palette: dark
   open-graph:
     locale: en_US
-  
+  twitter-card: true
+
   navbar:
     search: true
+    pinned: false
     right:
-      - text: "Home"
-        href: index.qmd
-      - text: "About Me"
+      - text: "Bio"
         href: aboutme.qmd
-      - text: "Publications"
-        href: publications.qmd
-      - text: "Projects"
-        menu: 
+      - text: "Research"
+        menu:
+          - href: research.qmd
+            text: "Overview"
           - href: taco.qmd
             text: "T. A. Co."
           - href: macra.qmd
             text: "M.A.C.R.A."
-      #- text: "Classes"
-      #  menu: 
-      #    - href: antboc.qmd
-      #      text: "Animal Tracking"
-      #    - href: biocon.qmd
-      #      text: "Conservation Biology"
+      - text: "Publications"
+        href: publications.qmd
       - text: "Blog"
         href: blog.qmd
-      - icon: rss
-        href: index.xml
+      - text: "Now"
+        href: now.qmd
       - text: "Photos"
         href: photos.qmd
-      #- text: "Quotes"
-      #  href: quotes.qmd
       - text: "Contacts"
         href: contacts.qmd
-
-        
-  sidebar:
-    logo: "./figures/avatar.jpg"
-    pinned: false
-    align: center
-    style: "docked"
-    background: light
-    collapse-level: 2
-    #contents:
-    #  - section: "Projects"
-    #    contents: 
-    #      - href: taco.qmd
-    #        text: "T. A. Co."
-      #    - href: inbreedingdepression.qmd
-      #      text: "Inbreeding depression"
-      #    - href: ngR.qmd
-      #      text: "ngR"
-      #    - href: gephast.qmd
-      #      text: "GEPHAST"
-
-      #- section: "Publications"
-      #  title: "Publications"
-      #  contents: 
-      #    - href: peerreviewed.qmd
-      #      text: "Peer-reviewed"
-      #    - href: nonpeerreviewed.qmd
-      #      text: "Non Peer-reviewed"
-
-    tools:
-      - url: "https://www.linkedin.com/in/giulianocolosimo/"
-        icon: linkedin
-        text: LinkedIn
+      - text: "CV"
+        href: documents/Colosimo_CV.pdf
       - icon: github
-        url: "https://github.com/GiulianoColosimo"
-        text: GitHub
-      - icon: envelope
-        url: "mailto:giuliano.colosimo@protonmail.com"
-        text: Wrtie me an e-mail
-      - url: "https://drive.proton.me/urls/2328CBN0PM#eJtkIaR5367z"
-        icon: file-pdf
-        text: Curriculum Vitae
-      - text: Mastodon
-        icon: mastodon
-        url: "https://mastodon.social/@cinghio"
+        href: "https://github.com/GiulianoColosimo"
+        aria-label: GitHub
+      - icon: rss
+        href: blog.xml
+        aria-label: RSS feed
 
   page-footer:
-    left: "© Copyright 2025 Giuliano Colosimo"
-    right: "This page is built with ❤️ and [Quarto](https://quarto.org/). Inspiration for this site comes from [here](https://www.mm218.dev)"
-    background: dark
-    
+    left: "© 2026 Giuliano Colosimo"
+    center:
+      - text: "Bio"
+        href: aboutme.qmd
+      - text: "Research"
+        href: research.qmd
+      - text: "Publications"
+        href: publications.qmd
+      - text: "Blog"
+        href: blog.qmd
+      - text: "Contacts"
+        href: contacts.qmd
+    right: "Built with ❤️, [Quarto](https://quarto.org/), and some coding tips from Claude. Design inspired by [Cynthia Huang](https://www.cynthiahqy.com/)."
 
 format:
   html:
-    #theme: [sandstone, _variables.scss]
     theme:
       light: [cosmo, theme.scss]
       dark: [cosmo, theme-dark.scss]
-    mainfont: "Atkinson Hyperlegible"
+    css: styles.css
+    toc: true
+    toc-depth: 3
     code-copy: true
     code-overflow: wrap
-    toc: true
-    grid:
-      sidebar-width: 350px
+    anchor-sections: true
+    smooth-scroll: true
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">

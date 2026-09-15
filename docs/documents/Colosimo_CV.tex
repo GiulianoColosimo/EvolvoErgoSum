@@ -1,0 +1,135 @@
+% ===========================================================================
+%  Curriculum Vitae — PUBLIC WEB VERSION
+%
+%  Derived from the CV prepared for the Aarhus University application
+%  (September 2026). The only difference from that version is that the
+%  personal data block has been removed, because this file is published
+%  openly at https://giulianocolosimo.github.io/EvolvoErgoSum/ and would
+%  otherwise be scraped:
+%
+%      - home address
+%      - mobile phone number
+%      - year of birth
+%      - citizenship
+%
+%  Keep it that way when updating. Build with:
+%      pdflatex Colosimo_CV.tex   (run twice, for the page-count in the footer)
+%  autheme.sty must sit next to this file.
+% ===========================================================================
+
+\documentclass[11pt]{article}
+\usepackage{autheme}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\setdoc{Curriculum Vitae}{14 September 2026}
+
+% Compact entry with right-aligned dates
+\newcommand{\entry}[2]{\noindent#1\hfill\textbf{#2}\par}
+
+\begin{document}
+
+% ---- Header ----
+% PUBLIC VERSION: home address, phone number, year of birth and citizenship
+% are deliberately omitted here (see the note at the top of this file).
+% Only professional contact points are kept.
+{\centering
+ {\LARGE\bfseries Giuliano Colosimo, PhD}\\[0.35em]
+ {\small \faEnvelope \ \href{mailto:giuliano.colosimo@protonmail.com}{giuliano.colosimo@protonmail.com} \quad
+   \faOrcid \ \href{https://orcid.org/0000-0002-0485-9758}{0000-0002-0485-9758}}\\[0.25em]
+ {\small \faGithub \ \href{https://github.com/GiulianoColosimo}{GiulianoColosimo} \quad
+   \faResearchgate \ \href{https://www.researchgate.net/profile/Giuliano-Colosimo}{Giuliano Colosimo} \quad
+   \faGlobe \ \href{https://giulianocolosimo.github.io/EvolvoErgoSum/}{giulianocolosimo.github.io}}\par}
+\vspace{0.5em}\hrule\vspace{1.1em}
+
+\section*{Profile}
+Population and conservation biologist (PhD, 2016) studying how terrestrial vertebrates
+shape and respond to ecosystem structure and function, with field expertise in reptiles and quantitative methods that generalise across taxa.
+I integrate field ecology and animal-borne biologging with trophic (stable-isotope), 
+demographic and population-genomic analyses, species-distribution modelling and remote sensing,
+in reproducible R. My work spans trophic interactions, movement ecology, and the demography and genetics of translocation,
+reintroduction and invasive-species removal, directly relevant to the restoration and rewilding of vertebrate-driven
+ecosystems. Author of more than 30 peer-reviewed papers, with competitive funding as principal and co-investigator
+and co-authored IUCN conservation and management plans; Deputy Chair of the IUCN SSC Iguana Specialist Group.
+
+\section*{Research expertise}
+\noindent Vertebrate ecosystem ecology \textbullet\ trophic interactions \& food-web dynamics \textbullet\ movement ecology \& animal-borne biologging \textbullet\ restoration, reintroduction \& rewilding \textbullet\ population \& conservation genomics \textbullet\ species-distribution modelling \& remote sensing (Sentinel, MODIS, DEMs) \textbullet\ Bayesian \& spatial statistics \textbullet\ reproducible, open workflows.
+
+\section*{Education}
+\entry{\textbf{PhD in Conservation Genetics}, Mississippi State University, USA}{2016}
+\noindent\emph{``Natural population dynamics of rock iguanas in the Bahama Archipelago''}\par
+\vspace{0.4em}
+\entry{\textbf{MSc in Ecology and Evolution}, University of Rome Tor Vergata, Italy}{2010}
+\noindent\emph{``Inferring phylogeny of the genus Maniola (Lepidoptera) through COI barcode sequence''}\par
+\noindent\emph{Incl.\ Erasmus exchange semester, Aarhus University, Denmark --- Biogeography (Prof.\ J.-C.\ Svenning).}\par
+\vspace{0.4em}
+\entry{\textbf{BSc in Ecology}, University of Rome Tor Vergata, Italy}{2007}
+\noindent\emph{``Monitoraggio di alcune popolazioni di Bombina pachypus (Anfibi, Anuri) sui Monti Lepini''}\par
+
+\section*{Academic positions}
+\entry{\textbf{Research Associate}, University of Rome Tor Vergata}{2022--present}
+\entry{\textbf{Research Associate}, INSTM (Italian Interuniversity Consortium for Materials Science \& Technology)}{2026}
+\entry{\textbf{Postdoctoral Fellow}, San Diego Zoo Wildlife Alliance}{2017--2022}
+
+\section*{Grants and funding}
+\begin{itemize}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{PI} --- Remote monitoring of Sister Islands Rock Iguanas on Cayman Brac. Darwin Plus Local (DPL00026). \pounds33,627. \hfill \textbf{2023}
+\item \textbf{PI} --- Grant to support PhD research. Mohamed bin Zayed Species Conservation Fund (12054368). \$5,000. \hfill \textbf{2012}
+\item \textbf{Co-I} --- MACRA: Measuring Animal Cardiac Rate with BCG and AI. University of Rome Tor Vergata (Ref.\ B1). \texteuro\,13,806. \hfill \textbf{2025}
+\item \textbf{Co-I} --- Conservation of a flagship species: nest identification and protection of the Gal\'apagos pink iguana. Segr\'e Foundation. \texteuro\,53,000. \hfill \textbf{2022}
+\item \textbf{Co-I} --- Locating and protecting nesting sites of a critically endangered Gal\'apagos iguana. National Geographic Society (NGS68399C-20). \$36,000. \hfill \textbf{2019}
+\item \textbf{Co-I} --- Postdoctoral Research Fellowship. San Diego Zoo Wildlife Alliance. \$500,000. \hfill \textbf{2017}
+\end{itemize}
+
+\section*{Teaching and supervision}
+\noindent\textbf{Instructor of Record} (MSc), University of Rome Tor Vergata, 2022--2026: \emph{Conservation Biology}; \emph{Animal Tracking in Conservation Biology}; \emph{Bioinformatics Applications for Molecular Ecology}; examination commission for \emph{Zoology and Parasitology}. Guest lecturer on R for genetic/genomic data (PhD seminar series, Tor Vergata, 2024--2025) and guest seminars for Conservation Biology at Columbia University (2022, 2024); teaching assistant and laboratory coordinator at Mississippi State University (2011--2016).\par
+\vspace{0.3em}
+\noindent\textbf{Supervision:} 10+ bachelor's, master's and doctoral students (recently 1 PhD, 1 MSc and 1 BSc completed 2024, 1 MSc completed 2026, 1 MSc ongoing); external supervisor at Mississippi State University and the University of Leeds. \emph{(Full details in the accompanying Teaching Portfolio.)}
+
+\section*{Leadership and professional service}
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \textbf{Deputy Chair} (2026--2029) and Steering Committee member (2022--2026), IUCN SSC Iguana Specialist Group.
+\item \textbf{Director}, and Board Chair \& Secretary, Island Wildlife Alliance (2025--present).
+\item Co-author, IUCN conservation \& management plans (\emph{Conolophus marthae} 2022--2027; \emph{Cyclura carinata} 2020--2024).
+\item Peer reviewer ($\sim$2/year since 2014) for \emph{Biological Conservation}, \emph{Conservation Genetics}, \emph{Integrative Zoology}, \emph{Herpetologica}, \emph{Biological Invasions}, \emph{PLoS} journals, \emph{Animals}, and others.
+\item ``Outstanding Research Assistant'', Mississippi State University (2013--2014).
+\end{itemize}
+
+\section*{Outreach and science communication}
+Documentary \emph{Traquer de Serpentes --- Sur les traces du myst\'erieux iguane rose des Gal\'apagos} (One Planet Production, 2021); feature in \emph{Popular Mechanics} (2023); articles for the San Diego Zoo Wildlife Alliance (2021--2022); interview in a leading Italian newspaper on conservation work in the Turks and Caicos (2019).
+
+\section*{Technical skills}
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \textbf{Programming \& reproducibility:} R, Python, C++, Bash; Git/GitHub; Quarto, LaTeX, Markdown.
+\item \textbf{Modelling \& statistics:} species-distribution modelling; spatial statistics \& geostatistics (kriging, interpolation, downscaling); regression, GAMs, mixed-effects models; frequentist \& Bayesian inference.
+\item \textbf{Geospatial \& large data:} multi-temporal raster/vector processing; remote sensing (Sentinel, MODIS) and DEMs; parallelised workflows; \texttt{terra}/\texttt{sf}/\texttt{raster}/\texttt{gstat} (R) and the Python geospatial stack.
+\item \textbf{Data \& laboratory:} MySQL/SQL; DNA/RNA extraction, PCR/qPCR, next-generation sequencing (Illumina), eDNA from water and soil.
+\end{itemize}
+
+\section*{Languages}
+\noindent
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Language} & \textbf{Understanding} & \textbf{Speaking} & \textbf{Writing}\\
+\midrule
+Italian & Mother tongue & Mother tongue & Mother tongue\\
+English & C2 & C2 & C2\\
+Spanish & B2 & B1 & A1\\
+French & A1 & A1 & A1\\
+\bottomrule
+\end{tabular}
+
+\section*{Selected publications}
+\noindent\emph{Name in \textbf{bold}. A complete list of 30+ peer-reviewed publications is provided separately.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{Colosimo, G.}, et al.\ (2026). The impact of serial translocation bottlenecks on the genetic diversity of Anegada Rock Iguanas (\emph{Cyclura pinguis}). \emph{Conservation Genetics}, 27(3).
+\item Gargano, M., Garizio, L., \textbf{Colosimo, G.}, et al. Why they move: breeding-site availability drives partial migration in a large terrestrial reptile. \emph{Journal of Applied Ecology} (in review).
+\item \textbf{Colosimo, G.}, et al.\ (2026) Quantifying endemic island species recovery following feral cat eradication. \emph{Animal Conservation} (in review).
+\item Paradiso, C., et al., \textbf{Colosimo, G.}, et al.\ (2025). Genomic insights into the biogeography and evolution of Gal\'apagos iguanas. \emph{Molecular Phylogenetics and Evolution}, 204, 108294.
+\item De Luca, M., et al., \textbf{Colosimo, G.}, et al.\ (2025). Design of a LoRa-based multisensor device for the Internet of Animals. \emph{IEEE Internet of Things Journal}, 12(15), 31588--31600.
+\item Gargano, M., \textbf{Colosimo, G.}, et al.\ (2022). Nitrogen and carbon stable isotope analysis sheds light on trophic competition between two syntopic land iguana species. \emph{Scientific Reports}, 12(1).
+\item \textbf{Colosimo, G.}, et al.\ (2022). Remote tracking of Gal\'apagos Pink Land Iguana reveals large elevational shifts in habitat use. \emph{Journal for Nature Conservation}, 68, 126210.
+\item Russo, T., et al., \textbf{Colosimo, G.}, et al.\ (2021). All is fish that comes to the net: metabarcoding for rapid fisheries catch assessment. \emph{Ecological Applications}, 31(2).
+\item Mariani, S., Baillie, C., \textbf{Colosimo, G.}, \& Riesgo, A. (2019). Sponges as natural environmental DNA samplers. \emph{Current Biology}, 29(11).
+\end{enumerate}
+
+\end{document}

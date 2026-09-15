@@ -1,6 +1,6 @@
 ---
-title: ""
-editor: visual
+title: "Blog"
+subtitle: "Notes on research, R, and things that went sideways in the field"
 listing:
   contents: posts
   sort: "date desc"
@@ -9,7 +9,7 @@ listing:
   sort-ui: true
   filter-ui: true
   feed: true
-  fields: [date, title, reading-time, categories, image]
+  fields: [date, title, reading-time, description, categories, image]
 page-layout: full
-title-block-banner: true
+toc: false
 ---

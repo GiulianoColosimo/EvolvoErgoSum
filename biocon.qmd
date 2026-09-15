@@ -2,8 +2,8 @@
 title: "Conservation Biology"
 # subtitle: ""
 editor: visual
-bibliography: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/comprehensive_database.bib
-csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/apa_5th_edition.csl
+bibliography: comprehensive_database.bib
+csl: apa_5th_edition.csl
 citation_package: biblatex
 citecolor: "red"
 ---

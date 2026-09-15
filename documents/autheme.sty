@@ -1,0 +1,59 @@
+% autheme.sty — shared style for Giuliano Colosimo's AU application package
+% Matches the visual language of the CV: Latin Modern serif body,
+% sans-serif bold uppercase section headers, top rule + footer rule.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{autheme}[2026/09/07 AU application theme]
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{microtype}
+\usepackage[a4paper,top=2.4cm,bottom=2.6cm,left=2.6cm,right=2.6cm]{geometry}
+\usepackage{fontawesome5}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+
+\definecolor{aublue}{HTML}{003D73}   % Aarhus University blue
+\definecolor{linkblue}{HTML}{1A5FB4}
+
+\usepackage[colorlinks=true,urlcolor=linkblue,linkcolor=linkblue,citecolor=linkblue]{hyperref}
+
+% ---- Section headers: sans-serif, bold, uppercase (as in the CV) ----
+\titleformat{\section}
+  {\normalfont\sffamily\bfseries\large\color{aublue}}{}{0em}{\MakeUppercase}
+\titlespacing*{\section}{0pt}{1.25\baselineskip}{0.35\baselineskip}
+
+\titleformat{\subsection}
+  {\normalfont\sffamily\bfseries\normalsize}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{0.9\baselineskip}{0.25\baselineskip}
+
+% ---- Running header / footer (mirrors the CV) ----
+\newcommand{\docname}{Document}
+\newcommand{\docdate}{}
+\newcommand{\setdoc}[2]{\renewcommand{\docname}{#1}\renewcommand{\docdate}{#2}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[L]{\footnotesize\docdate}
+\fancyfoot[C]{\footnotesize\textit{Giuliano Colosimo, \docname}}
+\fancyfoot[R]{\footnotesize\thepage\,/\,\pageref{LastPage}}
+
+% ---- Letterhead / name block ----
+\newcommand{\namehead}[1]{%
+  {\centering
+   {\LARGE\bfseries Giuliano Colosimo, PhD}\\[0.35em]
+   {\small #1}\par}%
+  \vspace{0.4em}
+  \hrule height 0.4pt
+  \vspace{1.2em}}
+
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\justifying

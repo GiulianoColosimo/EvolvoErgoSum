@@ -1,64 +1,75 @@
 ---
 title: "Photos"
+subtitle: "Things I pointed a camera at, mostly in the field"
 author:
-    - name: Giuliano Colosimo
-      orcid: 0000-0002-0485-9758
+  - name: Giuliano Colosimo
+    orcid: 0000-0002-0485-9758
 date: "2023-09-11"
 date-modified: last-modified
-filters:
-  - lightbox
+toc: true
 lightbox: auto
 ---
 
-When I travel, for pleasure of work, I do like to take pictures! I do not necessarily use my phone, although I would lie if I said that it is way easier to take pictures with a cell phone and the quality is, sometimes, pretty amazing. I shoot using a Canon EOS-77D and different optics. Below is a showcase of some of the pictures I like the most. Of course, pictures that have myself as subject were taken by colleagues and friends, and when I remember I will report the appropriate credit.
+When I travel, for pleasure or for work, I like to take pictures. I shoot with
+a Canon EOS-77D and a few different lenses, though I would be lying if I said
+my phone were not easier — and sometimes surprisingly good. Below is a
+selection of the ones I like most. Click any image to open it full size.
+
+Pictures with me as the subject were taken by colleagues and friends; where I
+remember who, the credit is in the caption.
 
 ## From the field
 
-![Me and *Cyclura nubila caymanensis*, photo credit: not quite sure...](photos/IMG_5612.jpeg){group="field" description="Something _Credit:_ Giuliano Colosimo"}
+::: {.photo-grid}
+![Me and *Cyclura nubila caymanensis*](photos/IMG_5612.jpeg){group="field" description="Credit: not quite sure..."}
 
-![Cloud-drop on Wolf Volcano, photo credit: Giuliano Colosimo](photos/clouddrop.jpeg){group="field" description="Something _Credit:_ Giuliano Colosimo"}
-
-
+![Cloud-drop on Wolf Volcano, Galapagos](photos/clouddrop.jpeg){group="field" description="Credit: Giuliano Colosimo"}
+:::
 
 ## Big, medium, and small lizards
 
-::: {layout="[[1], [1, 1], [1, 1], [1]]"}
-![*Leiocephalus carinatus*, photo credit: Giuliano Colosimo](photos/leiocephalus.jpeg){group="lizards" description="The lion lizard from the Turks and Caicos. _Credit:_ Giuliano Colosimo"}
+::: {.photo-grid}
+![*Leiocephalus carinatus*](photos/leiocephalus.jpeg){group="lizards" description="The lion lizard from the Turks and Caicos. Credit: Giuliano Colosimo"}
 
-![*Cyclura carinata*, photo credit: Giuliano Colosimo](photos/ccarinata.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
+![*Cyclura carinata*](photos/ccarinata.jpeg){group="lizards" description="Turks and Caicos rock iguana. Credit: Giuliano Colosimo"}
 
-![*Cyclura nubila*, photo credit: Giuliano Colosimo](photos/cnubila.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
+![*Cyclura nubila*](photos/cnubila.jpeg){group="lizards" description="Credit: Giuliano Colosimo"}
 
-![*Amblyrhincus cristatus*, photo credit: Giuliano Colosimo](photos/amblyrhincus.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
+![*Amblyrhynchus cristatus*](photos/amblyrhincus.jpeg){group="lizards" description="Marine iguana. Credit: Giuliano Colosimo"}
 
-![*Cyclura pinguis*, photo credit: Giuliano Colosimo](photos/cpinguis.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
+![*Cyclura pinguis*](photos/cpinguis.jpeg){group="lizards" description="Anegada rock iguana. Credit: Giuliano Colosimo"}
 
-![*Amblyrhincus cristatus*, photo credit: Giuliano Colosimo](./photos/IMG_4740.jpeg){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
+![*Amblyrhynchus cristatus*](photos/IMG_4740.jpeg){group="lizards" description="Credit: Giuliano Colosimo"}
 
+![*Aristelliger*](photos/aristelliger.png){group="lizards" description="Credit: Giuliano Colosimo"}
 :::
-
-![*Aristelliger*, photo credit: Giuliano Colosimo](photos/aristelliger.png){group="lizards" description="Something _Credit:_ Giuliano Colosimo"}
 
 ## Other animals
 
 And since life is not just about lizards...
 
-![*Macaca sinica*](photos/macacasinica.jpeg){group="animals" description="Something _credit:_ Giuliano Colosimo"}
+::: {.photo-grid}
+![*Macaca sinica*](photos/macacasinica.jpeg){group="animals" description="Credit: Giuliano Colosimo"}
 
-![*Ophiophagus hannah*](photos/kingcobra.jpeg){group="animals" description="Something _credit:_ Giuliano Colosimo"}
+![*Ophiophagus hannah*](photos/kingcobra.jpeg){group="animals" description="King cobra. Credit: Giuliano Colosimo"}
 
-![*A racer eating an Anole lizards on Anegada Island (BVI)*](photos/racereatsanole.jpeg){group="animals" description="Something _credit:_ Giuliano Colosimo"}
+![A racer eating an anole on Anegada Island (BVI)](photos/racereatsanole.jpeg){group="animals" description="Credit: Giuliano Colosimo"}
+:::
 
 ## Places
 
-Places I visited and things I found fascinating and pic worthy.
+Places I visited and found fascinating and pic-worthy.
 
-![Mareri (Lazio, IT)](photos/mareri.jpeg){group="places" description="Something _credit:_ Giuliano Colosimo"}
+::: {.photo-grid}
+![Mareri (Lazio, IT)](photos/mareri.jpeg){group="places" description="Credit: Giuliano Colosimo"}
 
-![Colorful seeds in a market place in Colombo (Sri Lanka)](photos/seeds.jpeg){group="places" description="Something _credit:_ Giuliano Colosimo"}
+![Colourful seeds in a market in Colombo (Sri Lanka)](photos/seeds.jpeg){group="places" description="Credit: Giuliano Colosimo"}
+:::
 
 ## People
 
-Traveling is not just about seeing places, but also about meeting people...
+Traveling is not just about seeing places, but also about meeting people.
 
-![Grandma from Galapagos, photo credit: Giuliano Colosimo](photos/abuelita.jpeg){group="people" description="Something _credit:_ Giuliano Colosimo"}
+::: {.photo-grid}
+![Grandma from Galapagos](photos/abuelita.jpeg){group="people" description="Credit: Giuliano Colosimo"}
+:::

@@ -1,0 +1,253 @@
+# ---------------------------------------------------------------------------
+# Publication list for the Publications page.
+#
+# Source: the curated list prepared on 14 September 2026 for the Aarhus
+# application. This file is the single source of truth for publications.qmd —
+# add or edit an entry here and re-render; no R code needs to change.
+#
+# Markdown **bold** and *italic* are honoured in authors, title and venue.
+# `doi` is the bare DOI (no https://doi.org/ prefix); omit it when there is none.
+# ---------------------------------------------------------------------------
+
+published:
+- year: 2026
+  authors: Russo, T., **Colosimo, G.**, Fanelli, C., Franceschini, S., Gratton, P., Parisi, A., & Alice,
+    R.
+  title: Un Viaggio nell'ambiente R
+  venue: TVUP (STEM series)
+  doi: 10.35948/tvup/979-12-82347-17-4
+- year: 2026
+  authors: '**Colosimo, G.**, Dykema, Z., Welch, M. E., Perry, G., Harlow, Z., Davis, H., Bradley, K.
+    A., Gentile, G., & Gerber, G. P.'
+  title: The impact of serial translocation bottlenecks on the genetic diversity of Anegada Rock Iguanas
+    (*Cyclura pinguis*) in the British Virgin Islands
+  venue: '*Conservation Genetics*, 27(3)'
+  doi: 10.1007/s10592-026-01800-y
+- year: 2026
+  authors: '**Colosimo, G.**, Rakaj, A., Acarli, D., Kale, S., Batir, E., Di Gianvito, M., Gentile, G.,
+    & Acarli, S.'
+  title: Novel COI mitochondrial sequences for noble pen shell from Marmara Sea
+  venue: '*Frontiers in Marine Science*, 13'
+  doi: 10.3389/fmars.2026.1805543
+- year: 2026
+  authors: Gargano, M., Marta, S., Garizio, L., Gratton, P., **Colosimo, G.**, Gerber, G. P., Lewbart,
+    G. A., Sevilla, C., & Gentile, G.
+  title: 'A spatially explicit distribution model to support conservation strategies for isolated small-ranged
+    species: a case study from Galápagos'
+  venue: '*Diversity and Distributions*, 32(6)'
+  doi: 10.1111/ddi.70225
+- year: 2025
+  authors: De Luca, M., Loreti, P., Bracciale, L., **Colosimo, G.**, Gentile, G., Mastrangeli, F., Gerber,
+    G. P., Haakonsson, J., Waters, G., Allegra, V., Capuano, R., Di Natale, C., & Catini, A.
+  title: Design of a LoRa-based multisensor device for the Internet of Animals
+  venue: '*IEEE Internet of Things Journal*, 12(15), 31588–31600'
+  doi: 10.1109/jiot.2025.3574494
+- year: 2025
+  authors: Auliya, M., Nijman, V., Altherr, S., Aguilera, W. T., Ariano-Sánchez, D., Cantu, J. C., **Colosimo,
+    G.**, Gentile, G., Gerber, G., Grant, T., Henningheim, E., Hughes, A., Knapp, C. R., Lieberman, S.,
+    Malone, C., Pasachnik, S. A., Petrossian, G., Sevilla, C., Sosnowski, M., & Weissgold, B.
+  title: 'Trafficking of Galápagos iguanas as an example of a global problem: CITES permits, laundering
+    and the role of transit countries in Europe and Africa'
+  venue: '*Biological Conservation*, 305, 111104'
+  doi: 10.1016/j.biocon.2025.111104
+- year: 2025
+  authors: Paradiso, C., Gratton, P., Trucchi, E., López-Delgado, J., Gargano, M., Garizio, L., Carr,
+    I. M., **Colosimo, G.**, Sevilla, C., Welch, M. E., Firdaus-Raih, M., Noor Mat-Isa, M., Goodman, S.
+    J., & Gentile, G.
+  title: Genomic insights into the biogeography and evolution of Galápagos iguanas
+  venue: '*Molecular Phylogenetics and Evolution*, 204, 108294'
+  doi: 10.1016/j.ympev.2025.108294
+- year: 2025
+  authors: Scimeca, M., Bonfiglio, R., **Colosimo, G.**, Candi, E., Gerber, G. P., Lewbart, G. A., Mauriello,
+    A., Melino, G., Sevilla, C., Shi, Y., Wang, Y., & Gentile, G.
+  title: Ultrastructural studies distinguish skin diversities among Galápagos iguanas
+  venue: '*Biology Direct*, 20(1)'
+  doi: 10.1186/s13062-025-00602-5
+- year: 2024
+  authors: Gargano, M., **Colosimo, G.**, Garizio, L., Gratton, P., Lewbart, G. A., Gerber, G. P., Loreti,
+    P., Catini, A., Bracciale, L., De Luca, M., Mastrangeli, F., Sevilla, C., & Gentile, G.
+  title: Locating nesting sites for critically endangered Galápagos Pink Land Iguanas (*Conolophus marthae*)
+  venue: '*Animals*, 14(12), 1835'
+  doi: 10.3390/ani14121835
+- year: 2024
+  authors: '**Colosimo, G.**, Montemuro, G., Lewbart, G. A., Gentile, G., & Gerber, G. P.'
+  title: Hand grab or noose pole? Evaluating the least stressful practice for capture of endangered Turks
+    and Caicos rock iguanas *Cyclura carinata*
+  venue: '*PeerJ*, 12, e17171'
+  doi: 10.7717/peerj.17171
+- year: 2024
+  authors: Nieto-Claudín, A., Sacristán, C., Deem, S. L., Lewbart, G. A., **Colosimo, G.**, Esperón, F.,
+    Sevilla, C., & Gentile, G.
+  title: Novel herpesvirus in the critically endangered Galápagos Pink Land Iguana
+  venue: '*Acta Tropica*, 252, 107127'
+  doi: 10.1016/j.actatropica.2024.107127
+- year: 2024
+  authors: Garizio, L., Gargano, M., **Colosimo, G.**, Gratton, P., Gerber, G. P., Lewbart, G., Sevilla,
+    C., & Gentile, G.
+  title: First evidence of recruitment in critically endangered Galápagos Pink Land Iguanas (*Conolophus
+    marthae*)
+  venue: '*Conservation Science and Practice*, 6(4)'
+  doi: 10.1111/csp2.13108
+- year: 2024
+  authors: Reynolds, R. G., Reger, M. E., Peek, K. J., Raphael, B. L., **Colosimo, G.**, Miller, A. H.,
+    Vanerelli, A. A., & Gerber, G. P.
+  title: 'Spatial ecology of the Turks and Caicos Boa *Chilabothrus c. chrysogaster* Cope, 1871 (Serpentes:
+    Boidae)'
+  venue: '*The Herpetological Journal*, 34(1), 22–34'
+  doi: 10.33256/34.1.2234
+- year: 2023
+  authors: Lewbart, G. A., **Colosimo, G.**, Gaudette, C., Negrão Watanabe, T. T., Parker, J., Sevilla,
+    C., Gerber, G. P., & Gentile, G.
+  title: 'When pink is a question: comparative gross and microscopic skin structure analyses reveal the
+    histological basis of skin colour in Galápagos Pink Land Iguanas (*Conolophus marthae*)'
+  venue: '*Acta Zoologica*, 105(4), 514–523'
+  doi: 10.1111/azo.12488
+- year: 2023
+  authors: Castaño, P. A., Campbell, K. J., **Colosimo, G.**, Gerber, G., León, P., Tapia, W., & Gentile,
+    G.
+  title: 'Galápagos pink land iguana (Conolophus marthae): conservation and management plan 2022–2027'
+  venue: IUCN
+  doi: 10.2305/tnop5832
+- year: 2022
+  authors: Gargano, M., **Colosimo, G.**, Gratton, P., Marta, S., Brilli, M., Giustini, F., Sevilla, C.,
+    & Gentile, G.
+  title: Nitrogen and carbon stable isotope analysis sheds light on trophic competition between two syntopic
+    land iguana species from Galápagos
+  venue: '*Scientific Reports*, 12(1)'
+  doi: 10.1038/s41598-022-21134-2
+- year: 2022
+  authors: Reynolds, R. G., Miller, A. H., Pasachnik, S. A., Knapp, C. R., Welch, M. E., **Colosimo, G.**,
+    Gerber, G. P., Drawert, B., & Iverson, J. B.
+  title: Phylogenomics and historical biogeography of West Indian Rock Iguanas (genus *Cyclura*)
+  venue: '*Molecular Phylogenetics and Evolution*, 174, 107548'
+  doi: 10.1016/j.ympev.2022.107548
+- year: 2022
+  authors: '**Colosimo, G.**, Gargano, M., Loreti, P., Bracciale, L., De Luca, M., Catini, A., Di Natale,
+    C., Vera, C., Sevilla, C. R., Gerber, G. P., & Gentile, G.'
+  title: Remote tracking of Galápagos Pink Land Iguana reveals large elevational shifts in habitat use
+  venue: '*Journal for Nature Conservation*, 68, 126210'
+  doi: 10.1016/j.jnc.2022.126210
+- year: 2022
+  authors: '**Colosimo, G.**, Gentile, G., Vera, C. A., Sevilla, C., Gerber, G. P., Westermeyer, H. D.,
+    & Lewbart, G. A.'
+  title: 'Conservation of a flagship species: health assessment of the pink land iguana, *Conolophus marthae*'
+  venue: '*PLoS ONE*, 17(3), e0257179'
+  doi: 10.1371/journal.pone.0257179
+- year: 2021
+  authors: '**Colosimo, G.**, Jackson, A. C., Benton, A., Varela-Stokes, A., Iverson, J., Knapp, C. R.,
+    & Welch, M.'
+  title: 'Correlated population genetic structure in a three-tiered host-parasite system: the potential
+    for coevolution and adaptive divergence'
+  venue: '*Journal of Heredity*, 112(7), 590–601'
+  doi: 10.1093/jhered/esab058
+- year: 2021
+  title: 'Turks and Caicos rock iguana (Cyclura carinata): conservation and management plan 2020–2024'
+  venue: IUCN
+  doi: 10.2305/iucn.ch.2021.10.en
+- year: 2021
+  authors: Russo, T., Maiello, G., Talarico, L., Baillie, C., **Colosimo, G.**, D'Andrea, L., Di Maio,
+    F., Fiorentino, F., Franceschini, S., Garofalo, G., Scannella, D., Cataudella, S., & Mariani, S.
+  title: 'All is fish that comes to the net: metabarcoding for rapid fisheries catch assessment'
+  venue: '*Ecological Applications*, 31(2)'
+  doi: 10.1002/eap.2273
+- year: 2020
+  authors: '**Colosimo, G.**, Di Marco, G., D''Agostino, A., Gismondi, A., Vera, C. A., Gerber, G. P.,
+    Scardi, M., Canini, A., & Gentile, G.'
+  title: Chemical signatures of femoral pore secretions in two syntopic but reproductively isolated species
+    of Galápagos land iguanas (*Conolophus marthae* and *C. subcristatus*)
+  venue: '*Scientific Reports*, 10(1)'
+  doi: 10.1038/s41598-020-71176-7
+- year: 2020
+  authors: Pasachnik, S. A., **Colosimo, G.**, Carreras-De León, R., & Gerber, G.
+  title: Genetic structure of Rhinoceros Rock Iguanas, *Cyclura cornuta*, in the Dominican Republic, with
+    insights into the impact of captive facilities and the taxonomic status of *Cyclura* on Mona Island
+  venue: '*Conservation Genetics*, 21(5), 837–851'
+  doi: 10.1007/s10592-020-01290-6
+- year: 2020
+  authors: '**Colosimo, G.**, Gerber, G. P., & Clay, C.'
+  title: '*Leiocephalus carinatus* — geographic distribution notes'
+  venue: '*Herpetological Review*, 51(2), 272'
+- year: 2020
+  authors: Loreti, P., Bracciale, L., **Colosimo, G.**, Vera, C., Gerber, G. P., De Luca, M., & Gentile,
+    G.
+  title: Assessment and validation of miniaturized technology for the remote tracking of critically endangered
+    Galápagos Pink Land Iguana (*Conolophus marthae*)
+  venue: '*Animal Biotelemetry*, 8(1)'
+  doi: 10.1186/s40317-020-0192-4
+- year: 2019
+  authors: Gerber, G. P., **Colosimo, G.**, & Grant, T. D.
+  title: '*Cyclura carinata*: the IUCN Red List of Threatened Species 2020'
+  venue: '*IUCN Red List of Threatened Species*. IUCN'
+  doi: 10.2305/iucn.uk.2020-2.rlts.t6026a3097754.en
+- year: 2019
+  authors: Mariani, S., Baillie, C., **Colosimo, G.**, & Riesgo, A.
+  title: Sponges as natural environmental DNA samplers
+  venue: '*Current Biology*, 29(11), R401–R402'
+  doi: 10.1016/j.cub.2019.04.031
+- year: 2017
+  authors: Welch, M. E., **Colosimo, G.**, Pasachnik, S. A., Malone, C. L., Hilton, J., Long, J., Getz,
+    A. H., Alberts, A. C., & Gerber, G. P.
+  title: 'Molecular variation and population structure in critically endangered Turks and Caicos Rock
+    Iguanas: identifying intraspecific conservation units and revising subspecific taxonomy'
+  venue: '*Conservation Genetics*, 18(2), 479–493'
+  doi: 10.1007/s10592-016-0922-6
+- year: 2016
+  authors: Aplasca, A. C., Iverson, J. B., Welch, M. E., **Colosimo, G.**, & Hekkala, E. R.
+  title: Genetic diversity and structure in the endangered Allen Cays rock iguana, *Cyclura cychlura inornata*
+  venue: '*PeerJ*, 4, e1793'
+  doi: 10.7717/peerj.1793
+- year: 2014
+  authors: '**Colosimo, G.**, Knapp, C. R., Wallace, L. E., & Welch, M. E.'
+  title: 'Inferred vs realized patterns of gene flow: an analysis of population structure in the Andros
+    Island rock iguana'
+  venue: '*PLoS ONE*, 9(9), e106963'
+  doi: 10.1371/journal.pone.0106963
+in_review:
+- authors: '**Colosimo, G.**, Gargano, M., Waters, G., & Gerber, G. P.'
+  title: Quantifying endemic island species recovery following feral cat eradication
+  venue: '*Animal Conservation*'
+  status: accepted pending revisions
+- authors: Gentile, G., **Colosimo, G.**, Gerber, G. P., Sevilla, C., & Lewbart, G. A.
+  title: 'The Pink Land Iguana (*Conolophus marthae* Gentile and Snell, 2009): a high-altitude, high-priority,
+    highly endangered species'
+  venue: '*Book chapter*'
+  status: accepted / in press
+- authors: '**Colosimo, G.**, & van den Burg, M.'
+  title: 'A constructive reanalysis of island climatic and geographical influences on body size in the
+    Lesser Antillean iguana: a cautionary tale as the unit of analysis matters'
+  venue: '*Journal of Zoology*'
+  status: under review
+- authors: López-Delgado, J., Carr, I. M., Paradiso, C., Gratton, P., **Colosimo, G.**, van den Burg,
+    M., Debrot, A. O., Sevilla, C., Mat-Isa, M. N., Bayliss, R., Gerber, G. P., Firdaus-Raih, M., O'Connell,
+    M. J., Gentile, G., & Goodman, S. J.
+  title: A genomic perspective on the origins, evolution and adaptation of Galápagos iguanas
+  venue: '*Current Biology*'
+  status: under review
+- authors: Gargano, M., Garizio, L., **Colosimo, G.**, Loreti, P., Catini, A., Bracciale, L., De Luca,
+    M., Lewbart, G. A., Sevilla, C., Gerber, G. P., Gratton, P., & Gentile, G.
+  title: 'Why they move: breeding-site availability drives partial migration in a large terrestrial reptile'
+  venue: '*Journal of Applied Ecology*'
+  status: under review
+  preprint: 10.64898/2026.08.20.745942
+- authors: 'Dykema, Z., Gerber, G. P., **Colosimo, G.**, Welch, M. E.'
+  title: 'How small is too small? Genetic signatures from naturally small populations of a large island vertebrate, the Turks and Caicos Rock Iguana'
+  venue: '*Journal of Heredity*'
+  status: under review
+  #preprint: 10.64898/2026.08.20.745942
+in_progress:
+- authors: '**Colosimo, G.**, Gargano, M., Gerber, G. P., Carreras De León, R., & Pasachnik, S. A.'
+  title: 'Eighty days apart: intrinsic allochrony masks adaptive trade-offs between competition and survival
+    in endangered rock iguanas'
+  venue: '*Ecology and Evolution*'
+  status: ready for submission
+- authors: Downes, J., Garizio, L., Campeiro, G., Suter, S., Zemp, C., Gentile, G., & **Colosimo, G.**
+  title: Using terrestrial laser scanning to characterize the habitat structure of the critically endangered
+    Galápagos pink land iguana
+  venue: '*Remote Sensing in Ecology and Conservation*'
+  status: in preparation
+- authors: Garizio, L., Gargano, M., Gratton, P., Marta, S., **Colosimo, G.**, Sevilla, C., Vignoli, L.,
+    Carosi, M., & Gentile, G.
+  title: 'Thermoregulation in two syntopic Galápagos land iguanas: the role of microhabitat selection
+    and skin pigmentation'
+  venue: '*Oecologia*'
+  status: ready for submission

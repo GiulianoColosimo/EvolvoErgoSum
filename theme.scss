@@ -1,36 +1,91 @@
 /*-- scss:defaults --*/
 
-@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+// ==========================================================================
+//  Evolvo Ergo Sum — LIGHT theme
+//  Earthy conservation palette: field green + ochre on warm cream.
+//  All colours live here; change them in one place and the site follows.
+// ==========================================================================
 
-$font-family: "Atkinson Hyperlegible", sans-serif;
+// --- Brand palette --------------------------------------------------------
+$brand-field-green: #2F5D50 !default; // primary: navbar, links, accents
+$brand-deep-green:  #1F4036 !default; // hover / pressed states
+$brand-pale-green:  #E3EAE4 !default; // tints
+$brand-moss:        #2A3B35 !default; // body text
+$brand-ochre:       #A9714B !default; // secondary
+$brand-clay:        #C98A5E !default; // tertiary
+$brand-sand:        #E5DFD2 !default; // rules, borders, muted fills
+$brand-cream:       #F2EEE6 !default; // page background
+$brand-paper:       #FBF9F5 !default; // raised surfaces (cards)
+$brand-teal:        #15796E !default;
+$brand-rust:        #B3532A !default;
+$brand-gold:        #C9A227 !default;
 
-// Navigation element colors
-//$footer-bg: #FB8D19;
-//$navbar-bg: #FB8D19;
-//$sidebar-bg: #FB8D19;
+// --- Typography -----------------------------------------------------------
+// Bootstrap uses $font-family-sans-serif for body copy; pointing it at a
+// serif is what gives the reference site its bookish feel.
+$font-family-sans-serif: "Lora", Georgia, "Times New Roman", serif !default;
+$font-family-monospace:  "Source Code Pro", SFMono-Regular, Menlo, Consolas, monospace !default;
+$headings-font-family:   "Cormorant Garamond", "Lora", Georgia, serif !default;
+
+$font-size-root:      17px !default;
+$headings-font-weight: 600 !default;
+$line-height-base:    1.7 !default;
+
+// --- Semantic roles -------------------------------------------------------
+$body-bg:    $brand-cream;
+$body-color: $brand-moss;
+
+$primary:   $brand-field-green;
+$secondary: $brand-ochre;
+$success:   $brand-teal;
+$info:      $brand-field-green;
+$warning:   $brand-clay;
+$danger:    $brand-rust;
+$light:     $brand-sand;
+$dark:      $brand-moss;
+
+$link-color:       $brand-field-green;
+$link-hover-color: $brand-ochre;
+
+$border-color:  $brand-sand;
+$border-radius: 0.3rem;
+
+// --- Navigation -----------------------------------------------------------
+$navbar-bg: $brand-field-green;
+$navbar-fg: #F4F1EA;
+$navbar-hl: $brand-clay;
+
+$footer-bg: $brand-cream;
+$footer-fg: $brand-moss;
+
+$sidebar-bg: $brand-cream;
+$sidebar-fg: $brand-moss;
+
+// --- Code -----------------------------------------------------------------
+$code-color:      $brand-deep-green;
+$code-bg:         #EDE8DE;
+$code-block-bg:   #EDE8DE;
+$code-block-border-left: $brand-field-green;
+
+// --- Table of contents ----------------------------------------------------
+$toc-color:           $brand-field-green;
+$toc-active-border:   $brand-field-green;
+$toc-inactive-border: $brand-sand;
+
 
 /*-- scss:rules --*/
 
-.render-commit-push {
-  padding: 0.5em 0.5em 0em 3em;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background: #f8f8f8 5px center/3em no-repeat;
-  border-top: 1px solid #5B888C;
-  border-bottom: 1px solid #5B888C;
-  background-image: url("figures/render-commit-push.png");
-  background-size: 2em;
-  background-position: 0.5em 0.5em;
-}
+// Component rules live in styles.css and are driven by these custom
+// properties, so the light and dark themes never duplicate layout code.
 
-.pull {
-  padding: 0.5em 0.5em 0em 3em;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background: #f8f8f8 5px center/3em no-repeat;
-  border-top: 1px solid #E0A890;
-  border-bottom: 1px solid #E0A890;
-  background-image: url("figures/pull.png");
-  background-size: 1em;
-  background-position: 1em 0.5em;
+:root {
+  --ees-surface:  #{$brand-paper};
+  --ees-rule:     #{$brand-sand};
+  --ees-muted:    #{rgba($brand-moss, 0.68)};
+  --ees-accent:   #{$brand-field-green};
+  --ees-accent-2: #{$brand-ochre};
+  --ees-tint:     #{rgba($brand-field-green, 0.07)};
+  --ees-on-accent: #F4F1EA;
+  --ees-font-display: #{inspect($headings-font-family)};
+  --ees-navbar-edge: transparent;
 }

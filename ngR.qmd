@@ -2,8 +2,8 @@
 title: "ngR"
 subtitle: "next-generation-R"
 editor: visual
-bibliography: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/comprehensive_database.bib
-csl: /Users/giulianocolosimo/Dropbox/manuscripts/literature/bibtex/apa_5th_edition.csl
+bibliography: comprehensive_database.bib
+csl: apa_5th_edition.csl
 citation_package: biblatex
 citecolor: "red"
 author: Giuliano Colosimo
@@ -14,7 +14,8 @@ date: "`r Sys.Date()`"
 knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(diagram)
-library(Rqc)
+# Rqc (Bioconductor) is loaded on demand inside ngs_quality_control() below,
+# so the page renders even where it is not installed.
 ```
 
 Wouldn't it be nice to analyse all your sequence data in *R* without having the need to use third party applications and/or code written in other languages? Yes, it would! In fact, there already are quite a few packages allowing the processing of your Next Gen Data.

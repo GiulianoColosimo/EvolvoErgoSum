@@ -1,9 +1,5 @@
 [
   {
-    "listing": "/photos.html",
-    "items": []
-  },
-  {
     "listing": "/blog.html",
     "items": [
       "/posts/citespub/index.html",

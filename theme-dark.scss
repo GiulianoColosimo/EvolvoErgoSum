@@ -1,57 +1,93 @@
 /*-- scss:defaults --*/
 
-@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+// ==========================================================================
+//  Evolvo Ergo Sum — DARK theme
+//  Same earthy palette, lifted for contrast against a deep moss background.
+// ==========================================================================
 
-$font-family: "Atkinson Hyperlegible", sans-serif;
+// --- Brand palette --------------------------------------------------------
+$brand-sage:        #8FBFA8 !default; // primary: links, accents (light on dark)
+$brand-sage-bright: #A9D2BD !default; // hover
+$brand-night:       #1B211E !default; // page background
+$brand-night-2:     #242C28 !default; // raised surfaces (cards)
+$brand-night-3:     #17201C !default; // navbar
+$brand-parchment:   #E6E2D8 !default; // body text
+$brand-sand-warm:   #D6A272 !default; // secondary
+$brand-clay:        #C98A5E !default;
+$brand-rule:        #37423C !default; // borders
+$brand-teal:        #4FB3A2 !default;
+$brand-rust:        #D9754A !default;
+$brand-gold:        #D9B44A !default;
 
-// Base document colors
-$body-bg: #181818;
-$body-color: white;
-$link-color: #75AADB;
+// --- Typography -----------------------------------------------------------
+$font-family-sans-serif: "Lora", Georgia, "Times New Roman", serif !default;
+$font-family-monospace:  "Source Code Pro", SFMono-Regular, Menlo, Consolas, monospace !default;
+$headings-font-family:   "Cormorant Garamond", "Lora", Georgia, serif !default;
 
-$light: #525252;
+$font-size-root:       17px !default;
+$headings-font-weight: 600 !default;
+$line-height-base:     1.7 !default;
 
-// Navigation element colors
-$footer-bg: #181818;
-$navbar-bg: #303030;
-$sidebar-bg: #303030;
+// --- Semantic roles -------------------------------------------------------
+$body-bg:    $brand-night;
+$body-color: $brand-parchment;
 
-// Code blocks
-$code-block-bg-alpha: -.8;
+$primary:   $brand-sage;
+$secondary: $brand-sand-warm;
+$success:   $brand-teal;
+$info:      $brand-sage;
+$warning:   $brand-clay;
+$danger:    $brand-rust;
+$light:     $brand-rule;
+$dark:      $brand-night-3;
 
-// Bootstrap popovers
-$popover-bg: #242424;
+$link-color:       $brand-sage;
+$link-hover-color: $brand-sand-warm;
 
-// Bootstrap inputs
-$input-bg: #242424;
+$border-color:  $brand-rule;
+$border-radius: 0.3rem;
+
+// --- Navigation -----------------------------------------------------------
+$navbar-bg: $brand-night-3;
+$navbar-fg: $brand-parchment;
+$navbar-hl: $brand-sand-warm;
+
+$footer-bg: $brand-night;
+$footer-fg: $brand-parchment;
+
+$sidebar-bg: $brand-night;
+$sidebar-fg: $brand-parchment;
+
+// --- Code -----------------------------------------------------------------
+$code-color:    $brand-sage-bright;
+$code-bg:       #222A26;
+$code-block-bg: #222A26;
+$code-block-border-left: $brand-sage;
+
+// --- Bootstrap surfaces ---------------------------------------------------
+$popover-bg: $brand-night-2;
+$input-bg:   $brand-night-2;
+$card-bg:    $brand-night-2;
+
+// --- Table of contents ----------------------------------------------------
+$toc-color:           $brand-sage;
+$toc-active-border:   $brand-sage;
+$toc-inactive-border: $brand-rule;
 
 
 /*-- scss:rules --*/
 
-.layout-example {
-  background: $gray-700;
-}
+// Component rules live in styles.css and are driven by these custom
+// properties, so the light and dark themes never duplicate layout code.
 
-.render-commit-push {
-  padding: 0.5em 0.5em 0em 3em;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background: #181818 5px center/3em no-repeat;
-  border-top: 1px solid #adadad;
-  border-bottom: 1px solid #adadad;
-  background-image: url("figures/render-commit-push.png");
-  background-size: 2em;
-  background-position: 0.5em 0.5em;
-}
-
-.pull {
-  padding: 0.5em 0.5em 0em 3em;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background: #181818 5px center/3em no-repeat;
-  border-top: 1px solid #adadad;
-  border-bottom: 1px solid #adadad;
-  background-image: url("figures/pull.png");
-  background-size: 2em;
-  background-position: 0.5em 0.5em;
+:root {
+  --ees-surface:  #{$brand-night-2};
+  --ees-rule:     #{$brand-rule};
+  --ees-muted:    #{rgba($brand-parchment, 0.66)};
+  --ees-accent:   #{$brand-sage};
+  --ees-accent-2: #{$brand-sand-warm};
+  --ees-tint:     #{rgba($brand-sage, 0.10)};
+  --ees-on-accent: #{$brand-night};
+  --ees-font-display: #{inspect($headings-font-family)};
+  --ees-navbar-edge: #{$brand-rule};
 }

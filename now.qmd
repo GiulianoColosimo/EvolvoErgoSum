@@ -1,0 +1,54 @@
+---
+title: "Now"
+subtitle: "What I am working on and thinking about at the moment"
+date-modified: last-modified
+toc: false
+---
+
+::: {.now-updated}
+This is a [now page](https://nownownow.com/about): a snapshot of my current
+focus rather than a complete record. It is updated every so often — the date
+above is the last time I touched it.
+:::
+
+<!-- ─────────────────────────────────────────────────────────────────────
+     EDIT ME. This page is meant to be rewritten often and quickly.
+     Keep it short — three or four bullets per section is plenty.
+     Delete sections that are not relevant and add your own.
+     ───────────────────────────────────────────────────────────────── -->
+
+::: {.now-list}
+
+### Research
+
+- Continuing as a research associate at the University of Rome Tor Vergata,
+  working on remote monitoring systems for species at risk of extinction.
+- Developing the next generation of the [T.A.Co.](taco.qmd) tracking system —
+  smaller, cheaper, and able to report physiological as well as positional data.
+- Analysing data from the [M.A.C.R.A.](macra.qmd) pilot on recovering cardiac
+  and respiratory rates from inertial sensors.
+
+### Writing
+
+- Several manuscripts in review and in preparation — the current state of all
+  of them is on the [publications](publications.qmd) page.
+- Occasional longer posts on the [blog](blog.qmd), usually about R, data
+  wrangling, or something that went wrong in the field.
+
+### Reading & learning
+
+- Keeping up with the quickly moving literature on genomics of small
+  populations.
+- Improving my Quarto and R workflow — this site is part of that experiment.
+
+### Away from the desk
+
+- Photography, mostly of reptiles and of places that are hard to get to. Some
+  of it ends up in the [gallery](photos.qmd).
+
+:::
+
+---
+
+If any of this overlaps with what you are working on, I would be glad to hear
+from you — my contact details are [here](contacts.qmd).

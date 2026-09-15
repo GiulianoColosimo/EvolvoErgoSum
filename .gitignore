@@ -6,3 +6,11 @@
 /.quarto/
 
 **/*.quarto_ipynb
+
+# LaTeX build artifacts (the CV is built in documents/)
+*.aux
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+documents/*.log

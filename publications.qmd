@@ -1,281 +1,126 @@
 ---
 title: "Publications"
+subtitle: "Peer-reviewed work, plus what is currently in the pipeline"
 author:
   - name: Giuliano Colosimo
     orcid: 0000-0002-0485-9758
-editor: visual
-citation_package: biblatex
-citecolor: "red"
-date: "2023-03-31"
 date-modified: last-modified
+toc: true
+toc-depth: 2
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(bib2df)
-library(knitr)
-library(kableExtra)
-library(formattable)
-library(dplyr)
-library(wordcloud)
-library(RColorBrewer)
-library(wordcloud2)
-```
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(yaml)
 
-In this page I keep a complete and up-to-date list of all my publications organized in different tables. The word-cloud below shows the keywords associated with my publications.
+# publications.yml is the single source of truth — see the comments at its top.
+pubs <- yaml::read_yaml("publications.yml")
 
-```{r cloudWord, echo = FALSE, warning = FALSE, message = FALSE}
-bib_df <- bib2df("./GiulianosPubs.bib", separate_names = TRUE)
-
-myPub <- bib_df %>% 
-  filter(NOTE == "Peer-reviewed") %>% 
-  select("TITLE", "YEAR", "MONTH","AUTHOR", "JOURNAL", "CATEGORY",
-          "DOI", "VOLUME", "NUMBER", "PAGES", "NOTE", "KEYWORDS")
-textCloud <- unlist(strsplit(myPub$KEYWORDS, ","))
-textCloud <- as.data.frame(table(textCloud))
-textCloud <- textCloud[order(textCloud$Freq, decreasing = T), ]
-colnames(textCloud) <- c("word", "freq")       
-wordcloud2(textCloud)
-```
-
-<br>
-
-The three tables below have: peer reviewed pubs (including accepted manuscripts that are currently undergoing the publication process and that will be recognizable because their title will be marked with an asterisk); pubs that are still through the review process; manuscripts that are about to be submitted to a scientific journal or are still in the making; other more general publications including my PhD dissertation and my MS thesis.
-
-The title of each publication is actually a link to either the official journal web-page where it was published or to a repository where you can find a PDF copy of it. If the link doesn't work (or currently is not available) the cell will have a gold-ish background color (usually the latest papers, accepted but still in the editorial phase). Manuscripts in review or that are still in the making have an orange or forest green color, respectively, and the link will take you nowhere unless there is a preview version of the draft. I periodically check these lists and the links to make sure they are up to date.
-
-## Peer reviewed (published/accepted)
-
-```{r peerreviewed, echo = FALSE, warning = FALSE, message = FALSE}
-bib_df <- bib2df("./GiulianosPubs.bib", separate_names = TRUE)
-
-myPub <- bib_df %>% 
-  filter(NOTE == "Peer-reviewed") %>% 
-  select("TITLE", "YEAR", "MONTH","AUTHOR", "JOURNAL", "CATEGORY",
-          "DOI", "VOLUME", "NUMBER", "PAGES", "NOTE")
-
-myPub$YEAR[myPub$YEAR == "2009}"] <- 2009
-myPub$YEAR[myPub$YEAR == "2016}"] <- 2016
-myPub$YEAR[myPub$YEAR == "2020}"] <- 2020
-myPub$YEAR[myPub$YEAR == "2021}"] <- 2021
-myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
-myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
-myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
-myPub$YEAR[myPub$YEAR == "2025}"] <- 2025
-
-myPub$YEAR[19] <- 2022
-myPub$YEAR[21] <- 2022
-myPub$MONTH[1]<- 10
-
-myPub$YEAR <- as.numeric(myPub$YEAR)
-myPub$MONTH <- as.numeric(myPub$MONTH)
-myPub <- myPub[order(myPub$YEAR, myPub$MONTH, decreasing = T), ]
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){x[,c("last_name", "first_name")]})
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){
-  paste(x[,"last_name"],
-        substr(x[,"first_name"],1,1))
-})
-
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(y){unlist(lapply(y, function(x){if (x == "Colosimo G"){
-  paste("<b>", x, "</b>", sep = "")
-} else {
+# Escape HTML, then honour the **bold** / *italic* markers used in the YAML.
+md_inline <- function(x) {
+  if (is.null(x) || length(x) == 0 || is.na(x)) return("")
+  x <- gsub("&", "&amp;", x, fixed = TRUE)
+  x <- gsub("<", "&lt;",  x, fixed = TRUE)
+  x <- gsub(">", "&gt;",  x, fixed = TRUE)
+  x <- gsub("\\*\\*(.+?)\\*\\*", "<b>\\1</b>", x, perl = TRUE)
+  x <- gsub("\\*(.+?)\\*",       "<i>\\1</i>", x, perl = TRUE)
   x
-}}))})
+}
 
-myPub$AUTHOR <- unlist(lapply(myPub$AUTHOR, paste, collapse = ", "))
-myPub$TITLE <- text_spec(myPub$TITLE, link = myPub$DOI, format = "html",
-                         color = "blue")
+field <- function(p, name) if (is.null(p[[name]])) NULL else p[[name]]
 
-myPub$JOURNAL <- apply(myPub[, c("JOURNAL", "VOLUME", "PAGES")], 1,
-      function(x){
-        Selector <- as.matrix(x)
-        Selector <- !is.na(Selector)
-        paste(x[Selector], collapse = ", ")
-      })
+# One entry: year (or blank) in the left column, citation in the right.
+render_entry <- function(p) {
+  doi   <- field(p, "doi")
+  title <- md_inline(p$title)
 
-myPub$COUNT <- rev(seq(1:nrow(myPub)))
+  title_html <- if (is.null(doi)) {
+    sprintf('<span class="pub-title">%s</span>', title)
+  } else {
+    sprintf('<a class="pub-title" href="https://doi.org/%s" target="_blank" rel="noopener">%s</a>',
+            doi, title)
+  }
 
-linkColor <- ifelse(is.na(myPub$DOI), "gold", "")
+  venue <- md_inline(field(p, "venue"))
+  bits  <- character(0)
+  if (nzchar(venue)) bits <- c(bits, venue)
+  if (!is.null(field(p, "status"))) {
+    bits <- c(bits, sprintf('<span class="pub-status">%s</span>', p$status))
+  }
+  if (!is.null(field(p, "preprint"))) {
+    bits <- c(bits, sprintf(
+      '<a class="pub-status pub-status--link" href="https://doi.org/%s" target="_blank" rel="noopener">preprint</a>',
+      p$preprint))
+  }
 
-kable(myPub[, c("COUNT","YEAR", "MONTH", "TITLE", "AUTHOR", "JOURNAL")], format = "html", escape = F) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
-                font_size = 7) %>%
-  column_spec(1, bold = F, width = "5em", border_right = T) %>%
-  column_spec(2, bold = F, width = "5em", border_right = T) %>%
-  column_spec(3, bold = F, width = "5em", border_right = T) %>%
-  column_spec(4, width = "40em", border_right = T, background = linkColor) %>%
-  column_spec(5, width = "25em", border_right = T) %>%
-  column_spec(6, width = "10em", color = "red")
+  sprintf(paste0('<div class="pub-item">\n',
+                 '<div class="pub-when">%s</div>\n',
+                 '<div class="pub-body">\n%s\n',
+                 '<div class="pub-authors">%s</div>\n',
+                 '<div class="pub-venue">%s</div>\n',
+                 '</div>\n</div>\n'),
+          if (is.null(field(p, "year"))) "" else p$year,
+          title_html,
+          md_inline(field(p, "authors")),
+          paste(bits, collapse = " · "))
+}
+
+render_list <- function(items) {
+  if (length(items) == 0) {
+    cat('<p class="pub-empty">Nothing here at the moment.</p>\n')
+    return(invisible(NULL))
+  }
+  cat('<div class="pub-list">\n')
+  for (p in items) cat(render_entry(p))
+  cat('</div>\n')
+  invisible(NULL)
+}
 ```
+
+```{r intro, results='asis'}
+n_pub  <- length(pubs$published)
+yrs    <- unlist(lapply(pubs$published, function(p) p$year))
+cat(sprintf(
+  paste0("A complete list of my publications. Titles link to the published version ",
+         "wherever one exists.\n\n",
+         "::: {.pub-count}\n**%d** published works · **%d** in review · ",
+         "**%d** in preparation · spanning **%d–%d**\n:::\n"),
+  n_pub, length(pubs$in_review), length(pubs$in_progress),
+  min(yrs), max(yrs)))
+```
+
+## Published
+
+```{=html}
+<label class="visually-hidden" for="pub-filter">Filter publications</label>
+<input type="search" id="pub-filter" class="pub-filter"
+       placeholder="Filter by author, title, journal or year…" autocomplete="off">
+<div class="pub-count" id="pub-filter-status" aria-live="polite"></div>
+```
+
+::: {#published-list}
+
+```{r published, results='asis'}
+render_list(pubs$published)
+```
+
+:::
 
 ## In review
 
-```{r inreview, echo = FALSE, warning = FALSE, message = FALSE, eval=TRUE}
-bib_df <- bib2df("./GiulianosPubs.bib", separate_names = TRUE)
-
-myPub <- bib_df %>% 
-  filter(NOTE == "In review") %>% 
-  select("TITLE", "YEAR", "AUTHOR", "JOURNAL", "CATEGORY",
-          "DOI", "VOLUME", "NUMBER", "PAGES", "NOTE")
-
-myPub$YEAR[myPub$YEAR == "2009}"] <- 2009
-myPub$YEAR[myPub$YEAR == "2016}"] <- 2016
-myPub$YEAR[myPub$YEAR == "2020}"] <- 2020
-myPub$YEAR[myPub$YEAR == "2021}"] <- 2021
-myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
-myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
-myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
-myPub$YEAR[myPub$YEAR == "2025}"] <- 2025
-myPub$YEAR <- as.numeric(myPub$YEAR)
-myPub <- myPub[order(myPub$YEAR, decreasing = T), ]
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){x[,c("last_name", "first_name")]})
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){
-  paste(x[,"last_name"],
-        substr(x[,"first_name"],1,1))
-})
-
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(y){unlist(lapply(y, function(x){if (x == "Colosimo G"){
-  paste("<b>", x, "</b>", sep = "")
-} else {
-  x
-}}))})
-
-myPub$AUTHOR <- unlist(lapply(myPub$AUTHOR, paste, collapse = ", "))
-myPub$TITLE <- text_spec(myPub$TITLE, link = myPub$DOI, format = "html",
-                         color = "blue")
-
-myPub$JOURNAL <- apply(myPub[, c("JOURNAL", "VOLUME", "PAGES")], 1,
-      function(x){
-        Selector <- as.matrix(x)
-        Selector <- !is.na(Selector)
-        paste(x[Selector], collapse = ", ")
-      })
-
-myPub$COUNT <- rev(seq(1:nrow(myPub)))
-
-linkColor <- ifelse(is.na(myPub$DOI), "orange", "")
-
-kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html", escape = F) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
-                font_size = 7) %>%
-  column_spec(1, bold = F, width = "5em", border_right = T) %>%
-  column_spec(2, bold = F, width = "5em", border_right = T) %>%
-  column_spec(3, width = "40em", border_right = T, background = linkColor) %>%
-  column_spec(4, width = "25em", border_right = T) %>%
-  column_spec(5, width = "10em",color = "red")
-
+```{r inreview, results='asis'}
+render_list(pubs$in_review)
 ```
 
 ## In preparation
 
-```{r inprep, echo = FALSE, warning = FALSE, message = FALSE, eval=TRUE}
-bib_df <- bib2df("./GiulianosPubs.bib", separate_names = TRUE)
-
-myPub <- bib_df %>% 
-  filter(NOTE == "In preparation") %>% 
-  select("TITLE", "YEAR", "AUTHOR", "JOURNAL", "CATEGORY",
-          "DOI", "VOLUME", "NUMBER", "PAGES", "NOTE")
-
-myPub$YEAR[myPub$YEAR == "2009}"] <- 2009
-myPub$YEAR[myPub$YEAR == "2016}"] <- 2016
-myPub$YEAR[myPub$YEAR == "2020}"] <- 2020
-myPub$YEAR[myPub$YEAR == "2021}"] <- 2021
-myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
-myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
-myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
-myPub$YEAR[myPub$YEAR == "2025}"] <- 2025
-myPub$YEAR <- as.numeric(myPub$YEAR)
-myPub <- myPub[order(myPub$YEAR, decreasing = T), ]
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){x[,c("last_name", "first_name")]})
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){
-  paste(x[,"last_name"],
-        substr(x[,"first_name"],1,1))
-})
-
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(y){unlist(lapply(y, function(x){if (x == "Colosimo G"){
-  paste("<b>", x, "</b>", sep = "")
-} else {
-  x
-}}))})
-
-myPub$AUTHOR <- unlist(lapply(myPub$AUTHOR, paste, collapse = ", "))
-myPub$TITLE <- text_spec(myPub$TITLE, link = myPub$DOI, format = "html",
-                         color = "gold")
-
-myPub$JOURNAL <- apply(myPub[, c("JOURNAL", "VOLUME", "PAGES")], 1,
-      function(x){
-        Selector <- as.matrix(x)
-        Selector <- !is.na(Selector)
-        paste(x[Selector], collapse = ", ")
-      })
-
-myPub$COUNT <- rev(seq(1:nrow(myPub)))
-
-linkColor <- ifelse(is.na(myPub$DOI), "forestgreen", "")
-
-kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR", "JOURNAL")], format = "html", escape = F) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
-                font_size = 7) %>%
-  column_spec(1, bold = F, width = "5em", border_right = T) %>%
-  column_spec(2, bold = F, width = "5em", border_right = T) %>%
-  column_spec(3, width = "40em", border_right = T, background = linkColor) %>%
-  column_spec(4, width = "25em", border_right = T) %>%
-  column_spec(5, width = "10em",color = "red")
-
-
-
-```
-
-## Non peer reviewed
-
-```{r nonpeereviewed, echo = FALSE, warning = FALSE, message = FALSE}
-bib_df <- bib2df("./GiulianosPubs.bib", separate_names = TRUE)
-
-myPub <- bib_df %>% 
-  filter(NOTE == "Non Peer-reviewed") %>% 
-  select("TITLE", "YEAR", "AUTHOR",
-          "DOI", "VOLUME", "NUMBER", "PAGES", "NOTE")
-
-myPub$YEAR[myPub$YEAR == "2009}"] <- 2009
-myPub$YEAR[myPub$YEAR == "2016}"] <- 2016
-myPub$YEAR[myPub$YEAR == "2020}"] <- 2020
-myPub$YEAR[myPub$YEAR == "2022}"] <- 2022
-myPub$YEAR[myPub$YEAR == "2023}"] <- 2023
-myPub$YEAR[myPub$YEAR == "2024}"] <- 2024
-myPub$YEAR <- as.numeric(myPub$YEAR)
-myPub <- myPub[order(myPub$YEAR, decreasing = T), ]
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){x[,c("last_name", "first_name")]})
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(x){
-  paste(x[,"last_name"],
-        substr(x[,"first_name"],1,1))
-})
-
-myPub$AUTHOR <- lapply(myPub$AUTHOR, function(y){unlist(lapply(y, function(x){if (x == "Colosimo G"){
-  paste("<b>", x, "</b>", sep = "")
-} else {
-  x
-}}))})
-
-myPub$AUTHOR <- unlist(lapply(myPub$AUTHOR, paste, collapse = ", "))
-myPub$TITLE <- text_spec(myPub$TITLE, link = myPub$DOI, format = "html",
-                         color = "blue")
-
-myPub$COUNT <- rev(seq(1:nrow(myPub)))
-
-linkColor <- ifelse(is.na(myPub$DOI), "gold", "")
-
-kable(myPub[, c("COUNT","YEAR", "TITLE", "AUTHOR")], format = "html", escape = F) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
-                font_size = 7) %>%
-  column_spec(1, bold = F, width = "5em", border_right = T) %>%
-  column_spec(2, bold = F, width = "5em", border_right = T) %>%
-  column_spec(3, width = "40em", border_right = T, background = linkColor) %>%
-  column_spec(4, width = "25em", border_right = T)
+```{r inprep, results='asis'}
+render_list(pubs$in_progress)
 ```
 
 ## Review services
 
-Throughout my career I have been offering my services as a reviewer for various scientific journals. Below is a list of the journals I reviewed publications for:
+I have reviewed for the following journals:
 
 -   Frontiers in Veterinary Science
 -   Herpetologica
@@ -284,3 +129,34 @@ Throughout my career I have been offering my services as a reviewer for various 
 -   Biological Invasion
 -   Journal for Nature Conservation
 -   Integrative Zoology
+-   Oecologia
+
+```{=html}
+<script>
+(function () {
+  const box = document.getElementById('pub-filter');
+  const list = document.getElementById('published-list');
+  if (!box || !list) return;
+  const status = document.getElementById('pub-filter-status');
+
+  // Strip diacritics so typing "galapagos" still finds "Galápagos".
+  const norm = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+  const items = Array.from(list.querySelectorAll('.pub-item'))
+    .map(el => ({ el: el, text: norm(el.textContent) }));
+
+  box.addEventListener('input', function () {
+    const q = norm(box.value.trim());
+    let shown = 0;
+    items.forEach(function (item) {
+      const hit = q === '' || item.text.includes(q);
+      item.el.hidden = !hit;
+      if (hit) shown++;
+    });
+    status.textContent = q === ''
+      ? ''
+      : shown + ' of ' + items.length + ' published works match “' + box.value.trim() + '”';
+  });
+})();
+</script>
+```
