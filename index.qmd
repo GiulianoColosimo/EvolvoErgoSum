@@ -21,12 +21,11 @@ about:
     - icon: journal-text
       text: Scopus
       href: https://www.scopus.com/authid/detail.uri?authorId=56364090400
-    # Quarto rewrites a relative href here to a site-root path ("/documents/..."),
-    # which 404s because GitHub Pages serves this site from /EvolvoErgoSum/.
-    # An absolute URL is passed through untouched, so use the full one.
+    # Quarto rewrites this to a site-root path ("/documents/..."), which is
+    # correct now that the site is served from the root of its own domain.
     - icon: file-earmark-person
       text: CV
-      href: https://giulianocolosimo.github.io/EvolvoErgoSum/documents/Colosimo_CV.pdf
+      href: documents/Colosimo_CV.pdf
 ---
 
 I am a conservation biologist with over a decade of field and academic

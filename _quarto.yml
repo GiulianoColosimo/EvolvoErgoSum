@@ -6,6 +6,11 @@ project:
   # /EvolvoErgoSum/documents/ for years — keep that URL alive.
   resources:
     - documents/
+    # GitHub Pages writes docs/CNAME when you set the custom domain, but
+    # `quarto render` wipes docs/ — which would silently drop the domain.
+    # Keeping CNAME in the project root and listing it here re-copies it
+    # into docs/ on every render.
+    - CNAME
   render:
     - "*.qmd"
     - "posts/**/*.qmd"
@@ -21,7 +26,7 @@ website:
   reader-mode: true
   page-navigation: true
   description: "Ecology, Evolution with a sprinkle of Technology"
-  site-url: https://giulianocolosimo.github.io/EvolvoErgoSum/
+  site-url: https://www.giulianocolosimo.com
   favicon: "./figures/avatar.jpg"
 
   repo-url: https://github.com/GiulianoColosimo/EvolvoErgoSum
