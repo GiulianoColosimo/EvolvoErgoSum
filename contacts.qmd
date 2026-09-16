@@ -17,8 +17,8 @@ leaflet() %>%
 
 You can reach me by e-mail using the following address:
 
--   giuliano.colosimo\@uniroma2.it
+- giuliano.colosimo\@uniroma2.it
 
 Or you can call my office number at:
 
--   +39 06 7259 5964
+- +39 06 7259 5964

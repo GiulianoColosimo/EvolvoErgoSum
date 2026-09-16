@@ -24,6 +24,7 @@ remember who, the credit is in the caption.
 ![Me and *Cyclura nubila caymanensis*](photos/IMG_5612.jpeg){group="field" description="Credit: not quite sure..."}
 
 ![Cloud-drop on Wolf Volcano, Galapagos](photos/clouddrop.jpeg){group="field" description="Credit: Giuliano Colosimo"}
+![Climbing up Wolf volcano in 2025](photos/climbing up again.jpeg){group="field" description="Credit: Jordyn Downes"}
 :::
 
 ## Big, medium, and small lizards
@@ -42,6 +43,10 @@ remember who, the credit is in the caption.
 ![*Amblyrhynchus cristatus*](photos/IMG_4740.jpeg){group="lizards" description="Credit: Giuliano Colosimo"}
 
 ![*Aristelliger*](photos/aristelliger.png){group="lizards" description="Credit: Giuliano Colosimo"}
+
+![*Conolophus subcristatus*](photos/c subcristatus in the wild.jpeg){group="lizards" description="Credit: Giuliano Colosimo"}
+
+![*Anolis equestris*](photos/Anolis equestris.jpeg){group="lizards" description="Credit: Giuliano Colosimo"}
 :::
 
 ## Other animals
@@ -54,6 +59,9 @@ And since life is not just about lizards...
 ![*Ophiophagus hannah*](photos/kingcobra.jpeg){group="animals" description="King cobra. Credit: Giuliano Colosimo"}
 
 ![A racer eating an anole on Anegada Island (BVI)](photos/racereatsanole.jpeg){group="animals" description="Credit: Giuliano Colosimo"}
+
+![Pyrocephalus nanus (Galapagos)](photos/redpinzon.jpeg){group="animals" description="Credit: Giuliano Colosimo"}
+
 :::
 
 ## Places
