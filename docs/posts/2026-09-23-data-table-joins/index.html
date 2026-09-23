@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-09-23">
+<meta name="description" content="Left, anti, rolling and update joins in data.table syntax.">
 
-<title>Now – Evolvo Ergo Sum</title>
+<title>data.table joins I always re-look-up – Evolvo Ergo Sum</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,32 +22,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="././figures/avatar.jpg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b0bb288645c28dd54851bfad50e47ca9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-7656c0db605ffc4ee1f5056284c785ee.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b0bb288645c28dd54851bfad50e47ca9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d07b87289ef8346979c19049c4d6e601.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-293e5d7a756ebd6b25d17270123c860a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-d07b87289ef8346979c19049c4d6e601.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../.././figures/avatar.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b0bb288645c28dd54851bfad50e47ca9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-7656c0db605ffc4ee1f5056284c785ee.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b0bb288645c28dd54851bfad50e47ca9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d07b87289ef8346979c19049c4d6e601.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-293e5d7a756ebd6b25d17270123c860a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-d07b87289ef8346979c19049c4d6e601.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -93,17 +130,17 @@ ga('send', {
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&amp;family=Lora:ital,wght@0,400;0,500;0,600;1,400&amp;family=Source+Code+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Now – Evolvo Ergo Sum">
-<meta property="og:description" content="What I am working on and thinking about at the moment">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="data.table joins I always re-look-up – Evolvo Ergo Sum">
+<meta property="og:description" content="Left, anti, rolling and update joins in data.table syntax.">
 <meta property="og:site_name" content="Evolvo Ergo Sum">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:title" content="Now – Evolvo Ergo Sum">
-<meta name="twitter:description" content="What I am working on and thinking about at the moment">
+<meta name="twitter:title" content="data.table joins I always re-look-up – Evolvo Ergo Sum">
+<meta name="twitter:description" content="Left, anti, rolling and update joins in data.table syntax.">
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -272,9 +309,9 @@ ga('send', {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Evolvo Ergo Sum</span>
     </a>
   </div>
@@ -285,7 +322,7 @@ ga('send', {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./aboutme.html"> 
+    <a class="nav-link" href="../../aboutme.html"> 
 <span class="menu-text">Bio</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -294,41 +331,41 @@ ga('send', {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="./research.html">
+    <a class="dropdown-item" href="../../research.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./taco.html">
+    <a class="dropdown-item" href="../../taco.html">
  <span class="dropdown-text">T. A. Co.</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./macra.html">
+    <a class="dropdown-item" href="../../macra.html">
  <span class="dropdown-text">M.A.C.R.A.</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
+    <a class="nav-link" href="../../publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./now.html" aria-current="page"> 
+    <a class="nav-link" href="../../now.html"> 
 <span class="menu-text">Now</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./photos.html"> 
+    <a class="nav-link" href="../../photos.html"> 
 <span class="menu-text">Photos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contacts.html"> 
+    <a class="nav-link" href="../../contacts.html"> 
 <span class="menu-text">Contacts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./documents/Colosimo_CV.pdf"> 
+    <a class="nav-link" href="../../documents/Colosimo_CV.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -337,7 +374,7 @@ ga('send', {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./blog.xml"> <i class="bi bi-rss" role="img" aria-label="RSS feed">
+    <a class="nav-link" href="../../blog.xml"> <i class="bi bi-rss" role="img" aria-label="RSS feed">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -358,29 +395,51 @@ ga('send', {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why" id="toc-why" class="nav-link active" data-scroll-target="#why">Why</a></li>
+  <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join">Left join</a></li>
+  <li><a href="#anti-join" id="toc-anti-join" class="nav-link" data-scroll-target="#anti-join">Anti join</a></li>
+  <li><a href="#update-by-reference" id="toc-update-by-reference" class="nav-link" data-scroll-target="#update-by-reference">Update by reference</a></li>
+  <li><a href="#rolling-join" id="toc-rolling-join" class="nav-link" data-scroll-target="#rolling-join">Rolling join</a></li>
+  <li><a href="#non-equi-join" id="toc-non-equi-join" class="nav-link" data-scroll-target="#non-equi-join">Non-equi join</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/GiulianoColosimo/EvolvoErgoSum/edit/main/posts/2026-09-23-data-table-joins/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GiulianoColosimo/EvolvoErgoSum/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Now</h1>
-<p class="subtitle lead">What I am working on and thinking about at the moment</p>
-</div>
+<h1 class="title">data.table joins I always re-look-up</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">data.table</div>
+    <div class="quarto-category">wrangling</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Left, anti, rolling and update joins in data.table syntax.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
-  
     <div>
-    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 23, 2026</p>
+      <p class="date">September 23, 2026</p>
     </div>
   </div>
+  
     
   </div>
   
@@ -389,50 +448,57 @@ ga('send', {
 </header>
 
 
-<div class="now-updated">
-<p>This is a <a href="https://nownownow.com/about">now page</a>: a snapshot of my current focus rather than a complete record. It is updated every so often — the date above is the last time I touched it.</p>
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">Why</h2>
+<p><code>dplyr</code> join names are verbs; <code>data.table</code> joins are punctuation. This is the translation table I keep reopening.</p>
+</section>
+<section id="left-join" class="level2">
+<h2 class="anchored" data-anchor-id="left-join">Left join</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All rows of x, matching columns from y</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>y[x, on <span class="ot">=</span> .(id)]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent, more explicit</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(x, y, <span class="at">by =</span> <span class="st">"id"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<!-- ─────────────────────────────────────────────────────────────────────
-     EDIT ME. This page is meant to be rewritten often and quickly.
-     Keep it short — three or four bullets per section is plenty.
-     Delete sections that are not relevant and add your own.
-     ───────────────────────────────────────────────────────────────── -->
-<div class="now-list">
-<section id="research" class="level3">
-<h3 class="anchored" data-anchor-id="research">Research</h3>
-<ul>
-<li>Using transcriptome data to evaluate adaptive differences between yellow and pink iguanas from Galapagos.</li>
-<li>Continuing as a research associate at the University of Rome Tor Vergata, working on remote monitoring systems for species at risk of extinction.</li>
-<li>Developing the next generation of the <a href="./taco.html">T.A.Co.</a> tracking system — smaller, cheaper, and able to report physiological as well as positional data.</li>
-<li>Analysing data from the <a href="./macra.html">M.A.C.R.A.</a> pilot on recovering cardiac and respiratory rates from inertial sensors.</li>
-</ul>
 </section>
-<section id="writing" class="level3">
-<h3 class="anchored" data-anchor-id="writing">Writing</h3>
-<ul>
-<li>Several manuscripts in review and in preparation — the current state of all of them is on the <a href="./publications.html">publications</a> page.</li>
-<li>Occasional longer posts on the <a href="./blog.html">blog</a>, usually about R, data wrangling, or something that went wrong in the field.</li>
-</ul>
-</section>
-<section id="reading-learning" class="level3">
-<h3 class="anchored" data-anchor-id="reading-learning">Reading &amp; learning</h3>
-<ul>
-<li>Keeping up with the quickly moving literature on genomics of small populations.</li>
-<li>Improving my Quarto and R workflow — this site is part of that experiment.</li>
-</ul>
-</section>
-<section id="away-from-the-desk" class="level3">
-<h3 class="anchored" data-anchor-id="away-from-the-desk">Away from the desk</h3>
-<ul>
-<li>Photography, mostly of reptiles and of places that are hard to get to. Some of it ends up in the <a href="./photos.html">gallery</a>.</li>
-<li>Riding my MTB. Helps to keep me fit and it takes away the eyes and the mind from the screen and the people for a while.</li>
-</ul>
-</section>
+<section id="anti-join" class="level2">
+<h2 class="anchored" data-anchor-id="anti-join">Anti join</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rows of x with no match in y</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">!</span>y, on <span class="ot">=</span> .(id)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<hr>
-<p>If any of this overlaps with what you are working on, I would be glad to hear from you — my contact details are <a href="./contacts.html">here</a>.</p>
+</section>
+<section id="update-by-reference" class="level2">
+<h2 class="anchored" data-anchor-id="update-by-reference">Update by reference</h2>
+<p>The one that makes <code>data.table</code> worth it — add columns from <code>y</code> into <code>x</code> without copying.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x[y, on <span class="ot">=</span> .(id), <span class="st">`</span><span class="at">:=</span><span class="st">`</span>(<span class="at">score =</span> i.score, <span class="at">label =</span> i.label)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>i.</code> prefixes the column from the <em>second</em> table in the join.</p>
+</section>
+<section id="rolling-join" class="level2">
+<h2 class="anchored" data-anchor-id="rolling-join">Rolling join</h2>
+<p>Match each row of <code>x</code> to the most recent earlier row of <code>y</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setkey</span>(y, id, date)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y[x, on <span class="ot">=</span> .(id, date), roll <span class="ot">=</span> <span class="cn">TRUE</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Only roll forward up to 7 days</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>y[x, on <span class="ot">=</span> .(id, date), roll <span class="ot">=</span> <span class="dv">7</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="non-equi-join" class="level2">
+<h2 class="anchored" data-anchor-id="non-equi-join">Non-equi join</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Every event in y falling inside x's window</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y[x, on <span class="ot">=</span> .(id, date <span class="sc">&gt;=</span> start, date <span class="sc">&lt;=</span> end)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -847,6 +913,8 @@ ga('send', {
     }
   });
   </script>
+<script src="https://utteranc.es/client.js" repo="GiulianoColosimo/EvolvoErgoSum" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -856,32 +924,32 @@ ga('send', {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./aboutme.html">
+    <a class="nav-link" href="../../aboutme.html">
 <p>Bio</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./research.html">
+    <a class="nav-link" href="../../research.html">
 <p>Research</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./publications.html">
+    <a class="nav-link" href="../../publications.html">
 <p>Publications</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./blog.html">
+    <a class="nav-link" href="../../blog.html">
 <p>Blog</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./contacts.html">
+    <a class="nav-link" href="../../contacts.html">
 <p>Contacts</p>
 </a>
   </li>  
 </ul>
-    <div class="toc-actions"><ul><li><a href="https://github.com/GiulianoColosimo/EvolvoErgoSum/edit/main/now.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GiulianoColosimo/EvolvoErgoSum/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/GiulianoColosimo/EvolvoErgoSum/edit/main/posts/2026-09-23-data-table-joins/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GiulianoColosimo/EvolvoErgoSum/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with ❤️, <a href="https://quarto.org/">Quarto</a>, and some coding tips from Claude. Design inspired by <a href="https://www.cynthiahqy.com/">Cynthia Huang</a>.</p>
 </div>
@@ -891,5 +959,5 @@ ga('send', {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -39,7 +39,7 @@
     "href": "research.html#projects",
     "title": "Research",
     "section": "Projects",
-    "text": "Projects\n\n\n\n\n\nT. A. Co.\n\n\nTracking Animals and Conservation\n\n\nA miniaturised, low-cost system for remotely monitoring critically endangered species. Built for the Galapagos pink land iguana (Conolophus marthae), which lives only on the slopes of Wolf Volcano — an area so remote that conventional monitoring is nearly impossible.\n\nRead more →\n\n\n\n\n\n\nM. A. C. R. A.\n\n\nCardiac rate from BCG and AI\n\n\nMachine learning methods borrowed from particle physics at CERN, applied to inertial measurement data, to recover cardiac and respiratory rates in wild and domestic animals — non-invasively, in their own habitat.\n\nRead more →\n\n\n\n\n\n\nGEPHAST\n\n\nGenotype–phenotype association test\n\n\nTools for linking genetic variation to measurable traits in wild populations, developed alongside my work on Cyclura population genetics in the Caribbean.\n\nRead more →\n\n\n\n\n\n\nIsland conservation genetics\n\n\nOngoing · Caribbean & Galapagos\n\n\nPopulation structure, gene flow, and inbreeding in Cyclura and Conolophus across highly fragmented island habitats — the thread that runs from my PhD through to current work.\n\nSee publications →"
+    "text": "Projects\n\n\n\n\n\nT. A. Co.\n\n\nTracking Animals and Conservation\n\n\nA miniaturised, low-cost system for remotely monitoring critically endangered species. Built for the Galapagos pink land iguana (Conolophus marthae), which lives only on the slopes of Wolf Volcano — an area so remote that conventional monitoring is nearly impossible.\n\nRead more →\n\n\n\n\n\n\nM. A. C. R. A.\n\n\nCardiac rate from BCG and AI\n\n\nMachine learning methods borrowed from particle physics at CERN, applied to inertial measurement data, to recover cardiac and respiratory rates in wild and domestic animals — non-invasively, in their own habitat.\n\nRead more →"
   },
   {
     "objectID": "research.html#field-sites",
@@ -81,7 +81,7 @@
     "href": "publications.html#in-preparation",
     "title": "Publications",
     "section": "In preparation",
-    "text": "In preparation\n\n\n\n\n\n\nEighty days apart: intrinsic allochrony masks adaptive trade-offs between competition and survival in endangered rock iguanas\n\nColosimo, G., Gargano, M., Gerber, G. P., Carreras De León, R., & Pasachnik, S. A.\n\n\nEcology and Evolution · ready for submission\n\n\n\n\n\n\n\n\nUsing terrestrial laser scanning to characterize the habitat structure of the critically endangered Galápagos pink land iguana\n\nDownes, J., Garizio, L., Campeiro, G., Suter, S., Zemp, C., Gentile, G., & Colosimo, G.\n\n\nRemote Sensing in Ecology and Conservation · in preparation\n\n\n\n\n\n\n\n\nThermoregulation in two syntopic Galápagos land iguanas: the role of microhabitat selection and skin pigmentation\n\nGarizio, L., Gargano, M., Gratton, P., Marta, S., Colosimo, G., Sevilla, C., Vignoli, L., Carosi, M., & Gentile, G.\n\n\nOecologia · ready for submission"
+    "text": "In preparation\n\n\n\n\n\n\nEighty days apart: intrinsic allochrony masks adaptive trade-offs between competition and survival in endangered rock iguanas\n\nColosimo, G., Gargano, M., Gerber, G. P., Carreras De León, R., & Pasachnik, S. A.\n\n\nEcology and Evolution · ready for submission\n\n\n\n\n\n\n\n\nUsing terrestrial laser scanning to characterize the habitat structure of the critically endangered Galápagos pink land iguana\n\nDownes, J., Garizio, L., Campeiro, G., Suter, S., Zemp, C., Gentile, G., & Colosimo, G.\n\n\nRemote Sensing in Ecology and Conservation · in preparation\n\n\n\n\n\n\n\n\nThermoregulation in two syntopic Galápagos land iguanas: the role of microhabitat selection and skin pigmentation\n\nGarizio, L., Gargano, M., Gratton, P., Marta, S., Colosimo, G., Sevilla, C., Vignoli, L., Carosi, M., & Gentile, G.\n\n\nOecologia · ready for submission\n\n\n\n\n\n\n\n\nAmphibians and reptiles track warming upslope: an open-data climate-velocity framework demonstrated on the Italian herpetofauna\n\nColosimo, G.\n\n\nEcography · in preparation\n\n\n\n\n\n\n\n\nAcquired antimicrobial resistance in cloacal Enterobacterales of the Endangered Turks and Caicos rock iguana (Cyclura carinata)\n\nZiantona, S., D Andrea, M. M., Gentile, G., Colosimo, G.\n\n\nin preparation"
   },
   {
     "objectID": "publications.html#review-services",
@@ -109,7 +109,7 @@
     "href": "now.html",
     "title": "Now",
     "section": "",
-    "text": "This is a now page: a snapshot of my current focus rather than a complete record. It is updated every so often — the date above is the last time I touched it.\n\n\n\n\nResearch\n\nContinuing as a research associate at the University of Rome Tor Vergata, working on remote monitoring systems for species at risk of extinction.\nDeveloping the next generation of the T.A.Co. tracking system — smaller, cheaper, and able to report physiological as well as positional data.\nAnalysing data from the M.A.C.R.A. pilot on recovering cardiac and respiratory rates from inertial sensors.\n\n\n\nWriting\n\nSeveral manuscripts in review and in preparation — the current state of all of them is on the publications page.\nOccasional longer posts on the blog, usually about R, data wrangling, or something that went wrong in the field.\n\n\n\nReading & learning\n\nKeeping up with the quickly moving literature on genomics of small populations.\nImproving my Quarto and R workflow — this site is part of that experiment.\n\n\n\nAway from the desk\n\nPhotography, mostly of reptiles and of places that are hard to get to. Some of it ends up in the gallery.\n\n\n\n\nIf any of this overlaps with what you are working on, I would be glad to hear from you — my contact details are here."
+    "text": "This is a now page: a snapshot of my current focus rather than a complete record. It is updated every so often — the date above is the last time I touched it.\n\n\n\n\nResearch\n\nUsing transcriptome data to evaluate adaptive differences between yellow and pink iguanas from Galapagos.\nContinuing as a research associate at the University of Rome Tor Vergata, working on remote monitoring systems for species at risk of extinction.\nDeveloping the next generation of the T.A.Co. tracking system — smaller, cheaper, and able to report physiological as well as positional data.\nAnalysing data from the M.A.C.R.A. pilot on recovering cardiac and respiratory rates from inertial sensors.\n\n\n\nWriting\n\nSeveral manuscripts in review and in preparation — the current state of all of them is on the publications page.\nOccasional longer posts on the blog, usually about R, data wrangling, or something that went wrong in the field.\n\n\n\nReading & learning\n\nKeeping up with the quickly moving literature on genomics of small populations.\nImproving my Quarto and R workflow — this site is part of that experiment.\n\n\n\nAway from the desk\n\nPhotography, mostly of reptiles and of places that are hard to get to. Some of it ends up in the gallery.\nRiding my MTB. Helps to keep me fit and it takes away the eyes and the mind from the screen and the people for a while.\n\n\n\n\nIf any of this overlaps with what you are working on, I would be glad to hear from you — my contact details are here."
   },
   {
     "objectID": "macra.html",
@@ -179,7 +179,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nSmuggling of rare Galapagos Iguanas!\n\n\n\nPublications\n\n\n\nOur latest manuscript provides insights and describes the behind the scenes of the illegal reptile’s trade\n\n\n\n\n\nMar 25, 2025\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nNew publications in early 2024!\n\n\n\nPublications\n\n\n\n\n\n\n\n\n\nMay 3, 2024\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nTranslocation of Cyclura carinata from Little Water Cay to Grouper Cay.\n\n\n\nField work\n\nConservation\n\nCyclura\n\nTurks and Caicos\n\n\n\nReintroducing iguanas to one of their old homes\n\n\n\n\n\nAug 19, 2023\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nAutomated download of weather data from Italian monitoring stations.\n\n\n\nR\n\nClimate change\n\nAutomated tasks\n\n\n\nWeather data for all to download and analyse - 1\n\n\n\n\n\nJul 4, 2023\n\n9 min\n\n\n\n\nNo matching items"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\ndata.table joins I always re-look-up\n\n\n\nR\n\ndata.table\n\nwrangling\n\n\n\nLeft, anti, rolling and update joins in data.table syntax.\n\n\n\n\n\nSep 23, 2026\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nSmuggling of rare Galapagos Iguanas!\n\n\n\nPublications\n\n\n\nOur latest manuscript provides insights and describes the behind the scenes of the illegal reptile’s trade\n\n\n\n\n\nMar 25, 2025\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nNew publications in early 2024!\n\n\n\nPublications\n\n\n\n\n\n\n\n\n\nMay 3, 2024\n\n1 min\n\n\n\n\n\n\n\n\n\n\n\nTranslocation of Cyclura carinata from Little Water Cay to Grouper Cay.\n\n\n\nField work\n\nConservation\n\nCyclura\n\nTurks and Caicos\n\n\n\nReintroducing iguanas to one of their old homes\n\n\n\n\n\nAug 19, 2023\n\n5 min\n\n\n\n\n\n\n\n\n\n\n\nAutomated download of weather data from Italian monitoring stations.\n\n\n\nR\n\nClimate change\n\nAutomated tasks\n\n\n\nWeather data for all to download and analyse - 1\n\n\n\n\n\nJul 4, 2023\n\n9 min\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "gephast.html",
@@ -263,7 +263,7 @@
     "href": "photos.html#from-the-field",
     "title": "Photos",
     "section": "From the field",
-    "text": "From the field\n\n\n\n\nMe and Cyclura nubila caymanensis\n\n\n\n\n\nCloud-drop on Wolf Volcano, Galapagos\n\n\n\n\n\nClimbing up Wolf volcano in 2025"
+    "text": "From the field\n\n\n\n\nMe and Cyclura nubila caymanensis\n\n\n\n\n\nCloud-drop on Wolf Volcano, Galapagos\n\n\n\n\n\nClimbing up Wolf Volcano in 2025"
   },
   {
     "objectID": "photos.html#big-medium-and-small-lizards",
@@ -334,5 +334,54 @@
     "title": "Population size from transect on BAC",
     "section": "",
     "text": "The idea\nUsing the driving transect data to estimate population size. Rather than using a number per km. I should be able to come up with a value indicating a probability of encounter on the road based on the average time interval between each seen iguana during the transects."
+  },
+  {
+    "objectID": "posts/2026-09-23-data-table-joins/index.html",
+    "href": "posts/2026-09-23-data-table-joins/index.html",
+    "title": "data.table joins I always re-look-up",
+    "section": "",
+    "text": "dplyr join names are verbs; data.table joins are punctuation. This is the translation table I keep reopening."
+  },
+  {
+    "objectID": "posts/2026-09-23-data-table-joins/index.html#why",
+    "href": "posts/2026-09-23-data-table-joins/index.html#why",
+    "title": "data.table joins I always re-look-up",
+    "section": "",
+    "text": "dplyr join names are verbs; data.table joins are punctuation. This is the translation table I keep reopening."
+  },
+  {
+    "objectID": "posts/2026-09-23-data-table-joins/index.html#left-join",
+    "href": "posts/2026-09-23-data-table-joins/index.html#left-join",
+    "title": "data.table joins I always re-look-up",
+    "section": "Left join",
+    "text": "Left join\n\nlibrary(data.table)\n\n# All rows of x, matching columns from y\ny[x, on = .(id)]\n\n# Equivalent, more explicit\nmerge(x, y, by = \"id\", all.x = TRUE)"
+  },
+  {
+    "objectID": "posts/2026-09-23-data-table-joins/index.html#anti-join",
+    "href": "posts/2026-09-23-data-table-joins/index.html#anti-join",
+    "title": "data.table joins I always re-look-up",
+    "section": "Anti join",
+    "text": "Anti join\n\n# Rows of x with no match in y\nx[!y, on = .(id)]"
+  },
+  {
+    "objectID": "posts/2026-09-23-data-table-joins/index.html#update-by-reference",
+    "href": "posts/2026-09-23-data-table-joins/index.html#update-by-reference",
+    "title": "data.table joins I always re-look-up",
+    "section": "Update by reference",
+    "text": "Update by reference\nThe one that makes data.table worth it — add columns from y into x without copying.\n\nx[y, on = .(id), `:=`(score = i.score, label = i.label)]\n\ni. prefixes the column from the second table in the join."
+  },
+  {
+    "objectID": "posts/2026-09-23-data-table-joins/index.html#rolling-join",
+    "href": "posts/2026-09-23-data-table-joins/index.html#rolling-join",
+    "title": "data.table joins I always re-look-up",
+    "section": "Rolling join",
+    "text": "Rolling join\nMatch each row of x to the most recent earlier row of y.\n\nsetkey(y, id, date)\ny[x, on = .(id, date), roll = TRUE]\n\n# Only roll forward up to 7 days\ny[x, on = .(id, date), roll = 7]"
+  },
+  {
+    "objectID": "posts/2026-09-23-data-table-joins/index.html#non-equi-join",
+    "href": "posts/2026-09-23-data-table-joins/index.html#non-equi-join",
+    "title": "data.table joins I always re-look-up",
+    "section": "Non-equi join",
+    "text": "Non-equi join\n\n# Every event in y falling inside x's window\ny[x, on = .(id, date &gt;= start, date &lt;= end)]"
   }
 ]

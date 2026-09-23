@@ -25,7 +25,7 @@ remember who, the credit is in the caption.
 
 ![Cloud-drop on Wolf Volcano, Galapagos](photos/clouddrop.jpeg){group="field" description="Credit: Giuliano Colosimo"}
 
-![Climbing up Wolf volcano in 2025](photos/climbing up again.jpeg){group="field" description="Credit: Jordyn Downes"}
+![Climbing up Wolf Volcano in 2025](photos/climbing up again.jpeg){group="field" description="Credit: Jordyn Downes"}
 :::
 
 ## Big, medium, and small lizards

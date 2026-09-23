@@ -10,7 +10,135 @@
 <atom:link href="https://www.giulianocolosimo.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Ecology, Evolution with a sprinkle of Technology</description>
 <generator>quarto-1.8.21</generator>
-<lastBuildDate>Mon, 24 Mar 2025 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 22 Sep 2026 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>data.table joins I always re-look-up</title>
+  <link>https://www.giulianocolosimo.com/posts/2026-09-23-data-table-joins/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">Why</h2>
+<p><code>dplyr</code> join names are verbs; <code>data.table</code> joins are punctuation. This is the translation table I keep reopening.</p>
+</section>
+<section id="left-join" class="level2">
+<h2 class="anchored" data-anchor-id="left-join">Left join</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(data.table)</span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># All rows of x, matching columns from y</span></span>
+<span id="cb1-4">y[x, on <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> .(id)]</span>
+<span id="cb1-5"></span>
+<span id="cb1-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Equivalent, more explicit</span></span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">merge</span>(x, y, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"id"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">all.x =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span></code></pre></div></div>
+</div>
+</section>
+<section id="anti-join" class="level2">
+<h2 class="anchored" data-anchor-id="anti-join">Anti join</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Rows of x with no match in y</span></span>
+<span id="cb2-2">x[<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>y, on <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> .(id)]</span></code></pre></div></div>
+</div>
+</section>
+<section id="update-by-reference" class="level2">
+<h2 class="anchored" data-anchor-id="update-by-reference">Update by reference</h2>
+<p>The one that makes <code>data.table</code> worth it — add columns from <code>y</code> into <code>x</code> without copying.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">x[y, on <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> .(id), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">:=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">score =</span> i.score, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label =</span> i.label)]</span></code></pre></div></div>
+</div>
+<p><code>i.</code> prefixes the column from the <em>second</em> table in the join.</p>
+</section>
+<section id="rolling-join" class="level2">
+<h2 class="anchored" data-anchor-id="rolling-join">Rolling join</h2>
+<p>Match each row of <code>x</code> to the most recent earlier row of <code>y</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">setkey</span>(y, id, date)</span>
+<span id="cb4-2">y[x, on <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> .(id, date), roll <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>]</span>
+<span id="cb4-3"></span>
+<span id="cb4-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Only roll forward up to 7 days</span></span>
+<span id="cb4-5">y[x, on <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> .(id, date), roll <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>]</span></code></pre></div></div>
+</div>
+</section>
+<section id="non-equi-join" class="level2">
+<h2 class="anchored" data-anchor-id="non-equi-join">Non-equi join</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Every event in y falling inside x's window</span></span>
+<span id="cb5-2">y[x, on <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> .(id, date <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> start, date <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> end)]</span></code></pre></div></div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>R</category>
+  <category>data.table</category>
+  <category>wrangling</category>
+  <guid>https://www.giulianocolosimo.com/posts/2026-09-23-data-table-joins/</guid>
+  <pubDate>Tue, 22 Sep 2026 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Smuggling of rare Galapagos Iguanas!</title>
   <dc:creator>Giuliano Colosimo</dc:creator>

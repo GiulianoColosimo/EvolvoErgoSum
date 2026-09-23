@@ -21,6 +21,7 @@ above is the last time I touched it.
 
 ### Research
 
+- Using transcriptome data to evaluate adaptive differences between yellow and pink iguanas from Galapagos.
 - Continuing as a research associate at the University of Rome Tor Vergata,
   working on remote monitoring systems for species at risk of extinction.
 - Developing the next generation of the [T.A.Co.](taco.qmd) tracking system —
@@ -45,6 +46,7 @@ above is the last time I touched it.
 
 - Photography, mostly of reptiles and of places that are hard to get to. Some
   of it ends up in the [gallery](photos.qmd).
+- Riding my MTB. Helps to keep me fit and it takes away the eyes and the mind from the screen and the people for a while. 
 
 :::
 

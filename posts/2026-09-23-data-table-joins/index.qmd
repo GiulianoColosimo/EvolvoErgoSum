@@ -1,0 +1,60 @@
+---
+title: "data.table joins I always re-look-up"
+date: 2026-09-23
+categories: ["R", "data.table", "wrangling"]
+description: "Left, anti, rolling and update joins in data.table syntax."
+---
+
+## Why
+
+`dplyr` join names are verbs; `data.table` joins are punctuation. This is the
+translation table I keep reopening.
+
+## Left join
+
+```{r, echo=TRUE, eval=FALSE}
+library(data.table)
+
+# All rows of x, matching columns from y
+y[x, on = .(id)]
+
+# Equivalent, more explicit
+merge(x, y, by = "id", all.x = TRUE)
+```
+
+## Anti join
+
+```{r, echo=TRUE, eval=FALSE}
+# Rows of x with no match in y
+x[!y, on = .(id)]
+```
+
+## Update by reference
+
+The one that makes `data.table` worth it — add columns from `y` into `x`
+without copying.
+
+```{r, echo=TRUE, eval=FALSE}
+x[y, on = .(id), `:=`(score = i.score, label = i.label)]
+```
+
+`i.` prefixes the column from the *second* table in the join.
+
+## Rolling join
+
+Match each row of `x` to the most recent earlier row of `y`.
+
+```{r, echo=TRUE, eval=FALSE}
+setkey(y, id, date)
+y[x, on = .(id, date), roll = TRUE]
+
+# Only roll forward up to 7 days
+y[x, on = .(id, date), roll = 7]
+```
+
+## Non-equi join
+
+```{r, echo=TRUE, eval=FALSE}
+# Every event in y falling inside x's window
+y[x, on = .(id, date >= start, date <= end)]
+```

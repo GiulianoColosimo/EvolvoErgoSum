@@ -52,6 +52,8 @@ domestic animals — non-invasively, in their own habitat.</p>
 </div>
 </div>
 
+<!--
+
 <div class="project-card">
 <img src="photos/cpinguis.jpeg" alt="Cyclura pinguis, the Anegada rock iguana">
 <div class="project-card-body">
@@ -64,6 +66,8 @@ genetics in the Caribbean.</p>
 </div>
 </div>
 
+
+
 <div class="project-card">
 <img src="photos/cnubila.jpeg" alt="Cyclura nubila, the Cuban rock iguana">
 <div class="project-card-body">
@@ -75,6 +79,8 @@ runs from my PhD through to current work.</p>
 <a class="project-more" href="publications.qmd">See publications →</a>
 </div>
 </div>
+
+-->
 
 :::
 
