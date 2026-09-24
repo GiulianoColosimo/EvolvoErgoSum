@@ -32,8 +32,6 @@ website:
   repo-url: https://github.com/GiulianoColosimo/EvolvoErgoSum
   repo-actions: [edit, issue]
 
-  google-analytics:
-    tracking-id: "UA-24215497"
   open-graph:
     locale: en_US
   twitter-card: true
@@ -98,6 +96,14 @@ format:
     code-overflow: wrap
     anchor-sections: true
     smooth-scroll: true
+    # Cloudflare Web Analytics. Cookieless, so no consent banner is needed.
+    # The token is a public identifier (it is visible in the page source),
+    # not a secret. Dashboard: Cloudflare > Web Analytics > Manage site.
+    include-after-body:
+      text: |
+        <!-- Cloudflare Web Analytics -->
+        <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "32b094a9804c42cf9570705d83cb0be6"}'></script>
+        <!-- End Cloudflare Web Analytics -->
     include-in-header:
       text: |
         <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -31,6 +31,7 @@ above is the last time I touched it.
 
 ### Writing
 
+- Trying to turn student's theses in to peer-reviewed publications.
 - Several manuscripts in review and in preparation — the current state of all
   of them is on the [publications](publications.qmd) page.
 - Occasional longer posts on the [blog](blog.qmd), usually about R, data
