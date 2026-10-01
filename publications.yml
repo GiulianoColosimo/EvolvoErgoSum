@@ -205,7 +205,7 @@ published:
 in_review:
 - authors: '**Colosimo, G.**, Gargano, M., Waters, G., & Gerber, G. P.'
   title: Quantifying endemic island species recovery following feral cat eradication
-  venue: '*Animal Conservation*'
+  venue: '*Animal Conservation* - 4593528'
   status: accepted pending revisions
 - authors: Gentile, G., **Colosimo, G.**, Gerber, G. P., Sevilla, C., & Lewbart, G. A.
   title: 'The Pink Land Iguana (*Conolophus marthae* Gentile and Snell, 2009): a high-altitude, high-priority,
@@ -215,26 +215,31 @@ in_review:
 - authors: '**Colosimo, G.**, & van den Burg, M.'
   title: 'A constructive reanalysis of island climatic and geographical influences on body size in the
     Lesser Antillean iguana: a cautionary tale as the unit of analysis matters'
-  venue: '*Journal of Zoology*'
+  venue: '*Journal of Zoology* - JZO-07-26-LER-232'
   status: under review
 - authors: López-Delgado, J., Carr, I. M., Paradiso, C., Gratton, P., **Colosimo, G.**, van den Burg,
     M., Debrot, A. O., Sevilla, C., Mat-Isa, M. N., Bayliss, R., Gerber, G. P., Firdaus-Raih, M., O'Connell,
     M. J., Gentile, G., & Goodman, S. J.
   title: A genomic perspective on the origins, evolution and adaptation of Galápagos iguanas
-  venue: '*Current Biology*'
+  venue: '*Current Biology* - S-26-02452'
   status: under review
 - authors: Gargano, M., Garizio, L., **Colosimo, G.**, Loreti, P., Catini, A., Bracciale, L., De Luca,
     M., Lewbart, G. A., Sevilla, C., Gerber, G. P., Gratton, P., & Gentile, G.
   title: 'Why they move: breeding-site availability drives partial migration in a large terrestrial reptile'
-  venue: '*Journal of Applied Ecology*'
+  venue: '*Journal of Applied Ecology* - JAPPL-2026-02031'
   status: under review
   preprint: 10.64898/2026.08.20.745942
 - authors: 'Dykema, Z., Gerber, G. P., **Colosimo, G.**, Welch, M. E.'
   title: 'How small is too small? Genetic signatures from naturally small populations of a large island vertebrate, the Turks and Caicos Rock Iguana'
-  venue: '*Journal of Heredity*'
+  venue: '*Journal of Heredity* - JOH-2026-171'
   status: under review
   preprint: 10.64898/2026.09.13.751268
-  #preprint: 10.64898/2026.08.20.745942
+- authors: Garizio, L., Gargano, M., Gratton, P., Marta, S., **Colosimo, G.**, Sevilla, C., Vignoli, L.,
+    Carosi, M., & Gentile, G.
+  title: 'Thermoregulation in two syntopic Galápagos land iguanas: the role of microhabitat selection
+    and skin pigmentation'
+  venue: '*Oecologia* - OECO-D-26-00698'
+  status: in review
 in_progress:
 - authors: '**Colosimo, G.**, Gargano, M., Gerber, G. P., Carreras De León, R., & Pasachnik, S. A.'
   title: 'Eighty days apart: intrinsic allochrony masks adaptive trade-offs between competition and survival
@@ -246,12 +251,6 @@ in_progress:
     Galápagos pink land iguana
   venue: '*Remote Sensing in Ecology and Conservation*'
   status: in preparation
-- authors: Garizio, L., Gargano, M., Gratton, P., Marta, S., **Colosimo, G.**, Sevilla, C., Vignoli, L.,
-    Carosi, M., & Gentile, G.
-  title: 'Thermoregulation in two syntopic Galápagos land iguanas: the role of microhabitat selection
-    and skin pigmentation'
-  venue: '*Oecologia*'
-  status: ready for submission
 - authors: '**Colosimo, G.**'
   title: 'Amphibians and reptiles track warming upslope: an open-data climate-velocity framework demonstrated on the Italian herpetofauna'
   venue: '*Ecography*'
