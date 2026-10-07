@@ -26,6 +26,11 @@ remember who, the credit is in the caption.
 ![Cloud-drop on Wolf Volcano, Galapagos](photos/clouddrop.jpeg){group="field" description="Credit: Giuliano Colosimo"}
 
 ![Climbing up Wolf Volcano in 2025](photos/climbing up again.jpeg){group="field" description="Credit: Jordyn Downes"}
+
+
+![Petting a nurse shark (*Ginglymostoma cirratum*) in the Turks and Caicos Islands](photos/IMG_1002.JPG){group="field" description="Credit: Glenn P. Gerber"}
+
+
 :::
 
 ## Big, medium, and small lizards
@@ -34,6 +39,10 @@ remember who, the credit is in the caption.
 ![*Leiocephalus carinatus*](photos/leiocephalus.jpeg){group="lizards" description="The lion lizard from the Turks and Caicos. Credit: Giuliano Colosimo"}
 
 ![*Cyclura carinata*](photos/ccarinata.jpeg){group="lizards" description="Turks and Caicos rock iguana. Credit: Giuliano Colosimo"}
+
+
+![A male *Cyclura carinata* climbing a 7-year aplle shrub to have a snack!](photos/ccarinatasnaking.JPG){group="lizards" description="Turks and Caicos rock iguana. Credit: Giuliano Colosimo"}
+
 
 ![*Cyclura nubila*](photos/cnubila.jpeg){group="lizards" description="Credit: Giuliano Colosimo"}
 
@@ -61,7 +70,7 @@ And since life is not just about lizards...
 
 ![A racer eating an anole on Anegada Island (BVI)](photos/racereatsanole.jpeg){group="animals" description="Credit: Giuliano Colosimo"}
 
-![Pyrocephalus nanus (Galapagos)](photos/redpinzon.jpeg){group="animals" description="Credit: Giuliano Colosimo"}
+![*Pyrocephalus nanus* (Galapagos)](photos/redpinzon.jpeg){group="animals" description="Credit: Giuliano Colosimo"}
 
 :::
 
