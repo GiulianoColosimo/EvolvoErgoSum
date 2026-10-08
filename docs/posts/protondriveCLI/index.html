@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Giuliano Colosimo">
+<meta name="dcterms.date" content="2026-10-08">
+<meta name="description" content="A script to automate my backup to Proton Drive">
 
-<title>Blog – Evolvo Ergo Sum</title>
+<title>Backing up with Proton Drive CLI – Evolvo Ergo Sum</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,34 +23,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="././figures/avatar.jpg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b0bb288645c28dd54851bfad50e47ca9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-7656c0db605ffc4ee1f5056284c785ee.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b0bb288645c28dd54851bfad50e47ca9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d07b87289ef8346979c19049c4d6e601.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-293e5d7a756ebd6b25d17270123c860a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-d07b87289ef8346979c19049c4d6e601.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../.././figures/avatar.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b0bb288645c28dd54851bfad50e47ca9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-7656c0db605ffc4ee1f5056284c785ee.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b0bb288645c28dd54851bfad50e47ca9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d07b87289ef8346979c19049c4d6e601.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-293e5d7a756ebd6b25d17270123c860a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-d07b87289ef8346979c19049c4d6e601.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,35 +111,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-reading-time','listing-description','listing-categories','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -139,16 +146,16 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Evolvo Ergo Sum" href="blog.xml" data-external="1"><meta property="og:title" content="Blog – Evolvo Ergo Sum">
-<meta property="og:description" content="Notes on research, R, and things that went sideways in the field">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Backing up with Proton Drive CLI – Evolvo Ergo Sum">
+<meta property="og:description" content="A script to automate my backup to Proton Drive">
 <meta property="og:image" content="https://www.giulianocolosimo.com/posts/protondriveCLI/pdriveCLI.png">
 <meta property="og:site_name" content="Evolvo Ergo Sum">
 <meta property="og:locale" content="en_US">
 <meta property="og:image:height" content="450">
 <meta property="og:image:width" content="720">
-<meta name="twitter:title" content="Blog – Evolvo Ergo Sum">
-<meta name="twitter:description" content="Notes on research, R, and things that went sideways in the field">
+<meta name="twitter:title" content="Backing up with Proton Drive CLI – Evolvo Ergo Sum">
+<meta name="twitter:description" content="A script to automate my backup to Proton Drive">
 <meta name="twitter:image" content="https://www.giulianocolosimo.com/posts/protondriveCLI/pdriveCLI.png">
 <meta name="twitter:image-height" content="450">
 <meta name="twitter:image-width" content="720">
@@ -324,9 +331,9 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Evolvo Ergo Sum</span>
     </a>
   </div>
@@ -337,7 +344,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./aboutme.html"> 
+    <a class="nav-link" href="../../aboutme.html"> 
 <span class="menu-text">Bio</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -346,41 +353,41 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="./research.html">
+    <a class="dropdown-item" href="../../research.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./taco.html">
+    <a class="dropdown-item" href="../../taco.html">
  <span class="dropdown-text">T. A. Co.</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./macra.html">
+    <a class="dropdown-item" href="../../macra.html">
  <span class="dropdown-text">M.A.C.R.A.</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
+    <a class="nav-link" href="../../publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./now.html"> 
+    <a class="nav-link" href="../../now.html"> 
 <span class="menu-text">Now</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./photos.html"> 
+    <a class="nav-link" href="../../photos.html"> 
 <span class="menu-text">Photos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contacts.html"> 
+    <a class="nav-link" href="../../contacts.html"> 
 <span class="menu-text">Contacts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./documents/Colosimo_CV.pdf"> 
+    <a class="nav-link" href="../../documents/Colosimo_CV.pdf"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -389,7 +396,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./blog.xml"> <i class="bi bi-rss" role="img" aria-label="RSS feed">
+    <a class="nav-link" href="../../blog.xml"> <i class="bi bi-rss" role="img" aria-label="RSS feed">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -407,27 +414,54 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="QXV0b21hdGVkJTIwdGFza3M=">Automated tasks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmFzaA==">bash <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2xpbWF0ZSUyMGNoYW5nZQ==">Climate change <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29uc2VydmF0aW9u">Conservation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q3ljbHVyYQ==">Cyclura <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YS50YWJsZQ==">data.table <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RmllbGQlMjB3b3Jr">Field work <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHJvdG9u">Proton <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHVibGljYXRpb25z">Publications <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="VHVya3MlMjBhbmQlMjBDYWljb3M=">Turks and Caicos <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d3JhbmdsaW5n">wrangling <span class="quarto-category-count">(1)</span></div></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
-<p class="subtitle lead">Notes on research, R, and things that went sideways in the field</p>
+<h1 class="title">Backing up with Proton Drive CLI</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Proton</div>
+    <div class="quarto-category">bash</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A script to automate my backup to Proton Drive
+  </div>
 </div>
 
 
+<div class="quarto-title-meta">
 
-<div class="quarto-title-meta column-page-left">
-
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Giuliano Colosimo </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 8, 2026</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">October 8, 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -436,221 +470,76 @@ window.Quarto = {
 </header>
 
 
+<p>The Proton Drive CLI is finally available! I received the official Proton e-mail on October <span class="math inline">\(1^{st}\)</span>. I immediately downloaded it and started to play a bit with it. Since I switched from a macOS to a Linux system I had been wondering how to efficiently do my backups on the Proton provided drive service.</p>
+<p>I first had to struggle a little because I wasn’t sure how to efficiently upload many GB of data. One possibility was to create an archive of all the filese I wanted/needed to backup and then upload it. One advantage of such approach is that you can have a cheksum file to help verify that all files are properly uploaded. One downside is that you loose the tree-like structure of your files and folders and you need to download the entire archive even if you need access to only a handfull of files. I finally decided to use an approach that would allow to maintain the structure of my Documents folder (the one I needed backup).</p>
+<p>With the help of Lumo AI I created a script (see below) that allows such task while also writing a .log file to keep track of everything that goes wrong. I have also implemented the <em>–folder-conflict-strategy</em> and <em>–file-conflict-strategy</em> to <strong>merge</strong> or <strong>skip</strong> folder of files that already exists and that haven’t changed since the last backup!</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-euo</span> pipefail</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">DATE</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span> +%Y-%m-%d<span class="va">)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="va">LOG</span><span class="op">=</span><span class="st">"</span><span class="va">$HOME</span><span class="st">/.XXXX/YYYYY/home-backup.log"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="va">REMOTE_PARENT</span><span class="op">=</span><span class="st">"/my-files"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="va">REMOTE_FOLDER</span><span class="op">=</span><span class="st">"documents_backup_</span><span class="va">${DATE}</span><span class="st">"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="va">REMOTE_PATH</span><span class="op">=</span><span class="st">"</span><span class="va">${REMOTE_PARENT}</span><span class="st">/</span><span class="va">${REMOTE_FOLDER}</span><span class="st">"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="va">KEEP</span><span class="op">=</span>4</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="va">DRY_RUN</span><span class="op">=</span>1</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">log()</span> <span class="kw">{</span> <span class="bu">echo</span> <span class="st">"</span><span class="va">$(</span><span class="fu">date</span> <span class="st">'+%F %T'</span><span class="va">)</span><span class="st"> </span><span class="va">$*</span><span class="st">"</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$LOG</span><span class="st">"</span><span class="kw">;</span> <span class="kw">}</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">log</span> <span class="st">"=== documents backup started ==="</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Create destination folder ----</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="ex">proton-drive</span> filesystem create-folder <span class="st">"</span><span class="va">$REMOTE_PARENT</span><span class="st">"</span> <span class="st">"</span><span class="va">$REMOTE_FOLDER</span><span class="st">"</span> <span class="at">--json</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$LOG</span><span class="st">"</span> <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="ex">log</span> <span class="st">"Created remote folder: </span><span class="va">$REMOTE_PATH</span><span class="st">"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="ex">log</span> <span class="st">"Note: Folder creation skipped (may already exist)"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Upload Documents ----</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ex">proton-drive</span> filesystem upload <span class="dt">\</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    /home/XXXXX/Documents <span class="st">"</span><span class="va">$REMOTE_PATH</span><span class="st">"</span> <span class="dt">\</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">--folder-conflict-strategy</span> merge <span class="dt">\</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">--file-conflict-strategy</span> skip <span class="dt">\</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">--skip-thumbnails</span> <span class="dt">\</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">--json</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$LOG</span><span class="st">"</span> <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="dt">\</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">||</span> <span class="kw">{</span> <span class="ex">log</span> <span class="st">"ERROR: upload failed"</span><span class="kw">;</span> <span class="bu">exit</span> 1<span class="kw">;</span> <span class="kw">}</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># ---- Retention: prune old dated backups ----</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ex">log</span> <span class="st">"Processing retention policy"</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="va">LISTING</span><span class="op">=</span><span class="va">$(</span><span class="ex">proton-drive</span> filesystem list <span class="st">"</span><span class="va">$REMOTE_PARENT</span><span class="st">"</span> <span class="at">--json</span><span class="va">)</span> <span class="dt">\</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">||</span> <span class="kw">{</span> <span class="ex">log</span> <span class="st">"ERROR: listing failed, skipping prune"</span><span class="kw">;</span> <span class="bu">exit</span> 0<span class="kw">;</span> <span class="kw">}</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="va">BACKUPS</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$LISTING</span><span class="st">"</span> <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.[].name // empty'</span> <span class="dt">\</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-E</span> <span class="st">'^documents_backup_[0-9]{4}-[0-9]{2}-[0-9]{2}$'</span> <span class="dt">\</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">|</span> <span class="fu">sort</span><span class="va">)</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="va">COUNT</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$BACKUPS</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span><span class="va">)</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ex">log</span> <span class="st">"found </span><span class="va">$COUNT</span><span class="st"> matching backup folders"</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">((</span> <span class="va">COUNT</span> <span class="op">&lt;=</span> <span class="va">KEEP</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="ex">log</span> <span class="st">"nothing to prune"</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="bu">exit</span> 0</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="va">TO_DELETE</span><span class="op">=</span><span class="va">$(</span><span class="bu">echo</span> <span class="st">"</span><span class="va">$BACKUPS</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> <span class="at">-</span><span class="va">$KEEP)</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$TO_DELETE</span><span class="st">"</span> <span class="kw">|</span> <span class="cf">while</span> <span class="bu">read</span> <span class="at">-r</span> <span class="va">folder</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$folder</span><span class="st">"</span> <span class="kw">]]</span> <span class="kw">&amp;&amp;</span> <span class="cf">continue</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="va">FULL_PATH</span><span class="op">=</span><span class="st">"</span><span class="va">${REMOTE_PARENT}</span><span class="st">/</span><span class="va">${folder}</span><span class="st">"</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">((</span> <span class="va">DRY_RUN</span> <span class="kw">));</span> <span class="cf">then</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        <span class="ex">log</span> <span class="st">"DRY-RUN: would delete </span><span class="va">$FULL_PATH</span><span class="st">"</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        <span class="ex">log</span> <span class="st">"deleting </span><span class="va">$FULL_PATH</span><span class="st">"</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>        <span class="ex">proton-drive</span> filesystem delete <span class="st">"</span><span class="va">$FULL_PATH</span><span class="st">"</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$LOG</span><span class="st">"</span> <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span> <span class="dt">\</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>            <span class="kw">||</span> <span class="ex">log</span> <span class="st">"WARN: failed to delete </span><span class="va">$FULL_PATH</span><span class="st">"</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ex">log</span> <span class="st">"=== backup finished ==="</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UHJvdG9uJTJDYmFzaA==" data-listing-date-sort="1791410400000" data-listing-file-modified-sort="1791462697403" data-listing-date-modified-sort="1791462697000" data-listing-reading-time-sort="3" data-listing-word-count-sort="498">
-<div class="thumbnail"><a href="./posts/protondriveCLI/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/protondriveCLI/pdriveCLI.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/protondriveCLI/index.html" class="no-external">Backing up with Proton Drive CLI</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvdG9u'); return false;">Proton</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YmFzaA=='); return false;">bash</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/protondriveCLI/index.html" class="no-external">
-<p>A script to automate my backup to Proton Drive</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/protondriveCLI/index.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2026
-</div>
-<div class="listing-reading-time">3 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="UiUyQ2RhdGEudGFibGUlMkN3cmFuZ2xpbmc=" data-listing-date-sort="1790114400000" data-listing-file-modified-sort="1790172739493" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="154">
-<div class="thumbnail"><a href="./posts/2026-09-23-data-table-joins/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-09-23-data-table-joins/index.html" class="no-external">data.table joins I always re-look-up</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YS50YWJsZQ=='); return false;">data.table</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('d3JhbmdsaW5n'); return false;">wrangling</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2026-09-23-data-table-joins/index.html" class="no-external">
-<p>Left, anti, rolling and update joins in data.table syntax.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-09-23-data-table-joins/index.html" class="no-external">
-<div class="listing-date">
-Sep 23, 2026
-</div>
-<div class="listing-reading-time">1 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="UHVibGljYXRpb25z" data-listing-date-sort="1742857200000" data-listing-file-modified-sort="1789459332117" data-listing-date-modified-sort="1789459332000" data-listing-reading-time-sort="1" data-listing-word-count-sort="157">
-<div class="thumbnail"><a href="./posts/citespub/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/citespub/map.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/citespub/index.html" class="no-external">Smuggling of rare Galapagos Iguanas!</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHVibGljYXRpb25z'); return false;">Publications</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/citespub/index.html" class="no-external">
-<p>Our latest manuscript provides insights and describes the <em>behind the scenes</em> of the illegal reptile’s trade</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/citespub/index.html" class="no-external">
-<div class="listing-date">
-Mar 25, 2025
-</div>
-<div class="listing-reading-time">1 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="UHVibGljYXRpb25z" data-listing-date-sort="1714687200000" data-listing-file-modified-sort="1789459120496" data-listing-date-modified-sort="1789459120000" data-listing-reading-time-sort="1" data-listing-word-count-sort="28">
-<div class="thumbnail"><a href="./posts/newpubs/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/newpubs/pinkpoptrend.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/newpubs/index.html" class="no-external">New publications in early 2024!</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHVibGljYXRpb25z'); return false;">Publications</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/newpubs/index.html" class="no-external">
-Early in 2024 my colleagues and I had two manuscript published. The first one was published in Conservation Science and Practice, while the second was published in PeerJ.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/newpubs/index.html" class="no-external">
-<div class="listing-date">
-May 3, 2024
-</div>
-<div class="listing-reading-time">1 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="RmllbGQlMjB3b3JrJTJDQ29uc2VydmF0aW9uJTJDQ3ljbHVyYSUyQ1R1cmtzJTIwYW5kJTIwQ2FpY29z" data-listing-date-sort="1692396000000" data-listing-file-modified-sort="1789459120496" data-listing-date-modified-sort="1694469600000" data-listing-reading-time-sort="5" data-listing-word-count-sort="997">
-<div class="thumbnail"><a href="./posts/translocation/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/translocation/cycmale.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/translocation/index.html" class="no-external">Translocation of <em>Cyclura carinata</em> from Little Water Cay to Grouper Cay.</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RmllbGQlMjB3b3Jr'); return false;">Field work</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q29uc2VydmF0aW9u'); return false;">Conservation</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q3ljbHVyYQ=='); return false;">Cyclura</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VHVya3MlMjBhbmQlMjBDYWljb3M='); return false;">Turks and Caicos</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/translocation/index.html" class="no-external">
-<p>Reintroducing iguanas to one of their old homes</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/translocation/index.html" class="no-external">
-<div class="listing-date">
-Aug 19, 2023
-</div>
-<div class="listing-reading-time">5 min</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="UiUyQ0NsaW1hdGUlMjBjaGFuZ2UlMkNBdXRvbWF0ZWQlMjB0YXNrcw==" data-listing-date-sort="1688421600000" data-listing-file-modified-sort="1694520678000" data-listing-date-modified-sort="1688421600000" data-listing-reading-time-sort="9" data-listing-word-count-sort="1782">
-<div class="thumbnail"><a href="./posts/accessing_weather_data/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/accessing_weather_data/asos_italy.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/accessing_weather_data/index.html" class="no-external">Automated download of weather data from Italian monitoring stations.</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q2xpbWF0ZSUyMGNoYW5nZQ=='); return false;">Climate change</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QXV0b21hdGVkJTIwdGFza3M='); return false;">Automated tasks</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/accessing_weather_data/index.html" class="no-external">
-<p>Weather data for all to download and analyse - 1</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/accessing_weather_data/index.html" class="no-external">
-<div class="listing-date">
-Jul 4, 2023
-</div>
-<div class="listing-reading-time">9 min</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1063,6 +952,8 @@ Jul 4, 2023
     }
   });
   </script>
+<script src="https://utteranc.es/client.js" repo="GiulianoColosimo/EvolvoErgoSum" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1072,32 +963,32 @@ Jul 4, 2023
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./aboutme.html">
+    <a class="nav-link" href="../../aboutme.html">
 <p>Bio</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./research.html">
+    <a class="nav-link" href="../../research.html">
 <p>Research</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./publications.html">
+    <a class="nav-link" href="../../publications.html">
 <p>Publications</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./blog.html">
+    <a class="nav-link" href="../../blog.html">
 <p>Blog</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./contacts.html">
+    <a class="nav-link" href="../../contacts.html">
 <p>Contacts</p>
 </a>
   </li>  
 </ul>
-    <div class="toc-actions"><ul><li><a href="https://github.com/GiulianoColosimo/EvolvoErgoSum/edit/main/blog.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GiulianoColosimo/EvolvoErgoSum/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/GiulianoColosimo/EvolvoErgoSum/edit/main/posts/protondriveCLI/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GiulianoColosimo/EvolvoErgoSum/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with ❤️, <a href="https://quarto.org/">Quarto</a>, and some coding tips from Claude. Design inspired by <a href="https://www.cynthiahqy.com/">Cynthia Huang</a>.</p>
 </div>
@@ -1110,5 +1001,5 @@ Jul 4, 2023
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

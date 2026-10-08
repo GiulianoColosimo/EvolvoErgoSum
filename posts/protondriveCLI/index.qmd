@@ -1,0 +1,84 @@
+---
+title: "Backing up with Proton Drive CLI"
+date: 2026-10-08
+categories: ["Proton", "bash"]
+description: "A script to automate my backup to Proton Drive"
+author:
+  - name: Giuliano Colosimo
+date-modified: last-modified
+image: pdriveCLI.png
+---
+
+The Proton Drive CLI is finally available! I received the official Proton e-mail on October $1^{st}$. I immediately downloaded it and started to play a bit with it. Since I switched from a macOS to a Linux system I had been wondering how to efficiently do my backups on the Proton provided drive service.
+
+I first had to struggle a little because I wasn't sure how to efficiently upload many GB of data. One possibility was to create an archive of all the filese I wanted/needed to backup and then upload it. One advantage of such approach is that you can have a cheksum file to help verify that all files are properly uploaded. One downside is that you loose the tree-like structure of your files and folders and you need to download the entire archive even if you need access to only a handfull of files. I finally decided to use an approach that would allow to maintain the structure of my Documents folder (the one I needed backup).
+
+With the help of Lumo AI I created a script (see below) that allows such task while also writing a .log file to keep track of everything that goes wrong. I have also implemented the *--folder-conflict-strategy* and *--file-conflict-strategy* to **merge** or **skip** folder of files that already exists and that haven't changed since the last backup!
+
+
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+DATE=$(date +%Y-%m-%d)
+LOG="$HOME/.XXXX/YYYYY/home-backup.log"
+REMOTE_PARENT="/my-files"
+REMOTE_FOLDER="documents_backup_${DATE}"
+REMOTE_PATH="${REMOTE_PARENT}/${REMOTE_FOLDER}"
+KEEP=4
+DRY_RUN=1
+
+log() { echo "$(date '+%F %T') $*" >> "$LOG"; }
+
+log "=== documents backup started ==="
+
+# ---- Create destination folder ----
+if proton-drive filesystem create-folder "$REMOTE_PARENT" "$REMOTE_FOLDER" --json >> "$LOG" 2>&1; then
+    log "Created remote folder: $REMOTE_PATH"
+else
+    log "Note: Folder creation skipped (may already exist)"
+fi
+
+# ---- Upload Documents ----
+proton-drive filesystem upload \
+    /home/XXXXX/Documents "$REMOTE_PATH" \
+    --folder-conflict-strategy merge \
+    --file-conflict-strategy skip \
+    --skip-thumbnails \
+    --json >> "$LOG" 2>&1 \
+    || { log "ERROR: upload failed"; exit 1; }
+
+# ---- Retention: prune old dated backups ----
+log "Processing retention policy"
+LISTING=$(proton-drive filesystem list "$REMOTE_PARENT" --json) \
+    || { log "ERROR: listing failed, skipping prune"; exit 0; }
+
+BACKUPS=$(echo "$LISTING" | jq -r '.[].name // empty' \
+    | grep -E '^documents_backup_[0-9]{4}-[0-9]{2}-[0-9]{2}$' \
+    | sort)
+
+COUNT=$(echo "$BACKUPS" | wc -l)
+log "found $COUNT matching backup folders"
+
+if (( COUNT <= KEEP )); then
+    log "nothing to prune"
+    exit 0
+fi
+
+TO_DELETE=$(echo "$BACKUPS" | head -n -$KEEP)
+
+echo "$TO_DELETE" | while read -r folder; do
+    [[ -z "$folder" ]] && continue
+    FULL_PATH="${REMOTE_PARENT}/${folder}"
+    if (( DRY_RUN )); then
+        log "DRY-RUN: would delete $FULL_PATH"
+    else
+        log "deleting $FULL_PATH"
+        proton-drive filesystem delete "$FULL_PATH" >> "$LOG" 2>&1 \
+            || log "WARN: failed to delete $FULL_PATH"
+    fi
+done
+
+log "=== backup finished ==="
+```
