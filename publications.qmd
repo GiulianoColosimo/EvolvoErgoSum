@@ -1,6 +1,6 @@
 ---
 title: "Publications"
-subtitle: "Peer-reviewed work, plus what is currently in the pipeline"
+subtitle: "Peer-reviewed work, datasets, plus what is currently in the pipeline"
 author:
   - name: Giuliano Colosimo
     orcid: 0000-0002-0485-9758
@@ -105,6 +105,17 @@ render_list(pubs$published)
 ```
 
 :::
+
+## Datasets
+
+Data products from my research. Some carry restrictions on access — for
+critically endangered species, precise locality data is itself a conservation
+risk. Where a database is not openly downloadable, please
+[get in touch](contacts.qmd) and I will be glad to discuss access.
+
+```{r datasets, results='asis'}
+render_list(pubs$datasets)
+```
 
 ## In review
 

@@ -202,9 +202,22 @@ published:
     Island rock iguana'
   venue: '*PLoS ONE*, 9(9), e106963'
   doi: 10.1371/journal.pone.0106963
+datasets:
+# ---------------------------------------------------------------------------
+# CHECK BEFORE PUSHING: the author list and title below are a placeholder.
+# When the Zenodo deposit is live, replace `status` with the concept DOI:
+#     doi: 10.5281/zenodo.XXXXXXX
+# and set `venue` to '*Zenodo*' (add the version, e.g. '*Zenodo*, v1.0.0').
+# Keep using the CONCEPT DOI, which always resolves to the newest version.
+# ---------------------------------------------------------------------------
+- authors: '**Colosimo, G.**, Gargano, M., Waters, G., & Gerber, G. P.'
+  title: Quantifying endemic island species recovery following cat eradication
+  venue: To be deposited in *Zenodo*
+  status: in preparation
+
 in_review:
 - authors: '**Colosimo, G.**, Gargano, M., Waters, G., & Gerber, G. P.'
-  title: Quantifying endemic island species recovery following feral cat eradication
+  title: Quantifying endemic island species recovery following cat eradication
   venue: '*Animal Conservation* - 4593528'
   status: under review
 - authors: Gentile, G., **Colosimo, G.**, Gerber, G. P., Sevilla, C., & Lewbart, G. A.
