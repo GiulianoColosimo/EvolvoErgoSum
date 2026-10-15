@@ -202,6 +202,7 @@ published:
     Island rock iguana'
   venue: '*PLoS ONE*, 9(9), e106963'
   doi: 10.1371/journal.pone.0106963
+
 datasets:
 # ---------------------------------------------------------------------------
 # CHECK BEFORE PUSHING: the author list and title below are a placeholder.
@@ -214,6 +215,12 @@ datasets:
   title: Quantifying endemic island species recovery following cat eradication
   venue: To be deposited in *Zenodo*
   status: in preparation
+
+- authors: '**Colosimo, G.**'
+  title: 'Amphibian and reptile occurrence records for Italy, 1950–2025: a cleaned, elevation-annotated subset of a GBIF download [dataset]'
+  venue: '*Zenodo*'
+  status: 10.5281/zenodo.23383862
+
 
 in_review:
 - authors: '**Colosimo, G.**, Gargano, M., Waters, G., & Gerber, G. P.'
