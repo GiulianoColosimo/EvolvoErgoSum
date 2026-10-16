@@ -1,0 +1,180 @@
+---
+title: "Teaching"
+subtitle: "Courses, supervision, and how I think about teaching"
+author:
+  - name: Giuliano Colosimo
+    orcid: 0000-0002-0485-9758
+date-modified: last-modified
+toc: true
+toc-depth: 2
+---
+
+I regard education as a transformative process: one that shares knowledge on
+one side and inspires curiosity, a passion for learning, and critical thinking
+on the other. Good teaching is reciprocal — a constructive and respectful
+exchange between students and instructor, built on mutual trust.
+
+I am a committed advocate of active learning. Rather than have students
+passively receive content, I build my courses around group discussion, case
+studies drawn from the primary literature, problem-solving exercises, and
+hands-on work. This comes naturally in my field: ecology is a quantitative,
+data-rich science, and I want students to move confidently from field
+observations and raw data to inference — and to do so reproducibly. In
+practice that means teaching not only ecological concepts but the
+computational and statistical literacy that modern ecology demands, so
+students leave able to analyse their own data.
+
+I have taught in both English and Italian, and all of my teaching can be
+delivered in English.
+
+## Instructor of record
+
+Master's-level courses at the **University of Rome Tor Vergata**, each designed
+from the ground up and refined over successive years in response to student
+feedback.
+
+::: {.teach-list}
+<div class="pub-list">
+
+<div class="pub-item">
+<div class="pub-when">2022–2025</div>
+<div>
+<a class="pub-title" href="biocon.qmd">Conservation Biology</a>
+<div class="pub-venue">MSc · 6 CFU, 48 hours · first/second semester</div>
+<p>The course I have found most rewarding to teach. Because I designed it
+originally, I have been able to adapt it continuously — when students showed
+strong interest in conservation technology, an area central to my own
+research, I added dedicated sessions on it, along with a module on
+conservation economics and the challenge of assigning economic value to
+ecosystem services.</p>
+</div>
+</div>
+
+<div class="pub-item">
+<div class="pub-when">2022–2026</div>
+<div>
+<a class="pub-title" href="https://giulianocolosimo.github.io/animtrack-2627/" target="_blank" rel="noopener">Animal Tracking in Conservation Biology</a>
+<div class="pub-venue">MSc · 2 CFU, 16 hours · first/second semester</div>
+<p>Curated and developed over four years, covering the fundamentals of
+movement ecology: foundational concepts of animal movement, tracking devices,
+GIS and mapping, and the analytical frameworks that turn raw movement data
+into biologically and conservation-relevant information.</p>
+</div>
+</div>
+
+
+<div class="pub-item">
+<div class="pub-when">2022–2026</div>
+<div>
+<span class="pub-title">Zoology and Parasitology</span>
+<div class="pub-venue">MSc · <span class="pub-status">examination commission</span></div>
+</div>
+</div>
+
+</div>
+:::
+
+## Guest lectures and seminars
+
+::: {.teach-list}
+<div class="pub-list">
+
+<div class="pub-item">
+<div class="pub-when">2024, 2025</div>
+<div>
+<span class="pub-title">R for genetic and genomic data analysis</span>
+<div class="pub-venue">PhD seminar series · University of Rome Tor Vergata</div>
+</div>
+</div>
+
+<div class="pub-item">
+<div class="pub-when">2022, 2024</div>
+<div>
+<span class="pub-title">Guest seminars in Conservation Biology</span>
+<div class="pub-venue">Columbia University · delivered remotely, for the course of Dr. Rachel Welt</div>
+</div>
+</div>
+
+</div>
+:::
+
+## Earlier teaching
+
+::: {.teach-list}
+<div class="pub-list">
+
+<div class="pub-item">
+<div class="pub-when">2011–2016</div>
+<div>
+<span class="pub-title">Teaching assistant, laboratory and seminar coordinator</span>
+<div class="pub-venue">Department of Biological Sciences, Mississippi State University</div>
+<p>Coordinated the design and delivery of the laboratory and seminar
+components for General Biology, Human Anatomy and Comparative Anatomy.</p>
+</div>
+</div>
+
+<div class="pub-item">
+<div class="pub-when">2013</div>
+<div>
+<span class="pub-title">Conservation Genetics Summer Workshop</span>
+<div class="pub-venue">University of Rome Tor Vergata · facilitator, computer-exercise component</div>
+<p>A programme led by Prof. Mark Welch and overseen by Prof. Gabriele
+Gentile.</p>
+</div>
+</div>
+
+</div>
+:::
+
+## Supervision
+
+I have supervised and mentored more than ten bachelor's, master's and doctoral
+candidates. Many are co-authors on our joint publications, which reflects how I
+approach supervision: students work on real questions, with real data, and the
+output is real science. Recent completions:
+
+::: {.teach-list}
+<div class="pub-list">
+
+<div class="pub-item">
+<div class="pub-when">2026</div>
+<div>
+<span class="pub-title">Two MSc theses completed</span>
+<div class="pub-venue">University of Neuchâtel · Uppsala University (Erasmus mobility grant)</div>
+<p>One analysing data we collected together during Galapagos fieldwork; the
+other a four-month research internship in Rome.</p>
+</div>
+</div>
+
+<div class="pub-item">
+<div class="pub-when">2024</div>
+<div>
+<span class="pub-title">One PhD, one MSc and one BSc completed</span>
+<div class="pub-venue">University of Rome Tor Vergata</div>
+<p>The master's thesis was completed with honours.</p>
+</div>
+</div>
+
+</div>
+:::
+
+I have also acted as external supervisor for master's and doctoral projects at
+Mississippi State University and the University of Leeds.
+
+## Teaching material
+
+I am a strong advocate of accessible knowledge. I build course material online
+and make it freely available to my students, in open course companions where
+they can review material, download slides, and find the references discussed in
+class.
+
+- [**Animal Tracking in Conservation Biology**](https://giulianocolosimo.github.io/animtrack-2627/) — the full course
+  companion: session-by-session material, the R exercises, and the schedule.
+- [**Conservation Biology**](biocon.qmd) — course outline, topics covered, and
+  the reading list.
+
+I co-authored *Un Viaggio nell'ambiente R* (Russo, **Colosimo**, et al.,
+University of Rome Tor Vergata Publishing Service, 2026), a textbook for
+students meeting the R programming environment for the first time. I curated
+the chapter on using R for the analysis of genetic and genomic data. It is
+listed on the [publications](publications.qmd) page.

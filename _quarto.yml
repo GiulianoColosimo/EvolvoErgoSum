@@ -52,6 +52,8 @@ website:
             text: "M.A.C.R.A."
       - text: "Publications"
         href: publications.qmd
+      - text: "Teaching"
+        href: teaching.qmd
       - text: "Blog"
         href: blog.qmd
       - text: "Now"

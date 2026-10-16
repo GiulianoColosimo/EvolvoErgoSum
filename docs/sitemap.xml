@@ -17,12 +17,16 @@
     <lastmod>2022-12-15T21:44:04.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.giulianocolosimo.com/research.html</loc>
-    <lastmod>2026-09-23T14:05:22.364Z</lastmod>
+    <loc>https://www.giulianocolosimo.com/taco.html</loc>
+    <lastmod>2026-09-15T07:58:40.496Z</lastmod>
   </url>
   <url>
-    <loc>https://www.giulianocolosimo.com/publications.html</loc>
-    <lastmod>2026-10-14T09:51:53.590Z</lastmod>
+    <loc>https://www.giulianocolosimo.com/quotes.html</loc>
+    <lastmod>2022-10-31T15:42:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.giulianocolosimo.com/posts/translocation/index.html</loc>
+    <lastmod>2026-09-15T07:58:40.496Z</lastmod>
   </url>
   <url>
     <loc>https://www.giulianocolosimo.com/posts/newpubs/index.html</loc>
@@ -45,36 +49,28 @@
     <lastmod>2026-09-15T13:16:15.735Z</lastmod>
   </url>
   <url>
-    <loc>https://www.giulianocolosimo.com/gephast.html</loc>
-    <lastmod>2026-09-16T09:50:54.941Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.giulianocolosimo.com/blog.html</loc>
-    <lastmod>2026-09-16T10:38:27.066Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.giulianocolosimo.com/antboc.html</loc>
-    <lastmod>2023-03-31T17:14:28.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.giulianocolosimo.com/abem.html</loc>
-    <lastmod>2022-09-19T10:47:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.giulianocolosimo.com/aboutme.html</loc>
-    <lastmod>2025-06-06T13:28:48.000Z</lastmod>
+    <loc>https://www.giulianocolosimo.com/contacts.html</loc>
+    <lastmod>2026-09-16T09:50:30.111Z</lastmod>
   </url>
   <url>
     <loc>https://www.giulianocolosimo.com/biocon.html</loc>
     <lastmod>2026-09-15T07:58:40.496Z</lastmod>
   </url>
   <url>
-    <loc>https://www.giulianocolosimo.com/contacts.html</loc>
-    <lastmod>2026-09-16T09:50:30.111Z</lastmod>
+    <loc>https://www.giulianocolosimo.com/aboutme.html</loc>
+    <lastmod>2025-06-06T13:28:48.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.giulianocolosimo.com/inbreedingdepression.html</loc>
-    <lastmod>2026-01-27T22:19:07.233Z</lastmod>
+    <loc>https://www.giulianocolosimo.com/antboc.html</loc>
+    <lastmod>2023-03-31T17:14:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.giulianocolosimo.com/blog.html</loc>
+    <lastmod>2026-09-16T10:38:27.066Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.giulianocolosimo.com/gephast.html</loc>
+    <lastmod>2026-09-16T09:50:54.941Z</lastmod>
   </url>
   <url>
     <loc>https://www.giulianocolosimo.com/macra.html</loc>
@@ -93,16 +89,20 @@
     <lastmod>2026-09-15T08:02:12.117Z</lastmod>
   </url>
   <url>
-    <loc>https://www.giulianocolosimo.com/posts/translocation/index.html</loc>
-    <lastmod>2026-09-15T07:58:40.496Z</lastmod>
+    <loc>https://www.giulianocolosimo.com/posts/protondriveCLI/index.html</loc>
+    <lastmod>2026-10-08T12:31:37.403Z</lastmod>
   </url>
   <url>
-    <loc>https://www.giulianocolosimo.com/quotes.html</loc>
-    <lastmod>2022-10-31T15:42:18.000Z</lastmod>
+    <loc>https://www.giulianocolosimo.com/publications.html</loc>
+    <lastmod>2026-10-14T09:51:53.590Z</lastmod>
   </url>
   <url>
-    <loc>https://www.giulianocolosimo.com/taco.html</loc>
-    <lastmod>2026-09-15T07:58:40.496Z</lastmod>
+    <loc>https://www.giulianocolosimo.com/research.html</loc>
+    <lastmod>2026-09-23T14:05:22.364Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.giulianocolosimo.com/teaching.html</loc>
+    <lastmod>2026-10-16T03:49:49.358Z</lastmod>
   </url>
   <url>
     <loc>https://www.giulianocolosimo.com/temp/multivariate_spread_of_variance/index.html</loc>
@@ -115,9 +115,5 @@
   <url>
     <loc>https://www.giulianocolosimo.com/temp/pop_size_from_transects/index.html</loc>
     <lastmod>2023-03-02T16:57:28.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.giulianocolosimo.com/posts/protondriveCLI/index.html</loc>
-    <lastmod>2026-10-08T12:31:37.403Z</lastmod>
   </url>
 </urlset>

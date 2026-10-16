@@ -300,6 +300,24 @@ a.pub-status--link {
   padding: 1rem 0;
 }
 
+/* --- Teaching ------------------------------------------------------------ */
+
+/* The Teaching page reuses the publication entry layout (.pub-list, .pub-item,
+   .pub-when, .pub-title, .pub-venue, .pub-status) so the two pages stay
+   visually identical. The only difference: the left column holds a year RANGE
+   ("2022-2026"), so it needs to be wider. */
+
+.teach-list .pub-item { grid-template-columns: 6.2rem 1fr; }
+
+.teach-list .pub-item p {
+  font-size: .93rem;
+  margin: .35rem 0 0;
+}
+
+@media (max-width: 575.98px) {
+  .teach-list .pub-item { grid-template-columns: 1fr; }
+}
+
 /* --- Photo gallery ------------------------------------------------------- */
 
 .photo-grid {
