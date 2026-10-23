@@ -14,3 +14,6 @@
 *.fls
 *.fdb_latexmk
 documents/*.log
+
+# LibreOffice lock files
+.~lock.*#

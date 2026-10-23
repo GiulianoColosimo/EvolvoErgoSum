@@ -240,16 +240,16 @@
   {
     "objectID": "macra.html",
     "href": "macra.html",
-    "title": "M.A.C.R.A",
+    "title": "M.A.C.R.A.",
     "section": "",
-    "text": "This is a pilot project to use Artificial Intelligence and Machine Learning algorithms, routinely employed in the analysis of large datasets in particle collisions at CERN, to automatically recognize cardiac and respiratory rates from wild and domestic animal species starting from data collected via inertial measurement units (accelerometer and gyroscope). The aim of this pilot project is to validate this approach and demonstrate the applicability of such a technique for monitoring these parameters in wild animals in their natural habitats.\n\nReferences"
+    "text": "Can a tag that is already riding on an animal to log its movement also tell us how fast its heart is beating — with no surgery, no electrodes, and no need to hold the animal still?\nThat is the question behind M.A.C.R.A.. The principle is old and borrowed from human medicine: every heartbeat propagates inside the body, and the body recoils. Measure that recoil and you have the heart rate. Done with a weighing-scale-like device it is called ballistocardiography; done with a gyroscope, as here, it is gyrocardiography. The appeal for conservation work is obvious — the inertial measurement unit (IMU) needed to see it is the same accelerometer and gyroscope our T.A.Co. tags already carry.\nThe honest answer to the aformentioned question so far is: it works on a human, it reliably measures breathing in a lizard, and it has not yet resolved a reptile heartbeat. This page is a running account of how far we have got and how we know."
   },
   {
     "objectID": "now.html",
     "href": "now.html",
     "title": "Now",
     "section": "",
-    "text": "This is a now page: a snapshot of my current focus rather than a complete record. It is updated every so often — the date above is the last time I touched it.\n\n\n\n\nResearch\n\nUsing transcriptome data to evaluate adaptive differences between yellow and pink iguanas from Galapagos.\nContinuing as a research associate at the University of Rome Tor Vergata, working on remote monitoring systems for species at risk of extinction.\nDeveloping the next generation of the T.A.Co. tracking system — smaller, cheaper, and able to report physiological as well as positional data.\nAnalysing data from the M.A.C.R.A. pilot on recovering cardiac and respiratory rates from inertial sensors.\n\n\n\nWriting\n\nTrying to turn student’s theses in to peer-reviewed publications.\nSeveral manuscripts in review and in preparation — the current state of all of them is on the publications page.\nOccasional longer posts on the blog, usually about R, data wrangling, or something that went wrong in the field.\n\n\n\nReading & learning\n\nKeeping up with the quickly moving literature on genomics of small populations.\nImproving my Quarto and R workflow — this site is part of that experiment.\n\n\n\nAway from the desk\n\nPhotography, mostly of reptiles and of places that are hard to get to. Some of it ends up in the gallery.\nRiding my MTB. Helps to keep me fit and it takes away the eyes and the mind from the screen and the people for a while.\n\n\n\n\nIf any of this overlaps with what you are working on, I would be glad to hear from you — my contact details are here."
+    "text": "This is a now page: a snapshot of my current focus rather than a complete record. It is updated every so often — the date above is the last time I touched it."
   },
   {
     "objectID": "posts/2026-09-23-data-table-joins/index.html",
@@ -439,5 +439,68 @@
     "title": "Population size from transect on BAC",
     "section": "",
     "text": "The idea\nUsing the driving transect data to estimate population size. Rather than using a number per km. I should be able to come up with a value indicating a probability of encounter on the road based on the average time interval between each seen iguana during the transects."
+  },
+  {
+    "objectID": "now.html#code-activity",
+    "href": "now.html#code-activity",
+    "title": "Now",
+    "section": "Code activity",
+    "text": "Code activity\nA year of commits across the repositories I work in — this site, the Cyclura carinata database app, the Galapagos iguana transcriptome pipeline, and a few smaller things. Darker squares are busier days; hover one to see which repositories they came from. It is built from my actual git history rather than anything self-reported, so the quiet stretches are field seasons and the busy ones are usually deadlines.\n\n\n\n\nRegenerate with Rscript tools/build_activity.R — it rereads the local repositories listed at the top of that script.\n\n\nIf any of this overlaps with what you are working on, I would be glad to hear from you — my contact details are here."
+  },
+  {
+    "objectID": "now.html#off-the-clock",
+    "href": "now.html#off-the-clock",
+    "title": "Now",
+    "section": "Off the clock",
+    "text": "Off the clock\nFilms, books, rides and side projects — what I did with the evenings and weekends over the past year. Darker squares are fuller days; hover one to see what it was. Kept by hand, so it is as complete as I remember to make it.\n\n\n\n\nIf any of this overlaps with what you are working on, I would be glad to hear from you — my contact details are here."
+  },
+  {
+    "objectID": "macra.html#where-the-project-stands",
+    "href": "macra.html#where-the-project-stands",
+    "title": "M.A.C.R.A.",
+    "section": "Where the project stands",
+    "text": "Where the project stands\n\n\n\n\n\n\n\n\n\nSubject\nWhen\nSessions\nOutcome\n\n\n\n\nPogona vitticeps (bearded dragon)\n15 Mar 2026\n3\nOne clear rhythm, 7–31 cycles/min — respiration, not heartbeat\n\n\nVaranus komodoensis (Komodo dragon)\n8 May 2026\n5\nNo rhythm resolvable; detection limit quantified\n\n\nCyclura nubila caymanensis (rock iguana)\n8 May 2026\n4\nNo rhythm resolvable; detection limit quantified\n\n\nHuman (positive control)\n5 Sep 2026\n6\nBreathing 17–20 /min and heartbeat 52–55 bpm\n\n\n\nThe zoo recordings were made at the Bioparco di Roma."
+  },
+  {
+    "objectID": "macra.html#a-bearded-dragon-and-a-lesson-about-placement",
+    "href": "macra.html#a-bearded-dragon-and-a-lesson-about-placement",
+    "title": "M.A.C.R.A.",
+    "section": "A bearded dragon, and a lesson about placement",
+    "text": "A bearded dragon, and a lesson about placement\n\n\n\nThe IMU strapped to a basking Pogona vitticeps. Note where the strap sits — around the abdomen, in front of the hind legs.\n\n\nThree recordings of a bearded dragon gave a single, strikingly regular rhythm — the only periodic component anywhere between 6 and 180 cycles per minute. It ran at 14.7–18.1 cycles/min while the animal rested, slowed to about 10 as it settled, and rose to 25–28 after the animal had struggled. The movement itself is tiny: a rocking of the sensor through 0.06–0.3° per cycle, seen best on the gyroscope.\nIt is very tempting to call that a heartbeat, but we believe it is not.\nIn the first two recordings the strap sat around the abdomen, well behind the heart and exactly where breathing expands the body. The animal was basking, and so warm, yet the rhythm ran at 7–18 per minute, way below the 40–80 bpm expected of a warm, resting bearded dragon. In the third recording the strap had been moved over the chest, and still no additional cardiac component appeared once the main rhythm was removed.\nSo the rhythm is respiration. That is a useful result in itself — it means the pipeline and the on-tag estimator are validated as respiration-rate tools — but it is not yet the result we are looking after."
+  },
+  {
+    "objectID": "macra.html#reporting-a-negative-result-properly",
+    "href": "macra.html#reporting-a-negative-result-properly",
+    "title": "M.A.C.R.A.",
+    "section": "Reporting a negative result properly",
+    "text": "Reporting a negative result properly\nAt the Bioparco, neither the Komodo dragon nor the rock iguana produced any resolvable rhythm in any rest window. The conditions were hard: up to 39 % of data packets were lost, device timestamps drifted by as much as 3.5 s, and the animals were moving between 8 % and 100 % of the time, leaving only 274 s of usable rest for the Komodo and 170 s for the iguana. All twelve heart-rate monitor exports came back empty, so there is no independent reference.\n“We found nothing” is only worth printing if you can say how small a thing you would have found. So the Pogona waveform was scaled and injected back into each zoo recording to see what would have survived detection. In the two quietest windows, a rhythm 0.35–0.75× the size of the Pogona signal would have been picked up; in the noisier ones, even a rhythm two to four times larger would have been missed. A search down to 1.5 cycles/min, in case these large lizards simply breathe very slowly, also found nothing."
+  },
+  {
+    "objectID": "macra.html#the-positive-control-a-human-heartbeat",
+    "href": "macra.html#the-positive-control-a-human-heartbeat",
+    "title": "M.A.C.R.A.",
+    "section": "The positive control: a human heartbeat",
+    "text": "The positive control: a human heartbeat\nThe gap in the project was that a null result in a reptile is uninterpretable until you know the instrument can see a heartbeat at all. So the same sensor, at the same settings, went on a person.\n\n\n\nFifteen seconds of a single human recording, separated into its two rhythms: breathing above, heartbeat below.\n\n\nBoth rhythms came out cleanly: breathing at 17–20 per minute, and a heartbeat at 52–55 bpm, seen best on the gyroscope rather than the accelerometer.\nCalling that a heartbeat rather than an artefact of breathing took five independent checks, all of which agreed: spectral lines at 1–4× the rate; two distinct complexes per beat, 0.43 s and 0.63 s apart, summing to one 1.1 s cycle; a beat-to-beat interval far steadier than the breath-to-breath interval (CV 2–9 % against 12–20 %); a number of beats per breath that varies rather than locking to a harmonic; and a measurable respiratory sinus arrhythmia of 31 ms.\nOne finding matters more than the rate itself. Moving the sensor between two positions on the same person changed the heartbeat amplitude from 2.4–2.7 °/s peak-to-peak down to 0.13 °/s — eighteen-fold, on the same heart. Placement is not a detail.\n\nWhat that implies for the reptiles\nWith a real heartbeat in hand, it could be scaled and injected into the reptile recordings. In most rest windows it would have been detected at 0.1–0.5× its human-chest amplitude; with nothing injected, no reptile window was ever accepted as a heartbeat.\nThat converts “we saw no heartbeat” into something quantitative: any heartbeat in these animals moved the sensor by less than roughly 0.2–1 °/s peak-to-peak — at or below what this IMU could resolve at the settings used."
+  },
+  {
+    "objectID": "macra.html#making-it-run-on-the-tag",
+    "href": "macra.html#making-it-run-on-the-tag",
+    "title": "M.A.C.R.A.",
+    "section": "Making it run on the tag",
+    "text": "Making it run on the tag\nNone of this is useful in the field if it needs a laptop. A causal, low-footprint version of the estimator was written for an on-chip implementation. It uses the gyroscope only and projects the three axes onto their principal axis, so it does not care how the tag is oriented.\n\n\n\n\n\n\n\n\nResult\n\n\n\n\nRespiration, Pogona\n100 % of readings within ±10 % of the offline rate\n\n\nRespiration, human\n97 % within ±10 %\n\n\nHeart rate, human\n100 % within ±10 %, mean error 0.32 bpm\n\n\nFalse readings on reptile data\n0 in 849 updates\n\n\nCost\n~1.5–2.8 KB RAM, under ~12,000 operations/s\n\n\n\nThat budget runs on any Cortex-M0+ or M4 — well inside what a tracking collar or backpack tag can afford. A 10–20 Hz sampling rate turned out to be enough, which also saves sensor power."
+  },
+  {
+    "objectID": "macra.html#where-this-leaves-things",
+    "href": "macra.html#where-this-leaves-things",
+    "title": "M.A.C.R.A.",
+    "section": "Where this leaves things",
+    "text": "Where this leaves things\nThe method is real, the processing chain is validated end to end, and it already delivers respiration rate — a genuinely useful welfare and behaviour signal that nobody currently gets from free-ranging reptiles. What it does not yet deliver is reptile heart rate.\nThe reasons look tractable rather than fundamental:\n\nSensor resolution. The recordings used ±16 g and ±2000 °/s, where one least-significant bit is 0.49 mg or 0.07 °/s. That is coarse for a signal we now know is under 1 °/s. Narrower ranges would buy a great deal.\nPlacement. The human data showed an 18-fold amplitude swing with position. No reptile recording has yet been made with the sensor deliberately and verifiably over the heart on a resting, warm animal.\nData quality. Isolated ±256-LSB spikes turned out to be non-atomic register reads — 95 % of them fall exactly on a byte boundary. Enabling block data update on the IMU should remove them outright.\nA reference. Every result so far is inferred. A simultaneous ECG, or even a video breath count, would turn inference into validation.\n\nBody size is the one genuinely hard constraint: a cardiac signal is expected to be far weaker in a tens-of-kilogram Komodo dragon than in a 0.4 kg bearded dragon, and the animals we most want to monitor are large."
+  },
+  {
+    "objectID": "macra.html#collaboration",
+    "href": "macra.html#collaboration",
+    "title": "M.A.C.R.A.",
+    "section": "Collaboration",
+    "text": "Collaboration\nM.A.C.R.A. is run with colleagues at the University of Rome Tor Vergata, with the electronics and embedded work shared with the team behind T.A.Co. If you work on biologging, gyrocardiography, or reptile physiology and any of this overlaps with your own, do get in touch."
   }
 ]

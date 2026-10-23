@@ -51,6 +51,20 @@ above is the last time I touched it.
 
 :::
 
+## Off the clock
+
+Films, books, rides and side projects — what I did with the evenings and
+weekends over the past year. Darker squares are fuller days; hover one to see
+what it was. Kept by hand, so it is as complete as I remember to make it.
+
+```{=html}
+<link rel="stylesheet" href="assets/heatmap/heatmap.css">
+<div class="hm hm-blue"
+     data-noun="entry" data-noun-plural="entries"
+     data-heatmap-src="assets/heatmap/heatmap.json"></div>
+<script src="assets/heatmap/heatmap.js" defer></script>
+```
+
 ---
 
 If any of this overlaps with what you are working on, I would be glad to hear

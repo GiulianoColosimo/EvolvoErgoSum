@@ -1,0 +1,114 @@
+/* Contribution heatmap — colours are CSS variables, override them to restyle */
+.hm {
+  --hm-0: #ebedf0;
+  --hm-1: #9be9a8;
+  --hm-2: #40c463;
+  --hm-3: #30a14e;
+  --hm-4: #216e39;
+  --hm-text: #57606a;
+  --hm-hover: #1f2328;
+  color: var(--hm-text);
+  font: 12px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Claude Code-style orange: <div class="hm hm-claude" ...> */
+.hm.hm-claude {
+  --hm-0: #efeae4;
+  --hm-1: #f4c7a8;
+  --hm-2: #e8946a;
+  --hm-3: #d97757;
+  --hm-4: #a8492b;
+}
+
+/* Dark colours: <div class="hm" data-theme="dark"> always, or data-theme="auto"
+   to follow the visitor's system setting */
+.hm[data-theme="dark"] {
+  --hm-0: #161b22; --hm-1: #0e4429; --hm-2: #006d32; --hm-3: #26a641; --hm-4: #39d353;
+  --hm-text: #8b949e; --hm-hover: #e6edf3;
+}
+@media (prefers-color-scheme: dark) {
+  .hm[data-theme="auto"] {
+    --hm-0: #161b22; --hm-1: #0e4429; --hm-2: #006d32; --hm-3: #26a641; --hm-4: #39d353;
+    --hm-text: #8b949e; --hm-hover: #e6edf3;
+  }
+}
+
+.hm-scroll { overflow-x: auto; }
+.hm-svg {
+  display: block;
+  width: 100%;
+  min-width: 620px;          /* below this it scrolls sideways instead of shrinking */
+  height: auto;
+}
+.hm-svg text { fill: var(--hm-text); font-size: 9px; }
+
+.hm-cell { stroke: rgba(27, 31, 35, 0.06); stroke-width: 1; }
+.hm-cell:hover { stroke: var(--hm-hover); stroke-width: 1.5; }
+
+.hm-l0 { fill: var(--hm-0); background: var(--hm-0); }
+.hm-l1 { fill: var(--hm-1); background: var(--hm-1); }
+.hm-l2 { fill: var(--hm-2); background: var(--hm-2); }
+.hm-l3 { fill: var(--hm-3); background: var(--hm-3); }
+.hm-l4 { fill: var(--hm-4); background: var(--hm-4); }
+
+.hm-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.hm-legend { display: inline-flex; align-items: center; gap: 3px; }
+.hm-legend span { margin: 0 3px; }
+.hm-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+
+/* Tooltip lives on <body>, so it is never clipped by the page layout */
+.hm-tooltip {
+  position: fixed;
+  z-index: 1000;
+  max-width: 280px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #24292f;
+  color: #fff;
+  font: 12px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.hm-tooltip.hm-show { opacity: 1; }
+.hm-tooltip ul { margin: 4px 0 0; padding-left: 16px; }
+.hm-tooltip .hm-times { opacity: 0.7; }
+
+/* ===========================================================================
+   Blue palette for Evolvo Ergo Sum.
+   Level 0 uses the site's own rule colour so empty days read as paper rather
+   than as a cold grey. Dark values key off Quarto's `quarto-dark` body class
+   (set by the navbar toggle) rather than prefers-color-scheme, so the heatmap
+   follows the site's theme switch instead of the visitor's OS setting.
+   =========================================================================== */
+.hm.hm-blue {
+  --hm-0: #E5DFD2;
+  --hm-1: #BFD7EA;
+  --hm-2: #7FA9CC;
+  --hm-3: #4178A8;
+  --hm-4: #1F4E79;
+  --hm-text: #6B7A72;
+  --hm-hover: #2A3B35;
+}
+
+body.quarto-dark .hm.hm-blue {
+  --hm-0: #242C28;
+  --hm-1: #1C3A52;
+  --hm-2: #2E5F86;
+  --hm-3: #4A8DBF;
+  --hm-4: #7FB8E6;
+  --hm-text: #9AA8A0;
+  --hm-hover: #E6E2D8;
+}
+
+/* Match the site's serif body text instead of the system sans default */
+.hm { font-family: inherit; }
+.hm-svg text { font-size: 9px; }
