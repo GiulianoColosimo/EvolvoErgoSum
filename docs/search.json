@@ -32,7 +32,63 @@
     "href": "taco.html",
     "title": "T. A. Co.",
     "section": "",
-    "text": "T.A.Co. stands for Tracking Animal and Conservation. Everything started back in 2015 while I was still working on my PhD. Back then I was mostly focused on applying molecular ecology techniques to describe the population genetic structure of different species of iguanas in the Caribbean. My colleagues in Rome had started to research in to ways to remotely monitor and track the critically endangered Galapagos pink land iguanas, Conolophus marthae (Gentile, 2012).\nConolophus marthae can only be found on the north-west slopes of Wolf Volcano, Galapagos, Ecuador. This is a very remote area, presenting numerous logistic challenges preventing the permanence in the field to conduct extensive monitoring.\n\n\n\n\n\n\n\nReferences\n\nGentile, G. 2012. Conolophus marthae. The IUCN Red List of Threatened Species 2012: e.T174472A1414375. Università di Roma Tor Vergata."
+    "text": "T.A.Co. stands for Tracking Animals and Conservation. It began in 2015, while I was still working on my PhD on the population genetics of Caribbean iguanas. Colleagues in Rome had started looking for a way to monitor the critically endangered Galapagos pink land iguana, Conolophus marthae (Gentile, 2012), an animal that is almost impossible to watch. A decade later that question has turned into a line of work on building tracking devices for animals nobody would want to follow on foot."
+  },
+  {
+    "objectID": "taco.html#why-movement-is-a-conservation-problem",
+    "href": "taco.html#why-movement-is-a-conservation-problem",
+    "title": "T. A. Co.",
+    "section": "Why movement is a conservation problem",
+    "text": "Why movement is a conservation problem\nEvery conservation decision is, at bottom, a decision about space. Which hectares to protect, where to put a fence or remove a predator, where a translocated animal should be released, whether two populations are connected or effectively isolated. All of those need to know where animals actually go, not where we assume they go.\nThe framework I teach in my Animal Tracking course comes from Nathan et al. (2008), who argued that any movement path is produced by four things acting together: the animal’s internal state (why move?), its motion capacity (how to move?), its navigation capacity (when and where to move?), and the external factors it encounters. A tracking device records only the path. The whole craft lies in reasoning backwards from that path to the components that produced it, and in being honest about how far the data can carry you.\nDone well, that reasoning yields the things managers actually ask for: home ranges and space use, which habitats an animal selects while resting and while travelling, when it switches between behavioural states, and whether a journey is a purposeful migration or a random walk that happens to look like one."
+  },
+  {
+    "objectID": "taco.html#the-hardest-animal-to-watch",
+    "href": "taco.html#the-hardest-animal-to-watch",
+    "title": "T. A. Co.",
+    "section": "The hardest animal to watch",
+    "text": "The hardest animal to watch\nConolophus marthae was described to science only in 2009 and listed as Critically Endangered in 2012 (Gentile, 2012). It exists as a single population on the north-western slope of Wolf Volcano, on Isabela Island, in an area of less than 25 km², with a census of roughly 200–300 individuals. No hatchlings have been recorded since 2005, which suggests recruitment has effectively stopped or at a minimum; introduced feral cats and black rats are the prime suspects. The species shares the volcano with its congener C. subcristatus, with which it does not hybridise but very likely competes.\nThe logistics are the other half of the problem. Wolf Volcano rises to about 1700 m and is roughly 150 km from the nearest village. Up to only a couple of years ago there was no infrastructure, no cellular network, and communication were possible only by UHF radio or satellite. A helicopter can cost up to $3000 an hour; the alternative is to hike, which means every litre of water, every battery and every drop of generator fuel is carried in by hand. A fieldwork station with basic infrastructure and commodities has been established in 2024, but, in practice, fieldwork lasting more than two or three weeks is unattainable (Loreti et al., 2020).\nSo the animal you most need to observe continuously is the one you can observe least. That gap is the whole justification for the project."
+  },
+  {
+    "objectID": "taco.html#a-tag-that-feeds-itself",
+    "href": "taco.html#a-tag-that-feeds-itself",
+    "title": "T. A. Co.",
+    "section": "A tag that feeds itself",
+    "text": "A tag that feeds itself\nThe first device was a GPS wireless sensor node designed around that constraint (Loreti et al., 2019). Because nobody is coming back to change a battery, it harvests its own energy: a small solar cell charging a supercapacitor, which then has to supply two of the hungriest things on the board: the GPS receiver and a high-current radio booster for long-range transmission.\nSupercapacitors rather than lithium-ion was a deliberate choice, and an ecological one. These devices are deployed in a national park where the probability of never recovering a unit is real, so the hardware was designed to be as benign as possible if it is left behind. Alongside position, the node logs temperature, humidity and UVB, parameters that matter for a thermoregulating ectotherm, and that are far more meaningful measured on the animal than inferred from a distant weather station."
+  },
+  {
+    "objectID": "taco.html#knowing-what-the-numbers-mean",
+    "href": "taco.html#knowing-what-the-numbers-mean",
+    "title": "T. A. Co.",
+    "section": "Knowing what the numbers mean",
+    "text": "Knowing what the numbers mean\nA device that reports a number is not the same as a device that reports a true number. The second paper was an honest audit of our own instrument (Loreti et al., 2020). It found that the protective casing biases both the temperature and the UVB readings, but that the bias is systematic, and so can be corrected with regressions calibrated under controlled conditions. GPS accuracy degrades under vegetation and with the tag’s orientation on a moving animal, yet still delivered an average error under 15 m in more than half of all fixes.\nPublishing the limitations of your own hardware is less satisfying than publishing its successes, but it is what makes the data usable by anyone else."
+  },
+  {
+    "objectID": "taco.html#what-one-iguana-showed",
+    "href": "taco.html#what-one-iguana-showed",
+    "title": "T. A. Co.",
+    "section": "What one iguana showed",
+    "text": "What one iguana showed\n\n\n\nAn adult Conolophus marthae carrying a T.A.Co. node on the rim of Wolf Volcano.\n\n\nBetween 25 September 2019 and 3 March 2020 — 159 days — one adult male carried a node and kept reporting (Colosimo et al., 2022). Reconstructing his trajectory and analysing it with integrated step selection functions showed an altitudinal shift of more than 1000 m, and showed that the path was not random: this was directed movement, not wandering.\nThat matters because a seasonal migration in this species had been suspected for fifteen years without ever being observed. In 2015, fifteen pink iguanas were found as low as 600 m, outside the reproductive season; seven of them were later recaptured near the 1700 m summit between April and August. The leading explanation is that animals descend for lusher vegetation once the grassland at the top dries out after the rainy season. One tracked individual does not prove that for a species, and the paper says so plainly. But it turned a plausible story into a measured one."
+  },
+  {
+    "objectID": "taco.html#the-next-generation",
+    "href": "taco.html#the-next-generation",
+    "title": "T. A. Co.",
+    "section": "The next generation",
+    "text": "The next generation\n\n\n\nTen WSN v2 units in their transport case, before a field season. Each carries a solar panel, LoRa radio and sensor stack in a 3D-printed housing.\n\n\nThe current device is a different animal (Luca et al., 2025). It keeps the energy-harvesting and long-range LoRa architecture, but adds a sensor suite aimed at the animal rather than just its coordinates: atmospheric pressure, volatile compounds, solar irradiation from ultraviolet to infrared, a microphone and, most ambitiously, heart rate and respiration, inferred ballistocardiographically from an inertial sensor and validated against Doppler measurements. That physiological strand has become a project of its own, M.A.C.R.A.\nThe microphone is there for more than soundscape ecology. Acoustic monitoring can flag when an animal is near a road or human activity, and gunshot or voice detection is already used elsewhere to support anti-poaching patrols. A tag that hears as well as sees is a different kind of conservation instrument."
+  },
+  {
+    "objectID": "taco.html#why-we-do-not-publish-the-coordinates",
+    "href": "taco.html#why-we-do-not-publish-the-coordinates",
+    "title": "T. A. Co.",
+    "section": "Why we do not publish the coordinates",
+    "text": "Why we do not publish the coordinates\nOne deliberate omission runs through all of this work: we do not release the exact GPS positions of individual pink iguanas. Precise locality data for a flagship critically endangered reptile is itself a conservation risk, and the trade in trafficked iguanas is well documented, including in work I have co-authored on how CITES permits are laundered through transit countries (Auliya et al., 2025). Data are available on reasonable and documented request to the senior authors."
+  },
+  {
+    "objectID": "taco.html#people-and-funding",
+    "href": "taco.html#people-and-funding",
+    "title": "T. A. Co.",
+    "section": "People and funding",
+    "text": "People and funding\nT.A.Co. is a collaboration between biologists and electronic engineers at the University of Rome Tor Vergata, with partners at the Galapagos National Park Directorate, the San Diego Zoo Wildlife Alliance, the Italian National Research Council, and the Cayman Islands Department of Environment. Recent development has been supported by the Darwin Plus Initiative and by the Italian National Recovery and Resilience Plan through the RESTART programme.\nIf you work on biologging, low-power embedded sensing, or reptile movement ecology, I am always glad to hear from you."
   },
   {
     "objectID": "quotes.html",
@@ -245,11 +301,60 @@
     "text": "Can a tag that is already riding on an animal to log its movement also tell us how fast its heart is beating — with no surgery, no electrodes, and no need to hold the animal still?\nThat is the question behind M.A.C.R.A.. The principle is old and borrowed from human medicine: every heartbeat propagates inside the body, and the body recoils. Measure that recoil and you have the heart rate. Done with a weighing-scale-like device it is called ballistocardiography; done with a gyroscope, as here, it is gyrocardiography. The appeal for conservation work is obvious — the inertial measurement unit (IMU) needed to see it is the same accelerometer and gyroscope our T.A.Co. tags already carry.\nThe honest answer to the aformentioned question so far is: it works on a human, it reliably measures breathing in a lizard, and it has not yet resolved a reptile heartbeat. This page is a running account of how far we have got and how we know."
   },
   {
+    "objectID": "macra.html#where-the-project-stands",
+    "href": "macra.html#where-the-project-stands",
+    "title": "M.A.C.R.A.",
+    "section": "Where the project stands",
+    "text": "Where the project stands\n\n\n\n\n\n\n\n\n\nSubject\nWhen\nSessions\nOutcome\n\n\n\n\nPogona vitticeps (bearded dragon)\n15 Mar 2026\n3\nOne clear rhythm, 7–31 cycles/min — respiration, not heartbeat\n\n\nVaranus komodoensis (Komodo dragon)\n8 May 2026\n5\nNo rhythm resolvable; detection limit quantified\n\n\nCyclura nubila caymanensis (rock iguana)\n8 May 2026\n4\nNo rhythm resolvable; detection limit quantified\n\n\nHuman (positive control)\n5 Sep 2026\n6\nBreathing 17–20 /min and heartbeat 52–55 bpm\n\n\n\nThe zoo recordings were made at the Bioparco di Roma."
+  },
+  {
+    "objectID": "macra.html#a-bearded-dragon-and-a-lesson-about-placement",
+    "href": "macra.html#a-bearded-dragon-and-a-lesson-about-placement",
+    "title": "M.A.C.R.A.",
+    "section": "A bearded dragon, and a lesson about placement",
+    "text": "A bearded dragon, and a lesson about placement\n\n\n\nThe IMU strapped to a basking Pogona vitticeps. Note where the strap sits — around the abdomen, in front of the hind legs.\n\n\nThree recordings of a bearded dragon gave a single, strikingly regular rhythm — the only periodic component anywhere between 6 and 180 cycles per minute. It ran at 14.7–18.1 cycles/min while the animal rested, slowed to about 10 as it settled, and rose to 25–28 after the animal had struggled. The movement itself is tiny: a rocking of the sensor through 0.06–0.3° per cycle, seen best on the gyroscope.\nIt is very tempting to call that a heartbeat, but we believe it is not.\nIn the first two recordings the strap sat around the abdomen, well behind the heart and exactly where breathing expands the body. The animal was basking, and so warm, yet the rhythm ran at 7–18 per minute, way below the 40–80 bpm expected of a warm, resting bearded dragon. In the third recording the strap had been moved over the chest, and still no additional cardiac component appeared once the main rhythm was removed.\nSo the rhythm is respiration. That is a useful result in itself — it means the pipeline and the on-tag estimator are validated as respiration-rate tools — but it is not yet the result we are looking after."
+  },
+  {
+    "objectID": "macra.html#reporting-a-negative-result-properly",
+    "href": "macra.html#reporting-a-negative-result-properly",
+    "title": "M.A.C.R.A.",
+    "section": "Reporting a negative result properly",
+    "text": "Reporting a negative result properly\nAt the Bioparco, neither the Komodo dragon nor the rock iguana produced any resolvable rhythm in any rest window. The conditions were hard: up to 39 % of data packets were lost, device timestamps drifted by as much as 3.5 s, and the animals were moving between 8 % and 100 % of the time, leaving only 274 s of usable rest for the Komodo and 170 s for the iguana. All twelve heart-rate monitor exports came back empty, so there is no independent reference.\n“We found nothing” is only worth printing if you can say how small a thing you would have found. So the Pogona waveform was scaled and injected back into each zoo recording to see what would have survived detection. In the two quietest windows, a rhythm 0.35–0.75× the size of the Pogona signal would have been picked up; in the noisier ones, even a rhythm two to four times larger would have been missed. A search down to 1.5 cycles/min, in case these large lizards simply breathe very slowly, also found nothing."
+  },
+  {
+    "objectID": "macra.html#the-positive-control-a-human-heartbeat",
+    "href": "macra.html#the-positive-control-a-human-heartbeat",
+    "title": "M.A.C.R.A.",
+    "section": "The positive control: a human heartbeat",
+    "text": "The positive control: a human heartbeat\nThe gap in the project was that a null result in a reptile is uninterpretable until you know the instrument can see a heartbeat at all. So the same sensor, at the same settings, went on a person.\n\n\n\nFifteen seconds of a single human recording, separated into its two rhythms: breathing above, heartbeat below.\n\n\nBoth rhythms came out cleanly: breathing at 17–20 per minute, and a heartbeat at 52–55 bpm, seen best on the gyroscope rather than the accelerometer.\nCalling that a heartbeat rather than an artefact of breathing took five independent checks, all of which agreed: spectral lines at 1–4× the rate; two distinct complexes per beat, 0.43 s and 0.63 s apart, summing to one 1.1 s cycle; a beat-to-beat interval far steadier than the breath-to-breath interval (CV 2–9 % against 12–20 %); a number of beats per breath that varies rather than locking to a harmonic; and a measurable respiratory sinus arrhythmia of 31 ms.\nOne finding matters more than the rate itself. Moving the sensor between two positions on the same person changed the heartbeat amplitude from 2.4–2.7 °/s peak-to-peak down to 0.13 °/s — eighteen-fold, on the same heart. Placement is not a detail.\n\nWhat that implies for the reptiles\nWith a real heartbeat in hand, it could be scaled and injected into the reptile recordings. In most rest windows it would have been detected at 0.1–0.5× its human-chest amplitude; with nothing injected, no reptile window was ever accepted as a heartbeat.\nThat converts “we saw no heartbeat” into something quantitative: any heartbeat in these animals moved the sensor by less than roughly 0.2–1 °/s peak-to-peak — at or below what this IMU could resolve at the settings used."
+  },
+  {
+    "objectID": "macra.html#where-this-leaves-things",
+    "href": "macra.html#where-this-leaves-things",
+    "title": "M.A.C.R.A.",
+    "section": "Where this leaves things",
+    "text": "Where this leaves things\nThe method is real, the processing chain is validated end to end, and it already delivers respiration rate — a genuinely useful welfare and behaviour signal that nobody currently gets from free-ranging reptiles. What it does not yet deliver is reptile heart rate.\nThe reasons look tractable rather than fundamental:\n\nSensor resolution. The recordings used ±16 g and ±2000 °/s, where one least-significant bit is 0.49 mg or 0.07 °/s. That is coarse for a signal we now know is under 1 °/s. Narrower ranges would buy a great deal.\nPlacement. The human data showed an 18-fold amplitude swing with position. No reptile recording has yet been made with the sensor deliberately and verifiably over the heart on a resting, warm animal.\nData quality. Isolated ±256-LSB spikes turned out to be non-atomic register reads — 95 % of them fall exactly on a byte boundary. Enabling block data update on the IMU should remove them outright.\nA reference. Every result so far is inferred. A simultaneous ECG, or even a video breath count, would turn inference into validation.\n\nBody size is the one genuinely hard constraint: a cardiac signal is expected to be far weaker in a tens-of-kilogram Komodo dragon than in a 0.4 kg bearded dragon, and the animals we most want to monitor are large."
+  },
+  {
+    "objectID": "macra.html#collaboration",
+    "href": "macra.html#collaboration",
+    "title": "M.A.C.R.A.",
+    "section": "Collaboration",
+    "text": "Collaboration\nM.A.C.R.A. is run with colleagues at the University of Rome Tor Vergata, with the electronics and embedded work shared with the team behind T.A.Co. If you work on biologging, gyrocardiography, or reptile physiology and any of this overlaps with your own, do get in touch."
+  },
+  {
     "objectID": "now.html",
     "href": "now.html",
     "title": "Now",
     "section": "",
     "text": "This is a now page: a snapshot of my current focus rather than a complete record. It is updated every so often — the date above is the last time I touched it."
+  },
+  {
+    "objectID": "now.html#off-the-clock",
+    "href": "now.html#off-the-clock",
+    "title": "Now",
+    "section": "Off the clock",
+    "text": "Off the clock\nFilms, books, rides and side projects — what I did with the evenings and weekends over the past year. Darker squares are fuller days; hover one to see what it was. Kept by hand, so it is as complete as I remember to make it.\n\n\n\n\nIf any of this overlaps with what you are working on, I would be glad to hear from you — my contact details are here."
   },
   {
     "objectID": "posts/2026-09-23-data-table-joins/index.html",
@@ -441,66 +546,17 @@
     "text": "The idea\nUsing the driving transect data to estimate population size. Rather than using a number per km. I should be able to come up with a value indicating a probability of encounter on the road based on the average time interval between each seen iguana during the transects."
   },
   {
-    "objectID": "now.html#code-activity",
-    "href": "now.html#code-activity",
-    "title": "Now",
-    "section": "Code activity",
-    "text": "Code activity\nA year of commits across the repositories I work in — this site, the Cyclura carinata database app, the Galapagos iguana transcriptome pipeline, and a few smaller things. Darker squares are busier days; hover one to see which repositories they came from. It is built from my actual git history rather than anything self-reported, so the quiet stretches are field seasons and the busy ones are usually deadlines.\n\n\n\n\nRegenerate with Rscript tools/build_activity.R — it rereads the local repositories listed at the top of that script.\n\n\nIf any of this overlaps with what you are working on, I would be glad to hear from you — my contact details are here."
+    "objectID": "taco.html#from-one-iguana-to-twenty-two",
+    "href": "taco.html#from-one-iguana-to-twenty-two",
+    "title": "T. A. Co.",
+    "section": "From one iguana to twenty-two",
+    "text": "From one iguana to twenty-two\n\n\n\nAn adult Conolophus marthae carrying a T.A.Co. node on the rim of Wolf Volcano. (Photo credit: Giuliano Colosimo)\n\n\nThe first real test was a single animal. Between 25 September 2019 and 3 March 2020 (159 days) one adult male carried a node and kept reporting (Colosimo et al., 2022). Reconstructing his trajectory and analysing it with integrated step selection functions revealed an altitudinal shift of more than 1000 m, and showed the path was not random: directed movement, not wandering. A seasonal migration had been suspected in this species for fifteen years without ever being observed. One individual does not prove it for a species, and the paper said so plainly, but it turned a plausible story into a measured one.\nFour years of tracking later, there is an answer. Twenty-two iguanas, seven males and fifteen females, were followed between 2019 and 2023 — work now in review, and available as a preprint (Gargano et al., 2026). Sixteen of the twenty-two migrate seasonally between a small mating area high on the volcano and a larger dispersal area below it, with males arriving at the mating ground about 48 days before females. That makes C. marthae a partially migratory species — some individuals move, others do not.\nThe more interesting question is why, and here the tracking data could discriminate between two competing explanations. The obvious one, that animals follow shifting peaks of food, does not survive contact with the evidence: the lower dispersal area turns out to be more productive than the mating area all year round. Temperature does not explain it either — the two areas differ by only about 2 °C. What remains is access to breeding sites: the animals climb because that is where they can reproduce, not because it is where the food is. That is a site-dependent migration, a pattern well described in birds and mammals and, until now, barely tested in reptiles."
   },
   {
-    "objectID": "now.html#off-the-clock",
-    "href": "now.html#off-the-clock",
-    "title": "Now",
-    "section": "Off the clock",
-    "text": "Off the clock\nFilms, books, rides and side projects — what I did with the evenings and weekends over the past year. Darker squares are fuller days; hover one to see what it was. Kept by hand, so it is as complete as I remember to make it.\n\n\n\n\nIf any of this overlaps with what you are working on, I would be glad to hear from you — my contact details are here."
-  },
-  {
-    "objectID": "macra.html#where-the-project-stands",
-    "href": "macra.html#where-the-project-stands",
-    "title": "M.A.C.R.A.",
-    "section": "Where the project stands",
-    "text": "Where the project stands\n\n\n\n\n\n\n\n\n\nSubject\nWhen\nSessions\nOutcome\n\n\n\n\nPogona vitticeps (bearded dragon)\n15 Mar 2026\n3\nOne clear rhythm, 7–31 cycles/min — respiration, not heartbeat\n\n\nVaranus komodoensis (Komodo dragon)\n8 May 2026\n5\nNo rhythm resolvable; detection limit quantified\n\n\nCyclura nubila caymanensis (rock iguana)\n8 May 2026\n4\nNo rhythm resolvable; detection limit quantified\n\n\nHuman (positive control)\n5 Sep 2026\n6\nBreathing 17–20 /min and heartbeat 52–55 bpm\n\n\n\nThe zoo recordings were made at the Bioparco di Roma."
-  },
-  {
-    "objectID": "macra.html#a-bearded-dragon-and-a-lesson-about-placement",
-    "href": "macra.html#a-bearded-dragon-and-a-lesson-about-placement",
-    "title": "M.A.C.R.A.",
-    "section": "A bearded dragon, and a lesson about placement",
-    "text": "A bearded dragon, and a lesson about placement\n\n\n\nThe IMU strapped to a basking Pogona vitticeps. Note where the strap sits — around the abdomen, in front of the hind legs.\n\n\nThree recordings of a bearded dragon gave a single, strikingly regular rhythm — the only periodic component anywhere between 6 and 180 cycles per minute. It ran at 14.7–18.1 cycles/min while the animal rested, slowed to about 10 as it settled, and rose to 25–28 after the animal had struggled. The movement itself is tiny: a rocking of the sensor through 0.06–0.3° per cycle, seen best on the gyroscope.\nIt is very tempting to call that a heartbeat, but we believe it is not.\nIn the first two recordings the strap sat around the abdomen, well behind the heart and exactly where breathing expands the body. The animal was basking, and so warm, yet the rhythm ran at 7–18 per minute, way below the 40–80 bpm expected of a warm, resting bearded dragon. In the third recording the strap had been moved over the chest, and still no additional cardiac component appeared once the main rhythm was removed.\nSo the rhythm is respiration. That is a useful result in itself — it means the pipeline and the on-tag estimator are validated as respiration-rate tools — but it is not yet the result we are looking after."
-  },
-  {
-    "objectID": "macra.html#reporting-a-negative-result-properly",
-    "href": "macra.html#reporting-a-negative-result-properly",
-    "title": "M.A.C.R.A.",
-    "section": "Reporting a negative result properly",
-    "text": "Reporting a negative result properly\nAt the Bioparco, neither the Komodo dragon nor the rock iguana produced any resolvable rhythm in any rest window. The conditions were hard: up to 39 % of data packets were lost, device timestamps drifted by as much as 3.5 s, and the animals were moving between 8 % and 100 % of the time, leaving only 274 s of usable rest for the Komodo and 170 s for the iguana. All twelve heart-rate monitor exports came back empty, so there is no independent reference.\n“We found nothing” is only worth printing if you can say how small a thing you would have found. So the Pogona waveform was scaled and injected back into each zoo recording to see what would have survived detection. In the two quietest windows, a rhythm 0.35–0.75× the size of the Pogona signal would have been picked up; in the noisier ones, even a rhythm two to four times larger would have been missed. A search down to 1.5 cycles/min, in case these large lizards simply breathe very slowly, also found nothing."
-  },
-  {
-    "objectID": "macra.html#the-positive-control-a-human-heartbeat",
-    "href": "macra.html#the-positive-control-a-human-heartbeat",
-    "title": "M.A.C.R.A.",
-    "section": "The positive control: a human heartbeat",
-    "text": "The positive control: a human heartbeat\nThe gap in the project was that a null result in a reptile is uninterpretable until you know the instrument can see a heartbeat at all. So the same sensor, at the same settings, went on a person.\n\n\n\nFifteen seconds of a single human recording, separated into its two rhythms: breathing above, heartbeat below.\n\n\nBoth rhythms came out cleanly: breathing at 17–20 per minute, and a heartbeat at 52–55 bpm, seen best on the gyroscope rather than the accelerometer.\nCalling that a heartbeat rather than an artefact of breathing took five independent checks, all of which agreed: spectral lines at 1–4× the rate; two distinct complexes per beat, 0.43 s and 0.63 s apart, summing to one 1.1 s cycle; a beat-to-beat interval far steadier than the breath-to-breath interval (CV 2–9 % against 12–20 %); a number of beats per breath that varies rather than locking to a harmonic; and a measurable respiratory sinus arrhythmia of 31 ms.\nOne finding matters more than the rate itself. Moving the sensor between two positions on the same person changed the heartbeat amplitude from 2.4–2.7 °/s peak-to-peak down to 0.13 °/s — eighteen-fold, on the same heart. Placement is not a detail.\n\nWhat that implies for the reptiles\nWith a real heartbeat in hand, it could be scaled and injected into the reptile recordings. In most rest windows it would have been detected at 0.1–0.5× its human-chest amplitude; with nothing injected, no reptile window was ever accepted as a heartbeat.\nThat converts “we saw no heartbeat” into something quantitative: any heartbeat in these animals moved the sensor by less than roughly 0.2–1 °/s peak-to-peak — at or below what this IMU could resolve at the settings used."
-  },
-  {
-    "objectID": "macra.html#making-it-run-on-the-tag",
-    "href": "macra.html#making-it-run-on-the-tag",
-    "title": "M.A.C.R.A.",
-    "section": "Making it run on the tag",
-    "text": "Making it run on the tag\nNone of this is useful in the field if it needs a laptop. A causal, low-footprint version of the estimator was written for an on-chip implementation. It uses the gyroscope only and projects the three axes onto their principal axis, so it does not care how the tag is oriented.\n\n\n\n\n\n\n\n\nResult\n\n\n\n\nRespiration, Pogona\n100 % of readings within ±10 % of the offline rate\n\n\nRespiration, human\n97 % within ±10 %\n\n\nHeart rate, human\n100 % within ±10 %, mean error 0.32 bpm\n\n\nFalse readings on reptile data\n0 in 849 updates\n\n\nCost\n~1.5–2.8 KB RAM, under ~12,000 operations/s\n\n\n\nThat budget runs on any Cortex-M0+ or M4 — well inside what a tracking collar or backpack tag can afford. A 10–20 Hz sampling rate turned out to be enough, which also saves sensor power."
-  },
-  {
-    "objectID": "macra.html#where-this-leaves-things",
-    "href": "macra.html#where-this-leaves-things",
-    "title": "M.A.C.R.A.",
-    "section": "Where this leaves things",
-    "text": "Where this leaves things\nThe method is real, the processing chain is validated end to end, and it already delivers respiration rate — a genuinely useful welfare and behaviour signal that nobody currently gets from free-ranging reptiles. What it does not yet deliver is reptile heart rate.\nThe reasons look tractable rather than fundamental:\n\nSensor resolution. The recordings used ±16 g and ±2000 °/s, where one least-significant bit is 0.49 mg or 0.07 °/s. That is coarse for a signal we now know is under 1 °/s. Narrower ranges would buy a great deal.\nPlacement. The human data showed an 18-fold amplitude swing with position. No reptile recording has yet been made with the sensor deliberately and verifiably over the heart on a resting, warm animal.\nData quality. Isolated ±256-LSB spikes turned out to be non-atomic register reads — 95 % of them fall exactly on a byte boundary. Enabling block data update on the IMU should remove them outright.\nA reference. Every result so far is inferred. A simultaneous ECG, or even a video breath count, would turn inference into validation.\n\nBody size is the one genuinely hard constraint: a cardiac signal is expected to be far weaker in a tens-of-kilogram Komodo dragon than in a 0.4 kg bearded dragon, and the animals we most want to monitor are large."
-  },
-  {
-    "objectID": "macra.html#collaboration",
-    "href": "macra.html#collaboration",
-    "title": "M.A.C.R.A.",
-    "section": "Collaboration",
-    "text": "Collaboration\nM.A.C.R.A. is run with colleagues at the University of Rome Tor Vergata, with the electronics and embedded work shared with the team behind T.A.Co. If you work on biologging, gyrocardiography, or reptile physiology and any of this overlaps with your own, do get in touch."
+    "objectID": "taco.html#finding-the-nests",
+    "href": "taco.html#finding-the-nests",
+    "title": "T. A. Co.",
+    "section": "Finding the nests",
+    "text": "Finding the nests\nMovement data also solved a problem that had blocked conservation action outright. A head-start programme, rearing hatchlings in captivity past the age at which cats and rats kill them, was a priority in the species’ 2022–2027 conservation plan. But nobody knew where pink iguanas nested, and until 2021 not a single hatchling had ever been seen.\nWorking from the hypothesis that males and females should separate after mating, we modelled net displacement against day of year for animals tagged in April 2021, and looked for movement specific to females (Gargano et al., 2024). They had it. Females struck out for a small plateau inside Wolf Volcano’s caldera, roughly 400 m below the northern rim, and clustered there once they arrived.\nThat was enough to send rangers from the Galapagos National Park Directorate to the right few hectares. They located individual nests, and shortly afterwards sighted and collected the first hatchlings ever recorded for the species.\nIt is worth being plain about what that means. A tracking device did not save the species. But it converted an unanswerable question into a map reference, and in doing so it unblocked the single intervention most likely to keep C. marthae from going extinct. That is what the project is for."
   }
 ]

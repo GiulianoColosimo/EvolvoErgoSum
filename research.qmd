@@ -28,7 +28,7 @@ Broadly, I work on three questions:
 ::: {.project-grid}
 
 <div class="project-card">
-<img src="photos/cmarthae.jpeg" alt="Galapagos pink land iguana, Conolophus marthae">
+<img src="figures/taco_cmarthae.jpg" alt="Galapagos pink land iguana, Conolophus marthae">
 <div class="project-card-body">
 <h3><a href="taco.qmd">T. A. Co.</a></h3>
 <div class="project-tagline">Tracking Animals and Conservation</div>
