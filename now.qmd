@@ -41,7 +41,7 @@ above is the last time I touched it.
 
 - Keeping up with the quickly moving literature on genomics of small
   populations.
-- Improving my Quarto and R workflow — this site is part of that experiment.
+- Improving my Quarto and R workflow, and this site is part of the experiment.
 
 ### Away from the desk
 
@@ -53,7 +53,7 @@ above is the last time I touched it.
 
 ## Off the clock
 
-Films, books, rides and side projects — what I did with the evenings and
+Films, books, rides, side projects and  what I did with the evenings and
 weekends over the past year. Darker squares are fuller days; hover one to see
 what it was. Kept by hand, so it is as complete as I remember to make it.
 
@@ -68,4 +68,4 @@ what it was. Kept by hand, so it is as complete as I remember to make it.
 ---
 
 If any of this overlaps with what you are working on, I would be glad to hear
-from you — my contact details are [here](contacts.qmd).
+from you. My contact details are [here](contacts.qmd).
